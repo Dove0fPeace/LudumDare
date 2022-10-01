@@ -20,10 +20,6 @@ public class Unit_Base : MonoBehaviour
 
     public Vector2 targetLookPos;
 
-    private void Update()
-    {
-        LookAtTarget();
-    }
     public void ChangeBody()
     {
         Destroy(HP.gameObject);
@@ -79,9 +75,8 @@ public class Unit_Base : MonoBehaviour
         return true;
     }
 
-    public void LookAtTarget()
+    public void LookAt(Vector2 targetLookPos)
     {
-        targetLookPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         transform.up = targetLookPos - new Vector2 (transform.position.x, transform.position.y);
     }
 
