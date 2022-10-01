@@ -27,6 +27,6 @@ public class HP_Base : MonoBehaviour
 
     public void Death()
     {
-        Destroy(gameObject);
+        Destroy(transform.root.gameObject);
     }
 }

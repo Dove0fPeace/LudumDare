@@ -13,8 +13,6 @@ namespace Controls
 
         private void Update()
         {
-            var targetLookPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            unit.LookAt(targetLookPos);
             Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
             unit.TryMove(input);
             
@@ -30,6 +28,12 @@ namespace Controls
             {
                 unit.TryAbility();
             }
+        }
+
+        private void FixedUpdate()
+        {
+            var targetLookPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            unit.LookAt(targetLookPos);          
         }
     }
 }

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6969995776700955538}
   - component: {fileID: 6969995776700955548}
   - component: {fileID: 6969995776700955539}
+  - component: {fileID: 8129830256084437583}
   m_Layer: 0
   m_Name: Acid_Attack
   m_TagString: Untagged
@@ -99,3 +100,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Part: 2
   Damage: 1
+  AttackCooldown: 0
+  HandsPlace: {fileID: 0}
+--- !u!70 &8129830256084437583
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6969995776700955537}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -1.6295207e-10, y: -0.0016580146}
+  m_Size: {x: 1.0000005, y: 0.93768215}
+  m_Direction: 1
