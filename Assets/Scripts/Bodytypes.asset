@@ -13,14 +13,12 @@ MonoBehaviour:
   m_Name: Bodytypes
   m_EditorClassIdentifier: 
   Backs:
-  - {fileID: 5580253163447870492, guid: cd7a887dd0f18b849ba2d6d99ebb6a58, type: 3}
-  - {fileID: 5933939260906672580, guid: fa25523ac420daf4a9623d67012aeb25, type: 3}
-  Legs:
-  - {fileID: 3227018208429749499, guid: b2dadec8a20800647b6e8d9a91f99387, type: 3}
-  - {fileID: 8686163783295478931, guid: ef78b6106384dba49bf4e5a20b4ac5e7, type: 3}
-  Hands:
-  - {fileID: 6969995776700955539, guid: ffd8d938e359d3343901d1814757cd0c, type: 3}
-  - {fileID: 4486493365180743735, guid: e6349607294709f4f9e1852963948e4d, type: 3}
-  Abilities:
-  - {fileID: 5046826863961917568, guid: 7cb8f8fe2d682ba4493b1220574d7a45, type: 3}
-  - {fileID: 3442127090995074417, guid: 9386f704479233949853d6b5e11bd51c, type: 3}
+  - {fileID: 1439471048519816383, guid: e9fb11fce85cd714cb7e2ddf088b4905, type: 3}
+  - {fileID: 322567481812723544, guid: 4e9a101348306ec40b91dd4e3ec7aa6f, type: 3}
+  - {fileID: 673369415500154303, guid: 3baa985a012613a4f8c998ee5e6a0a57, type: 3}
+  - {fileID: 1487722471448117679, guid: 55e6488850a58374e9df4e2fccb12a6e, type: 3}
+  Fronts:
+  - {fileID: 6774159076601696587, guid: a31f6985263d5544499df4614be10da0, type: 3}
+  - {fileID: 7292338706385043160, guid: aefe72cef366a984ab57adf253060a1f, type: 3}
+  - {fileID: 3757834687773141767, guid: 3394b49383b0a4b4096cf698d784060e, type: 3}
+  - {fileID: 1565244126578075357, guid: 25ebb87a8f93b0c43bc7c147263b7ea2, type: 3}
