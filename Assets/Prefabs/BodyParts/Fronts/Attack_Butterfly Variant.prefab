@@ -355,6 +355,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4486493365180743735, guid: e6349607294709f4f9e1852963948e4d, type: 3}
+      propertyPath: Damage
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4486493365180743738, guid: e6349607294709f4f9e1852963948e4d, type: 3}
       propertyPath: m_Name
       value: Attack_Butterfly Variant
