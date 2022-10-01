@@ -16,15 +16,15 @@ namespace Controls
             Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
             unit.TryMove(input);
             
-            if (Input.GetAxisRaw("Fire3") != 0)
+            if (Input.GetButtonDown("Fire3"))
             {
                 unit.TryDash();
             }
-            if (Input.GetAxisRaw("Fire1") != 0)
+            if (Input.GetButtonDown("Fire1"))
             {
                 unit.TryAttack();
             }
-            if (Input.GetAxisRaw("Fire2") != 0)
+            if (Input.GetButtonDown("Fire2"))
             {
                 unit.TryAbility();
             }
