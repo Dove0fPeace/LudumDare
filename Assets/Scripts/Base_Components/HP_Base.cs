@@ -15,7 +15,7 @@ public class HP_Base : MonoBehaviour
         _currentHitPoint = _MaxHitPoints;
     }
 
-    public void TakeDamage(int damage)
+    public void ChangeHP(int damage)
     {
         _currentHitPoint -= damage;
         print(_currentHitPoint + "/" + _MaxHitPoints);

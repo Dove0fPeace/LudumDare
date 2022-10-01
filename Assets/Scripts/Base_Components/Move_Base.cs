@@ -20,11 +20,25 @@ public class Move_Base : MonoBehaviour
     public float DashCooldown;
     public float DashSpeed;
 
-    private Timer DashCooldownTimer;
+    private float dashTime = 0;
+    private bool CanDash => dashTime <= 0;
+
 
     private void Start()
     {
         rb = transform.parent.GetComponent<Rigidbody2D>();
+    }
+    private void Update()
+    {
+        if (dashTime > 0)
+            dashTime -= Time.deltaTime;
+    }
+    private void FixedUpdate()
+    {
+        if(IsCanMove)
+        {
+            Move();
+        }
     }
 
     public void SetMove(float horizontal, float vertical)
@@ -33,13 +47,6 @@ public class Move_Base : MonoBehaviour
         inputVertical = vertical;
     }
 
-    private void FixedUpdate()
-    {
-        if(IsCanMove)
-        {
-            Move();
-        }
-    }
 
     public void Move()
     {
@@ -60,6 +67,8 @@ public class Move_Base : MonoBehaviour
 
     public virtual void Dash()
     {
+        if(!CanDash) return;
+        dashTime = DashCooldown;
         print("Dash");
     }
 }

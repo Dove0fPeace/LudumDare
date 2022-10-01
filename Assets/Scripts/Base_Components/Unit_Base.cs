@@ -84,4 +84,9 @@ public class Unit_Base : MonoBehaviour
         targetLookPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         transform.up = targetLookPos - new Vector2 (transform.position.x, transform.position.y);
     }
+
+    public void TakeDamage(int damage)
+    {
+        HP.ChangeHP(damage);
+    }
 }

@@ -8,8 +8,19 @@ public class Attack_Base : MonoBehaviour
 
     public int Damage;
 
+    public float AttackCooldown;
+    private float attackTime = 0;
+    private bool CanAttack => attackTime <= 0;
+
+    private void Update()
+    {
+        if(attackTime > 0)
+            attackTime -= Time.deltaTime;
+    }
+
     public virtual void Attack()
     {
-        print("Atack");
+        if(!CanAttack) return;
+        attackTime = AttackCooldown;
     }
 }
