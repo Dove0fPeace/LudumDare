@@ -12,6 +12,8 @@ public class Attack_Base : MonoBehaviour
     private float attackTime = 0;
     private bool CanAttack => attackTime <= 0;
 
+    public Transform HandsPlace;
+
     private void Update()
     {
         if(attackTime > 0)

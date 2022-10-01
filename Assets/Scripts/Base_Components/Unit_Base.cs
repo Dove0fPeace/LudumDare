@@ -34,6 +34,7 @@ public class Unit_Base : MonoBehaviour
 
         Destroy(Attack.gameObject);
         Attack = Instantiate(Bodytypes.Hands[Random.Range(0, Bodytypes.Hands.Length)], HandsPosition.position, HandsPosition.rotation, transform);
+        Attack.HandsPlace = HandsPosition;
 
         Destroy(Ability.gameObject);
         Ability = Instantiate(Bodytypes.Abilities[Random.Range(0, Bodytypes.Abilities.Length)], AbilityPosition.position, AbilityPosition.rotation, transform);
