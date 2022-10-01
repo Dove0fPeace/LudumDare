@@ -25,18 +25,12 @@ public class Move_Base : MonoBehaviour
     private void Start()
     {
         rb = transform.parent.GetComponent<Rigidbody2D>();
-
     }
 
-    private void Update()
+    public void SetMove(float horizontal, float vertical)
     {
-        inputHorizontal = Input.GetAxisRaw("Horizontal");
-        inputVertical = Input.GetAxisRaw("Vertical");
-
-        if(Input.GetAxisRaw("Fire3") != 0)
-        {
-            Dash();
-        }
+        inputHorizontal = horizontal;
+        inputVertical = vertical;
     }
 
     private void FixedUpdate()

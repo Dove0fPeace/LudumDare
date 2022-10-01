@@ -20,7 +20,7 @@ public class Unit_Base : MonoBehaviour
 
     public Vector2 targetLookPos;
 
-    private void FixedUpdate()
+    private void Update()
     {
         LookAtTarget();
     }
@@ -37,6 +37,46 @@ public class Unit_Base : MonoBehaviour
 
         Destroy(Ability.gameObject);
         Ability = Instantiate(Bodytypes.Abilities[Random.Range(0, Bodytypes.Abilities.Length)], AbilityPosition.position, AbilityPosition.rotation, transform);
+    }
+
+    public bool TryMove(Vector2 direction)
+    {
+        if (Move is null || !Move.IsCanMove)
+        {
+            return false;
+        }
+        Move.SetMove(direction.x, direction.y);
+        return true;
+    }
+
+    public bool TryDash()
+    {
+        if (Move is null || !Move.IsCanMove)
+        {
+            return false;
+        }
+        Move.Dash();
+        return true;
+    }
+
+    public bool TryAttack()
+    {
+        if (Attack is null)
+        {
+            return false;
+        }
+        Attack.Attack();
+        return true;
+    }
+
+    public bool TryAbility()
+    {
+        if (Ability is null)
+        {
+            return false;
+        }
+        Ability.UseAbility();
+        return true;
     }
 
     public void LookAtTarget()
