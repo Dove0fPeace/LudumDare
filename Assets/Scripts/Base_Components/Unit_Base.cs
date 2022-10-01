@@ -1,39 +1,58 @@
-using System.Collections;
-using System.Collections.Generic;
+using Base_Components;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class Unit_Base : MonoBehaviour
 {
     public Bodytypes Bodytypes;
 
-    [Header("Default BodyParts")]
-    public HP_Base HP;
-    public Move_Base Move;
-    public Attack_Base Attack;
-    public Ability_Base Ability;
+    private HP_Base HP;
+    private Move_Base Move;
+    private Attack_Base Attack;
+    private IAbility Ability;
 
     [Header("BodyPosition")]
     public Transform HandsPosition;
-    public Transform LegsPosition;
     public Transform BackPosition;
-    public Transform AbilityPosition;
 
+    private GameObject front;
+    private GameObject back;
+    
     public Vector2 targetLookPos;
+
+    private void Start()
+    {
+        ChangeBody();
+    }
 
     public void ChangeBody()
     {
-        Destroy(HP.gameObject);
-        HP = Instantiate(Bodytypes.Backs[Random.Range(0, Bodytypes.Backs.Length)], BackPosition.position, BackPosition.rotation, transform);
+        Clear();
 
-        Destroy(Move.gameObject);
-        Move = Instantiate(Bodytypes.Legs[Random.Range(0, Bodytypes.Legs.Length)], LegsPosition.position, LegsPosition.rotation, transform);
-
-        Destroy(Attack.gameObject);
-        Attack = Instantiate(Bodytypes.Hands[Random.Range(0, Bodytypes.Hands.Length)], HandsPosition.position, HandsPosition.rotation, transform);
+        front = Instantiate(Bodytypes.Fronts[Random.Range(0, Bodytypes.Fronts.Length)],
+            HandsPosition.position,
+            HandsPosition.rotation, transform);
+        back = Instantiate(Bodytypes.Backs[Random.Range(0, Bodytypes.Backs.Length)],
+            BackPosition.position,
+            BackPosition.rotation, transform);
+        HP = back.GetComponentInChildren<HP_Base>();
+        Move = front.GetComponentInChildren<Move_Base>();
+        Attack = front.GetComponentInChildren<Attack_Base>();
         Attack.HandsPlace = HandsPosition;
+        Ability = back.GetComponentInChildren<IAbility>();
+    }
 
-        Destroy(Ability.gameObject);
-        Ability = Instantiate(Bodytypes.Abilities[Random.Range(0, Bodytypes.Abilities.Length)], AbilityPosition.position, AbilityPosition.rotation, transform);
+    private void Clear()
+    {
+        if (front)
+        {
+            Destroy(front);
+        }
+
+        if (back)
+        {
+            Destroy(back);
+        }
     }
 
     public bool TryMove(Vector2 direction)
@@ -73,7 +92,7 @@ public class Unit_Base : MonoBehaviour
         {
             return false;
         }
-        Ability.UseAbility();
+        Ability.Use();
         return true;
     }
 

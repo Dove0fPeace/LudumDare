@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class WebShot : Ability_Base
 {
-    public override void UseAbility()
+    public override void Use()
     {
         print("Web shot!");
     }
