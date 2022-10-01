@@ -4,19 +4,21 @@ using UnityEngine;
 
 public class Move_Base : MonoBehaviour
 {
+    public BodyPart Part = BodyPart.Legs;
+
     public Rigidbody2D rb;
 
     public float MoveSpeed;
     public float DiagonalSpeedLimit = 0.7f;
 
-    public bool IsCanMove;
+    public bool IsCanMove = true;
 
     float inputHorizontal;
     float inputVertical;
 
     private void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
+        rb = transform.parent.GetComponent<Rigidbody2D>();
     }
 
     private void Update()

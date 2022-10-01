@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Attack_Base : MonoBehaviour
 {
+    public BodyPart Part = BodyPart.Hands;
+
     public int Damage;
 
     private void Update()

@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8734a80b57002f2469d8d78874a88041, type: 3}
+  m_Name: Bodytypes
+  m_EditorClassIdentifier: 
+  Backs:
+  - {fileID: 5580253163447870492, guid: cd7a887dd0f18b849ba2d6d99ebb6a58, type: 3}
+  - {fileID: 5933939260906672580, guid: fa25523ac420daf4a9623d67012aeb25, type: 3}
+  Legs:
+  - {fileID: 3227018208429749499, guid: b2dadec8a20800647b6e8d9a91f99387, type: 3}
+  - {fileID: 8686163783295478931, guid: ef78b6106384dba49bf4e5a20b4ac5e7, type: 3}
+  Hands:
+  - {fileID: 6969995776700955539, guid: ffd8d938e359d3343901d1814757cd0c, type: 3}
+  - {fileID: 4486493365180743735, guid: e6349607294709f4f9e1852963948e4d, type: 3}
+  Abilities:
+  - {fileID: 5046826863961917568, guid: 7cb8f8fe2d682ba4493b1220574d7a45, type: 3}
+  - {fileID: 3442127090995074417, guid: 9386f704479233949853d6b5e11bd51c, type: 3}

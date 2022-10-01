@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class HP_Base : MonoBehaviour
 {
+    public BodyPart Part = BodyPart.Back;
+
     [SerializeField] private int _MaxHitPoints;
     private int _currentHitPoint;
 
