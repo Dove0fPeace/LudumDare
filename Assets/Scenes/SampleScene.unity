@@ -335,7 +335,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1224471449}
-  m_RootOrder: 4
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &600367442
 GameObject:
@@ -430,10 +430,10 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1450818018}
+  - {fileID: 410379614}
   - {fileID: 1964516232}
   - {fileID: 1412121630}
   - {fileID: 2037913866}
-  - {fileID: 410379614}
   - {fileID: 56156775}
   - {fileID: 602697045}
   - {fileID: 600367443}
@@ -482,6 +482,7 @@ MonoBehaviour:
   LegsPosition: {fileID: 602697045}
   BackPosition: {fileID: 410379614}
   AbilityPosition: {fileID: 600367443}
+  targetLookPos: {x: 0, y: 0}
 --- !u!4 &1412121630 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8686163783295478930, guid: ef78b6106384dba49bf4e5a20b4ac5e7, type: 3}
@@ -1225,6 +1226,10 @@ PrefabInstance:
     - target: {fileID: 8686163783295478930, guid: ef78b6106384dba49bf4e5a20b4ac5e7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8686163783295478931, guid: ef78b6106384dba49bf4e5a20b4ac5e7, type: 3}
+      propertyPath: MoveSpeed
+      value: 150
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ef78b6106384dba49bf4e5a20b4ac5e7, type: 3}

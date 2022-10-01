@@ -18,7 +18,12 @@ public class Unit_Base : MonoBehaviour
     public Transform BackPosition;
     public Transform AbilityPosition;
 
+    public Vector2 targetLookPos;
 
+    private void FixedUpdate()
+    {
+        LookAtTarget();
+    }
     public void ChangeBody()
     {
         Destroy(HP.gameObject);
@@ -32,5 +37,11 @@ public class Unit_Base : MonoBehaviour
 
         Destroy(Ability.gameObject);
         Ability = Instantiate(Bodytypes.Abilities[Random.Range(0, Bodytypes.Abilities.Length)], AbilityPosition.position, AbilityPosition.rotation, transform);
+    }
+
+    public void LookAtTarget()
+    {
+        targetLookPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        transform.up = targetLookPos - new Vector2 (transform.position.x, transform.position.y);
     }
 }

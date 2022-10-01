@@ -16,9 +16,16 @@ public class Move_Base : MonoBehaviour
     float inputHorizontal;
     float inputVertical;
 
+    [Header("Dash")]
+    public float DashCooldown;
+    public float DashSpeed;
+
+    private Timer DashCooldownTimer;
+
     private void Start()
     {
         rb = transform.parent.GetComponent<Rigidbody2D>();
+
     }
 
     private void Update()
@@ -49,7 +56,7 @@ public class Move_Base : MonoBehaviour
                 inputHorizontal *= DiagonalSpeedLimit;
                 inputVertical *= DiagonalSpeedLimit;
             }
-            rb.velocity = new Vector2(inputHorizontal * MoveSpeed, inputVertical * MoveSpeed);
+            rb.velocity = new Vector2(inputHorizontal, inputVertical) * MoveSpeed * Time.deltaTime;
         }
         else
         {
