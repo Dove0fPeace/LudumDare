@@ -32,7 +32,7 @@ public class MeleeAttack_Base : Attack_Base
         yield return new WaitForSeconds(DamageDelay);
 
         RaycastHit2D hit;
-        hit = Physics2D.CircleCast(transform.position, AttackCastRadius, transform.up, AttackRange);
+        hit = Physics2D.CircleCast(transform.position, AttackCastRadius, transform.right, AttackRange);
         if(hit)
         {
             Unit_Base enemy = hit.collider.transform.root.GetComponent<Unit_Base>();
@@ -47,7 +47,7 @@ public class MeleeAttack_Base : Attack_Base
     {
         Gizmos.color = Color.green;
         Gizmos.DrawWireSphere(transform.position, AttackCastRadius);
-        Gizmos.DrawLine(transform.position, transform.position + (transform.up * (AttackRange + AttackCastRadius)));
+        Gizmos.DrawLine(transform.position, transform.position + (transform.right * (AttackRange + AttackCastRadius)));
     }
 
 }
