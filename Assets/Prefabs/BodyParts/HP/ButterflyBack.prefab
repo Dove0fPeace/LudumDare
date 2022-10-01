@@ -100,6 +100,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Part: 0
   _MaxHitPoints: 15
+  vfx: {fileID: 8437859875350132919, guid: 715402191ed609f4789526781fed63ad, type: 3}
 --- !u!70 &8738571896103635774
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

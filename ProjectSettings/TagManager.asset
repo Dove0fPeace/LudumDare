@@ -38,6 +38,24 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Back
+    uniqueID: 852454815
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Stains
+    uniqueID: 4260311541
+    locked: 0
+  - name: Bug_down
+    uniqueID: 2794963645
+    locked: 0
+  - name: Bug
+    uniqueID: 352644091
+    locked: 0
+  - name: Bug_up
+    uniqueID: 2436403867
+    locked: 0
+  - name: Upper
+    uniqueID: 302222033
     locked: 0
