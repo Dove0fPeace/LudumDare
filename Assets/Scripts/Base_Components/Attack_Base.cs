@@ -14,6 +14,14 @@ public class Attack_Base : MonoBehaviour
 
     public Transform HandsPlace;
 
+    protected Unit_Base self;
+
+    protected virtual void Start()
+    {
+        print("Start");
+        self = transform.root.GetComponent<Unit_Base>();
+        print(self);
+    }
     private void Update()
     {
         if(attackTime > 0)
