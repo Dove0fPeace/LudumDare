@@ -1480,6 +1480,14 @@ PrefabInstance:
       propertyPath: HandsPlace
       value: 
       objectReference: {fileID: 56156775}
+    - target: {fileID: 3872737188979516275, guid: 08bcbc9d09659c74580f359f571e4ab6, type: 3}
+      propertyPath: AttackRange
+      value: 1.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 3872737188979516275, guid: 08bcbc9d09659c74580f359f571e4ab6, type: 3}
+      propertyPath: AttackCastRadius
+      value: 0.43
+      objectReference: {fileID: 0}
     - target: {fileID: 4486493365180743733, guid: 08bcbc9d09659c74580f359f571e4ab6, type: 3}
       propertyPath: m_RootOrder
       value: 0
