@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5933939260906672578}
   - component: {fileID: 5933939260906672581}
   - component: {fileID: 5933939260906672580}
+  - component: {fileID: 8316131386383479956}
   m_Layer: 0
   m_Name: Back_basic
   m_TagString: Untagged
@@ -99,3 +100,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Part: 0
   _MaxHitPoints: 10
+--- !u!70 &8316131386383479956
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5933939260906672579}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 1, y: 2}
+  m_Direction: 0

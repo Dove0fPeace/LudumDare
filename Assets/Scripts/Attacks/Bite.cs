@@ -5,30 +5,35 @@ using DG.Tweening;
 
 public class Bite : Attack_Base
 {
-    public float BiteRange;
-    public float BiteSpeed;
+    public Animator animator;
 
     private bool damagePhase = false;
+    private Unit_Base self;
 
+    private void Start()
+    {
+        animator = GetComponent<Animator>();
+        self = transform.root.GetComponent<Unit_Base>();
+    }
     public override void Attack()
     {
         base.Attack();
-        ChangeDamagePhase();
-
+        damagePhase = true;
+        animator.Play("Bite",0,0f);
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionStay2D(Collision2D collision)
     {
-        if(!damagePhase) return;
-        var enemy = collision.otherCollider.transform.GetComponent<Unit_Base>();
-        if(enemy != null)
+        var enemy = collision.transform.GetComponent<Unit_Base>();
+        if (enemy != null && damagePhase)
         {
+            damagePhase = false;
             enemy.TakeDamage(Damage);
         }
     }
 
-    private void ChangeDamagePhase()
+    private void DamagePhaseEnd()
     {
-        damagePhase = !damagePhase;
+        damagePhase = false;
     }
 }

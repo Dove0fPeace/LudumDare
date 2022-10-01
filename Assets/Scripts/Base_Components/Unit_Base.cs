@@ -58,10 +58,11 @@ public class Unit_Base : MonoBehaviour
 
     public bool TryAttack()
     {
-        if (Attack is null)
+        if (Attack is null || Attack.CanAttack == false)
         {
             return false;
         }
+        
         Attack.Attack();
         return true;
     }

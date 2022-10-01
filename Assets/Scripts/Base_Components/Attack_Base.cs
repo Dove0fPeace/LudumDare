@@ -10,7 +10,7 @@ public class Attack_Base : MonoBehaviour
 
     public float AttackCooldown;
     private float attackTime = 0;
-    private bool CanAttack => attackTime <= 0;
+    public bool CanAttack => attackTime <= 0;
 
     public Transform HandsPlace;
 
@@ -22,7 +22,7 @@ public class Attack_Base : MonoBehaviour
 
     public virtual void Attack()
     {
-        if(!CanAttack) return;
+        if(CanAttack == false) return;
         attackTime = AttackCooldown;
     }
 }

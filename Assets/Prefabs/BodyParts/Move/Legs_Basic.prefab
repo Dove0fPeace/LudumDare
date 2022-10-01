@@ -55,6 +55,8 @@ MonoBehaviour:
   MoveSpeed: 5
   DiagonalSpeedLimit: 0.7
   IsCanMove: 1
+  DashCooldown: 0
+  DashSpeed: 0
 --- !u!1 &8686163783409108860
 GameObject:
   m_ObjectHideFlags: 0
