@@ -10,11 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4486493365180743733}
   - component: {fileID: 4486493365180743732}
-  - component: {fileID: 3872737188979516275}
   - component: {fileID: 1558609035131436679}
-  - component: {fileID: 2036003969}
+  - component: {fileID: 5112947982394173482}
   m_Layer: 0
-  m_Name: Bite
+  m_Name: Range
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -87,27 +86,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &3872737188979516275
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4486493365180743738}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9735d224741289640994cec6498b9d13, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Part: 2
-  Damage: 1
-  AttackCooldown: 2
-  HandsPlace: {fileID: 0}
-  animator: {fileID: 0}
-  AttackAnimationName: 
-  AttackRange: 0.58
-  AttackCastRadius: 0.43
-  DamageDelay: 0
 --- !u!70 &1558609035131436679
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -124,23 +102,23 @@ CapsuleCollider2D:
   m_Offset: {x: -1.6295207e-10, y: -0.0016580146}
   m_Size: {x: 1.0000005, y: 0.93768215}
   m_Direction: 1
---- !u!95 &2036003969
-Animator:
-  serializedVersion: 4
+--- !u!114 &5112947982394173482
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4486493365180743738}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 475b27a09310b424097b549abc88172e, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6e58e927a6f6734190e6b82fe0df008, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Part: 2
+  Damage: 1
+  AttackCooldown: 1
+  HandsPlace: {fileID: 0}
+  animator: {fileID: 0}
+  AttackAnimationName: 
+  ProjectilePrefab: {fileID: 0}
+  ProjectileSpawnPoint: {fileID: 0}

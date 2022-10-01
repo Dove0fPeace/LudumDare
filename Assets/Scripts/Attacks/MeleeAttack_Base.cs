@@ -6,24 +6,14 @@ using UnityEditor;
 
 public class MeleeAttack_Base : Attack_Base
 {
-    [Header("Animation")]
-    public Animator animator;
-    public string AttackAnimationName;
-
     [Header("Melee Attack settings")]
     public float AttackRange;
     public float AttackCastRadius;
     public float DamageDelay;
 
-    protected override void Start()
-    {
-        base.Start();
-        animator = GetComponent<Animator>();
-    }
     public override void Attack()
     {
         base.Attack();
-        //animator.Play(AttackAnimationName, 0,0f);
         StartCoroutine(CheckRaycastOnAttack());
     }
 
@@ -42,12 +32,13 @@ public class MeleeAttack_Base : Attack_Base
             }
         }
     }
-
+#if UNITY_EDITOR
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.green;
         Gizmos.DrawWireSphere(transform.position, AttackCastRadius);
         Gizmos.DrawLine(transform.position, transform.position + (transform.up * (AttackRange + AttackCastRadius)));
     }
+#endif
 
 }

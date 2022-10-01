@@ -14,13 +14,16 @@ public class Attack_Base : MonoBehaviour
 
     public Transform HandsPlace;
 
+    [Header("Animation")]
+    public Animator animator;
+    public string AttackAnimationName;
+
     protected Unit_Base self;
 
     protected virtual void Start()
     {
-        print("Start");
+        animator = GetComponent<Animator>();
         self = transform.root.GetComponent<Unit_Base>();
-        print(self);
     }
     private void Update()
     {
@@ -31,6 +34,7 @@ public class Attack_Base : MonoBehaviour
     public virtual void Attack()
     {
         if(CanAttack == false) return;
+        //animator.Play(AttackAnimationName, 0, 0f);
         attackTime = AttackCooldown;
     }
 }
