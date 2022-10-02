@@ -22,7 +22,7 @@ public class Projectile_Base : MonoBehaviour
     {
         
         float stepLenght = Time.deltaTime * Speed;
-        Vector2 step = transform.up * stepLenght;
+        Vector2 step = transform.right * stepLenght;
         transform.position += new Vector3(step.x, step.y, 0);
         
     }
