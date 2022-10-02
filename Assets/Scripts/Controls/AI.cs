@@ -26,14 +26,13 @@ namespace Controls
             {
                 yield return waitForSeconds;
                 unit.LookAt(target.position);
-                MeleeAttackDecision();
+                AttackDecision();
             }
         }
 
-        private void MeleeAttackDecision()
+        private void AttackDecision()
         {
-            //TODO range
-            float range = 3f;
+            float range = unit.Attack.AttackRange;
             if ((target.position - transform.position).sqrMagnitude > range * range)
             {
                 if (moving != null)

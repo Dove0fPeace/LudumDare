@@ -6,6 +6,7 @@ public class Attack_Base : MonoBehaviour
 {
     public BodyPart Part = BodyPart.Hands;
 
+    public float AttackRange = 30f;
     public int Damage;
 
     public float AttackCooldown;

@@ -14,10 +14,10 @@ public class Unit_Base : MonoBehaviour
 
     public Bodytypes Bodytypes;
 
-    private Armor_Base Armor;
-    private Move_Base Move;
-    private Attack_Base Attack;
-    private IAbility Ability;
+    public Armor_Base Armor;
+    public Move_Base Move;
+    public Attack_Base Attack;
+    public IAbility Ability;
 
     [Header("BodyPosition")]
     public Transform HandsPosition;

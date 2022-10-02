@@ -7,7 +7,6 @@ using UnityEditor;
 public class MeleeAttack_Base : Attack_Base
 {
     [Header("Melee Attack settings")]
-    public float AttackRange;
     public float AttackCastRadius;
     public float DamageDelay;
 
