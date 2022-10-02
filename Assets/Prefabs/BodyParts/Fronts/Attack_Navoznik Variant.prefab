@@ -239,5 +239,46 @@ PrefabInstance:
       propertyPath: m_Name
       value: Attack_Navoznik Variant
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -6444207460106306709, guid: e6349607294709f4f9e1852963948e4d, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e6349607294709f4f9e1852963948e4d, type: 3}
+--- !u!1 &7292338706385043160 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4486493365180743738, guid: e6349607294709f4f9e1852963948e4d, type: 3}
+  m_PrefabInstance: {fileID: 6588958236816686818}
+  m_PrefabAsset: {fileID: 0}
+--- !u!70 &3463655173781289811
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7292338706385043160}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.8543253, y: -0.11322451}
+  m_Size: {x: 2.231246, y: 5.098899}
+  m_Direction: 0
+--- !u!114 &-254088746593534592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7292338706385043160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6e58e927a6f6734190e6b82fe0df008, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Part: 2
+  Damage: 10
+  AttackCooldown: 2
+  HandsPlace: {fileID: 0}
+  animator: {fileID: 0}
+  AttackAnimationName: 
+  ProjectilePrefab: {fileID: 1091091447070835708, guid: e98af2daa6700a14aa6d15e287c471f3, type: 3}
