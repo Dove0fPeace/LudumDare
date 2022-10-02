@@ -8,6 +8,7 @@ public class Attack_Base : MonoBehaviour
 
     public float AttackRange = 30f;
     public int Damage;
+    public AudioClip sfx;
 
     public float AttackCooldown;
     private float attackTime = 0;
@@ -37,5 +38,9 @@ public class Attack_Base : MonoBehaviour
         if(CanAttack == false) return;
         //animator.Play(AttackAnimationName, 0, 0f);
         attackTime = AttackCooldown;
+        if (sfx)
+        {
+            self.PlayAudioOneshot(sfx);
+        }
     }
 }
