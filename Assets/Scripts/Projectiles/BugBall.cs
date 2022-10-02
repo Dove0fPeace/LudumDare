@@ -23,9 +23,16 @@ public class BugBall : Projectile_Base
 
     private bool IsLaunched;
 
+    private void Start()
+    {
+
+    }
     protected override void Update()
     {
-        base.Update();
+        if(IsLaunched)
+        {
+            base.Update();
+        }
         deltaDistance += Vector2.Distance(Parent.transform.position, lastPosition);
         lastPosition = Parent.transform.position;
         if (IsLaunched == false)
@@ -44,17 +51,22 @@ public class BugBall : Projectile_Base
         }
     }
 
+    protected override void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (!IsLaunched) return;
+        base.OnCollisionEnter2D(collision);
+    }
     public override void Spawn(Unit_Base parent, float damage)
     {
         Damage = damage;
         Parent = parent;
-        Physics2D.IgnoreCollision(parent.GetComponent<Collider2D>(), projectilleCollider);
     }
 
     public void Launch()
     {
         IsLaunched = true;
-        rb.AddForce(transform.right * Speed, ForceMode2D.Force);
+        rb.AddForce(transform.forward * Speed, ForceMode2D.Force);
+        transform.SetParent(null);
     }
     public void ChangeStage(int changeTo)
     {

@@ -9,6 +9,8 @@ public class Navoznik_RangeAttack : RangeAttack_Base
 
     private bool ballIsSpawned;
     private BugBall currentProjectile;
+
+    public Transform ballPLace;
     protected override void Start()
     {
         base.Start();
@@ -24,6 +26,7 @@ public class Navoznik_RangeAttack : RangeAttack_Base
             if(currentRestoreTime <= 0)
             {
                 SpawnBall();
+                currentRestoreTime = BallRestoreTime;
             }
         }
     }
@@ -36,10 +39,11 @@ public class Navoznik_RangeAttack : RangeAttack_Base
         currentProjectile = projectile.transform.GetComponent<BugBall>();
     }
 
-    public override void Attack()
+    public override bool Attack()
     {
-        if (ballIsSpawned == false) return;
+        if (ballIsSpawned == false) return false;
         currentProjectile.Launch();
         ballIsSpawned = false;
+        return true;
     }
 }

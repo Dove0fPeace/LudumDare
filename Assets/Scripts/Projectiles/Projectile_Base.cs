@@ -12,6 +12,7 @@ public class Projectile_Base : MonoBehaviour
     protected CircleCollider2D projectilleCollider;
 
     protected Unit_Base Parent;
+    
 
     protected virtual void Awake()
     {
@@ -21,6 +22,7 @@ public class Projectile_Base : MonoBehaviour
 
     protected virtual void Update()
     {
+        
         ProjectileLifeTime -= Time.deltaTime;
         if(ProjectileLifeTime <= 0)
         {
@@ -28,7 +30,7 @@ public class Projectile_Base : MonoBehaviour
         }
     }
     
-    private void OnCollisionEnter2D(Collision2D collision)
+    protected virtual void OnCollisionEnter2D(Collision2D collision)
     {
         Unit_Base enemy = collision.transform.root.GetComponent<Unit_Base>();
         if(enemy != null)
@@ -52,7 +54,7 @@ public class Projectile_Base : MonoBehaviour
 
         Damage = damage;
         Parent = parent;
-        Physics2D.IgnoreCollision(parent.GetComponent<Collider2D>(), projectilleCollider);
+        //Physics2D.IgnoreCollision(, projectilleCollider);
         rb.AddForce(transform.right * Speed,ForceMode2D.Force);
     }
 

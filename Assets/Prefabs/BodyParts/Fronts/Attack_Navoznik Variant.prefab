@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2167192115131658108
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7013793882395307809}
+  m_Layer: 0
+  m_Name: BallPlace
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7013793882395307809
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2167192115131658108}
+  m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: 1.91, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7292338706385043159}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
 --- !u!1001 &6588958236816686818
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -242,6 +273,11 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: -6444207460106306709, guid: e6349607294709f4f9e1852963948e4d, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e6349607294709f4f9e1852963948e4d, type: 3}
+--- !u!4 &7292338706385043159 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4486493365180743733, guid: e6349607294709f4f9e1852963948e4d, type: 3}
+  m_PrefabInstance: {fileID: 6588958236816686818}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &7292338706385043160 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4486493365180743738, guid: e6349607294709f4f9e1852963948e4d, type: 3}
@@ -285,3 +321,4 @@ MonoBehaviour:
   AttackAnimationName: 
   ProjectilePrefab: {fileID: -1999959431083125431, guid: 4751f8e032fd1e1428293eaf0fd055a7, type: 3}
   BallRestoreTime: 1.5
+  ballPLace: {fileID: 7013793882395307809}
