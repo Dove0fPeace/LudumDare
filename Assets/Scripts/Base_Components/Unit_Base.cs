@@ -48,8 +48,8 @@ public class Unit_Base : MonoBehaviour
         Clear();
 
         front = Instantiate(Bodytypes.Fronts[Random.Range(0, Bodytypes.Fronts.Length)],
-            HandsPosition.position,
-            HandsPosition.rotation, transform);
+            BackPosition.position,
+            BackPosition.rotation, transform);
         back = Instantiate(Bodytypes.Backs[Random.Range(0, Bodytypes.Backs.Length)],
             BackPosition.position,
             BackPosition.rotation, transform);
