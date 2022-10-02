@@ -60,10 +60,10 @@ public class Unit_Base : MonoBehaviour
 
         front = Instantiate(Bodytypes.Fronts[Random.Range(0, Bodytypes.Fronts.Length)],
             BackPosition.position,
-            BackPosition.rotation, transform);
+            BackPosition.rotation, BackPosition);
         back = Instantiate(Bodytypes.Backs[Random.Range(0, Bodytypes.Backs.Length)],
             BackPosition.position,
-            BackPosition.rotation, transform);
+            BackPosition.rotation, BackPosition);
         Armor = back.GetComponentInChildren<Armor_Base>();
         Move = front.GetComponentInChildren<Move_Base>();
         Attack = front.GetComponentInChildren<Attack_Base>();
@@ -132,7 +132,7 @@ public class Unit_Base : MonoBehaviour
 
     public void LookAt(Vector2 targetLookPos)
     {
-        transform.up = targetLookPos - new Vector2 (transform.position.x, transform.position.y);
+        BackPosition.right = targetLookPos - new Vector2 (transform.position.x, transform.position.y);
     }
 
     public void TakeDamage(int damage)

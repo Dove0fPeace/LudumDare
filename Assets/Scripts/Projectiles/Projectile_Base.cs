@@ -45,8 +45,8 @@ public class Projectile_Base : MonoBehaviour
                 return;
             }
             enemy.TakeDamage(Damage);
-            OnProjectileLifeEnd();
         }
+        OnProjectileLifeEnd();
     }
     
     public void Spawn(Unit_Base parent, int damage)
@@ -54,7 +54,7 @@ public class Projectile_Base : MonoBehaviour
 
         Damage = damage;
         Parent = parent;
-        rb.AddForce(transform.right * Speed,ForceMode2D.Impulse);
+        rb.AddForce(transform.right * Speed,ForceMode2D.Force);
     }
 
     private void OnProjectileLifeEnd()

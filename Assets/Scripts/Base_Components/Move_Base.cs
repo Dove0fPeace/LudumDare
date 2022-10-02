@@ -26,7 +26,7 @@ public class Move_Base : MonoBehaviour
 
     private void Start()
     {
-        rb = transform.parent.GetComponent<Rigidbody2D>();
+        rb = transform.root.GetComponent<Rigidbody2D>();
     }
     private void Update()
     {
