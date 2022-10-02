@@ -7,7 +7,7 @@ public class Unit_Base : MonoBehaviour
 {
     [Header("HP")]
     public int MaxHitPoints;
-    [HideInInspector]public int CurrentHP;
+    [HideInInspector]public float CurrentHP;
     public Slider HpBar;
 
     [Space(5)]
@@ -127,7 +127,7 @@ public class Unit_Base : MonoBehaviour
     public void TakeDamage(int damage)
     {
         print("Take damage " + damage);
-        CurrentHP -= (int)(damage * Armor.PhysicalResist);
+        CurrentHP -= damage * Armor.PhysicalResist;
 
          if(CurrentHP <= 0)
          {
