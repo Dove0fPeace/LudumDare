@@ -8,6 +8,7 @@ public class HP_Base : MonoBehaviour
     public BodyPart Part = BodyPart.Back;
 
     [SerializeField] private int _MaxHitPoints;
+    [SerializeField] private GameObject vfx;
     private int _currentHitPoint;
 
     private void Start()
@@ -19,6 +20,7 @@ public class HP_Base : MonoBehaviour
     {
         _currentHitPoint -= damage;
         print(_currentHitPoint + "/" + _MaxHitPoints);
+        Instantiate(vfx, transform.root.position, Quaternion.Euler(0, 90, 0));
         if( _currentHitPoint <= 0 )
         {
             Death();
