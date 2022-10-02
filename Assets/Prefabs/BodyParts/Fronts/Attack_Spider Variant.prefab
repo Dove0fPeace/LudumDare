@@ -217,6 +217,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4486493365180743735, guid: e6349607294709f4f9e1852963948e4d, type: 3}
+    - {fileID: -6444207460106306709, guid: e6349607294709f4f9e1852963948e4d, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e6349607294709f4f9e1852963948e4d, type: 3}
 --- !u!1 &1565244126578075357 stripped
 GameObject:
@@ -244,3 +245,19 @@ MonoBehaviour:
   AttackRange: 3
   AttackCastRadius: 1
   DamageDelay: 1
+--- !u!70 &1483458730672997667
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1565244126578075357}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 1.4457679, y: -0.09186363}
+  m_Size: {x: 3.6672602, y: 6.1444197}
+  m_Direction: 0

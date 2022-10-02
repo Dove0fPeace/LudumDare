@@ -68,8 +68,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b0cf92001f5046428d4afa9a29b3fd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MaxHitPoints: 50
+  CurrentHP: 0
+  HpBar: {fileID: 0}
   Bodytypes: {fileID: 11400000, guid: ca844ead88c1dd54cbecb745c5fb9ba7, type: 2}
-  HandsPosition: {fileID: 6354963063060032374}
+  HandsPosition: {fileID: 0}
   BackPosition: {fileID: 6354963063060032374}
   targetLookPos: {x: 0, y: 0}
 --- !u!114 &6354963061725855157
