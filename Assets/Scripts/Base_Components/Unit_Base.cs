@@ -38,6 +38,7 @@ public class Unit_Base : MonoBehaviour
         HpBar.maxValue = MaxHitPoints;
         HpBar.value = HpBar.maxValue;
         initialPosition = transform.position;
+        AudioSource = GetComponent<AudioSource>();
     }
 
     private void Update()
