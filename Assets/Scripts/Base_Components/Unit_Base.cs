@@ -139,8 +139,7 @@ public class Unit_Base : MonoBehaviour
     public void TakeDamage(float damage)
     {
         print("Take damage " + damage);
-        CurrentHP -= damage * Armor.PhysicalResist;
-        Armor.PlayDamageEffect();
+        CurrentHP -= Armor.CalculateDamage(damage);
          if(CurrentHP <= 0)
          {
             Death();

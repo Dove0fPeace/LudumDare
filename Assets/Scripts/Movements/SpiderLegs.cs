@@ -1,13 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
 public class SpiderLegs : Move_Base
 {
     public override Insects InsectType => Insects.Spider;
 
-    public override void Dash()
+    public override bool Dash()
     {
-        print("Speder web dash");
+        print("Spider web dash");
+        return base.Dash();
     }
 }

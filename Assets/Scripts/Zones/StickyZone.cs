@@ -11,12 +11,12 @@ namespace Zones
 
         protected override void UnitEnter(Unit_Base unit)
         {
-            unit.Move.speedModifier = slowCoef;
+            unit.Move.ApplySpeedModifier(slowCoef);
         }
 
         protected override void UnitExit(Unit_Base unit)
         {
-            unit.Move.speedModifier = 1f;
+            unit.Move.ApplySpeedModifier(slowCoef, false);
         }
     }
 }
