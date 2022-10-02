@@ -305,7 +305,7 @@ GameObject:
   m_Component:
   - component: {fileID: 217715076}
   - component: {fileID: 217715077}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Collider_Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -873,7 +873,7 @@ GameObject:
   m_Component:
   - component: {fileID: 763097299}
   - component: {fileID: 763097298}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1801,7 +1801,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1797254398}
   - component: {fileID: 1797254399}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Collider_Borders
   m_TagString: Untagged
   m_Icon: {fileID: 0}

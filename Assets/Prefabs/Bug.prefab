@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6354963061725855155}
   - component: {fileID: 6354963061725855156}
   - component: {fileID: 6354963061725855157}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Bug
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,6 +72,9 @@ MonoBehaviour:
   CurrentHP: 0
   HpBar: {fileID: 0}
   Bodytypes: {fileID: 11400000, guid: ca844ead88c1dd54cbecb745c5fb9ba7, type: 2}
+  Armor: {fileID: 0}
+  Move: {fileID: 0}
+  Attack: {fileID: 0}
   HandsPosition: {fileID: 0}
   BackPosition: {fileID: 6354963063060032374}
   targetLookPos: {x: 0, y: 0}
@@ -96,7 +99,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6354963063060032374}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RefPlace
   m_TagString: Untagged
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}

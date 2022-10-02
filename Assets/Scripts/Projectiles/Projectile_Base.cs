@@ -30,11 +30,15 @@ public class Projectile_Base : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         Unit_Base enemy = collision.transform.root.GetComponent<Unit_Base>();
-        if(enemy != null && enemy != Parent)
+        if(enemy != null)
         {
+            if (enemy == Parent)
+            {
+                return;
+            }
             enemy.TakeDamage(Damage);
-            OnProjectileLifeEnd();
         }
+        OnProjectileLifeEnd();
     }
     public void Spawn(Unit_Base parent, int damage)
     {
