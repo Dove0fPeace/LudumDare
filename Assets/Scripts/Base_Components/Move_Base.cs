@@ -22,7 +22,7 @@ public class Move_Base : MonoBehaviour
     [Header("Dash")]
     public float DashCooldown = 3f;
 
-    public float DashImpulse = 300f;
+    public float DashForce;
     public float DashMoveBlock = 1f;
     public bool InvincibleInDash;
 
@@ -95,7 +95,7 @@ public class Move_Base : MonoBehaviour
         {
             return false;
         }
-        rb.AddForce(DashImpulse*GetInputDirection(), ForceMode2D.Impulse);
+        rb.AddForce(DashForce*transform.right, ForceMode2D.Impulse);
         StartCoroutine(Dashing());
         return true;
     }
@@ -103,15 +103,26 @@ public class Move_Base : MonoBehaviour
     IEnumerator Dashing()
     {
         self.Armor.invincible = InvincibleInDash;
-        rb.gameObject.layer = LayerMask.NameToLayer("bugDash");
+        SetLayer(LayerMask.NameToLayer("bugDash"));
         IsCanMove = false;
         CanDash = false;
         yield return new WaitForSeconds(DashMoveBlock);
+        rb.Sleep();
         IsCanMove = true;
         yield return new WaitForSeconds(DashCooldown - DashMoveBlock);
-        rb.gameObject.layer = LayerMask.NameToLayer("bug");
+        SetLayer(LayerMask.NameToLayer("bug"));
         self.Armor.invincible = false;
         CanDash = true;
+    }
+
+    private void SetLayer(int layer)
+    {
+        rb.gameObject.layer = layer;
+        Collider2D[] colliders = rb.gameObject.GetComponentsInChildren<Collider2D>();
+        foreach (var collider1 in colliders)
+        {
+            collider1.gameObject.layer = layer;
+        }
     }
 
     public void ApplySpeedModifier(float modifier, bool active = true)

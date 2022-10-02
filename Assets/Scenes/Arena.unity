@@ -324,7 +324,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 154683353}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -675,7 +675,7 @@ GameObject:
   m_Component:
   - component: {fileID: 404156824}
   - component: {fileID: 404156825}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Slider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1114,7 +1114,7 @@ GameObject:
   - component: {fileID: 1124148858}
   - component: {fileID: 1124148860}
   - component: {fileID: 1124148859}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1623,7 +1623,7 @@ GameObject:
   - component: {fileID: 1391341061}
   - component: {fileID: 1391341060}
   - component: {fileID: 1391341063}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1733,7 +1733,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1469074726}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ProjectilePolint
   m_TagString: Untagged
   m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
@@ -2243,6 +2243,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerBug
       objectReference: {fileID: 0}
+    - target: {fileID: 6354963061725855167, guid: 34b2eb0ec919bd842a1095180cdb98ca, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6354963063060032373, guid: 34b2eb0ec919bd842a1095180cdb98ca, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 34b2eb0ec919bd842a1095180cdb98ca, type: 3}
 --- !u!4 &1974509403 stripped
@@ -2368,7 +2376,7 @@ GameObject:
   - component: {fileID: 2020927083}
   - component: {fileID: 2020927085}
   - component: {fileID: 2020927084}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}

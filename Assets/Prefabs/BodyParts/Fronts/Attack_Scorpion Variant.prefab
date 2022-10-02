@@ -187,6 +187,18 @@ PrefabInstance:
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[18].y
       value: -0.14783329
       objectReference: {fileID: 0}
+    - target: {fileID: 146070501400393255, guid: e6349607294709f4f9e1852963948e4d, type: 3}
+      propertyPath: DashForce
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 146070501400393255, guid: e6349607294709f4f9e1852963948e4d, type: 3}
+      propertyPath: DashImpulse
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 146070501400393255, guid: e6349607294709f4f9e1852963948e4d, type: 3}
+      propertyPath: DashCooldown
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4486493365180743732, guid: e6349607294709f4f9e1852963948e4d, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -246,6 +258,10 @@ PrefabInstance:
     - target: {fileID: 4486493365180743738, guid: e6349607294709f4f9e1852963948e4d, type: 3}
       propertyPath: m_Name
       value: Attack_Scorpion Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 4486493365180743738, guid: e6349607294709f4f9e1852963948e4d, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4486493365180743735, guid: e6349607294709f4f9e1852963948e4d, type: 3}

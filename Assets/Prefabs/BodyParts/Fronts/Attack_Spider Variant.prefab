@@ -215,6 +215,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Attack_Spider Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 4486493365180743738, guid: e6349607294709f4f9e1852963948e4d, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4486493365180743735, guid: e6349607294709f4f9e1852963948e4d, type: 3}
     - {fileID: -6444207460106306709, guid: e6349607294709f4f9e1852963948e4d, type: 3}
@@ -280,6 +284,8 @@ MonoBehaviour:
   MoveSpeed: 150
   DiagonalSpeedLimit: 0.7
   IsCanMove: 1
-  DashCooldown: 0
-  DashSpeed: 0
-  speedModifier: 1
+  CanDash: 1
+  DashCooldown: 3
+  DashForce: 10
+  DashMoveBlock: 1
+  InvincibleInDash: 0

@@ -11,6 +11,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Back_Butterfly Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 2702795108372186246, guid: 720fa54495e0d9c44a4dd6ee71950180, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 3791362604563600914, guid: 720fa54495e0d9c44a4dd6ee71950180, type: 3}
       propertyPath: m_Sprite
       value: 
