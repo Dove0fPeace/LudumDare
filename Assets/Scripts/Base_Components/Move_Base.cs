@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Move_Base : MonoBehaviour
@@ -22,7 +20,9 @@ public class Move_Base : MonoBehaviour
 
     private float dashTime = 0;
     private bool CanDash => dashTime <= 0;
-
+    
+    public float speedModifier = 1f;
+    public virtual Insects InsectType => Insects.Generic;
 
     private void Start()
     {
@@ -57,7 +57,7 @@ public class Move_Base : MonoBehaviour
                 inputHorizontal *= DiagonalSpeedLimit;
                 inputVertical *= DiagonalSpeedLimit;
             }
-            rb.velocity = new Vector2(inputHorizontal, inputVertical) * MoveSpeed * Time.deltaTime;
+            rb.velocity = new Vector2(inputHorizontal, inputVertical) * MoveSpeed * speedModifier * Time.deltaTime;
         }
         else
         {
@@ -71,4 +71,5 @@ public class Move_Base : MonoBehaviour
         dashTime = DashCooldown;
         print("Dash");
     }
+    
 }

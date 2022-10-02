@@ -1,11 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+using Base_Components;
 
-public class WebShot : Ability_Base
+public class WebShot : RangeAttack_Base, IAbility
 {
-    public override void Use()
+    public Insects InsectType => Insects.Spider;
+
+    public void Use()
     {
-        print("Web shot!");
+        Attack();
     }
 }

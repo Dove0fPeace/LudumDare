@@ -10,6 +10,7 @@ public class Armor_Base : MonoBehaviour
     public float PhysicalResist = 1f;
     [SerializeField] private GameObject vfx;
     [SerializeField] private AudioClip sfx;
+    public virtual Insects InsectType => Insects.Generic;
 
     private Unit_Base parent;
 

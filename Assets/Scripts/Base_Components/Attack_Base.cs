@@ -19,6 +19,7 @@ public class Attack_Base : MonoBehaviour
     [Header("Animation")]
     public Animator animator;
     public string AttackAnimationName;
+    public virtual Insects InsectType => Insects.Generic;
 
     protected Unit_Base self;
 
