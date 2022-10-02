@@ -440,7 +440,7 @@ CapsuleCollider2D:
   m_Offset: {x: 0.6808536, y: -0.14774466}
   m_Size: {x: 2.8813825, y: 7.877846}
   m_Direction: 0
---- !u!114 &2869456784344852914
+--- !u!114 &-7696117333538472764
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -453,6 +453,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Part: 2
+  UnableToAttack: 1
   AttackRange: 30
   Damage: 0
   sfx: {fileID: 0}

@@ -6,13 +6,14 @@ public class Attack_Base : MonoBehaviour
 {
     public BodyPart Part = BodyPart.Hands;
 
+    public bool UnableToAttack;
     public float AttackRange = 30f;
     public float Damage;
     public AudioClip sfx;
 
     public float AttackCooldown;
     private float attackTime = 0;
-    public bool CanAttack => attackTime <= 0;
+    public bool CanAttack => attackTime <= 0 || UnableToAttack;
 
     public Transform HandsPlace;
 

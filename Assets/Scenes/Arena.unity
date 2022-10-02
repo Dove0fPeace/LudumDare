@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731715, g: 0.13414735, b: 0.121078536, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -676,7 +676,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 352408458}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.7, y: 0.11, z: -10}
+  m_LocalPosition: {x: -4.7, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -948,7 +948,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_DontDestroyOnLoad: 0
-  mainTime: 10
+  mainTime: 100
 --- !u!4 &617627695
 Transform:
   m_ObjectHideFlags: 0
@@ -1043,7 +1043,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 708977336}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.7, y: 0.11, z: -10}
+  m_LocalPosition: {x: -4.7, y: 1.9701986e-17, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1490,6 +1490,7 @@ MonoBehaviour:
   smartness: 5
   movePrecision: 1
   target: {fileID: 1974509403}
+  wallDistanceCheck: 3
 --- !u!114 &1234689023 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6354963061725855156, guid: 34b2eb0ec919bd842a1095180cdb98ca, type: 3}
@@ -2255,7 +2256,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1770953954
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2570,7 +2571,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6354963061725855153, guid: 34b2eb0ec919bd842a1095180cdb98ca, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.11
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6354963061725855153, guid: 34b2eb0ec919bd842a1095180cdb98ca, type: 3}
       propertyPath: m_LocalPosition.z

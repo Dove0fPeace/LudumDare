@@ -24,13 +24,12 @@ public class MeleeAttack_Base : Attack_Base
 
         RaycastHit2D hit;
         hit = Physics2D.CircleCast(transform.position, AttackCastRadius, transform.right, AttackRange);
-        if(hit)
+        if (hit)
         {
-            print("Hit");
             Unit_Base enemy = hit.collider.transform.root.GetComponent<Unit_Base>();
-            if(enemy != null)
+            if (enemy != null)
             {
-                print("Enemy hit");
+                print("Enemy hit "+enemy.name);
                 OnEnemyHit(enemy);
             }
         }

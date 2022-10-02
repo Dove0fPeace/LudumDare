@@ -12,6 +12,7 @@ namespace Controls
         public float smartness = 5f;
         public float movePrecision = 1f;
         public Transform target;
+        public float wallDistanceCheck = 3f;
 
         private Coroutine moving;
         private int tangentDir;
@@ -43,9 +44,16 @@ namespace Controls
                     continue;
                 }
                 unit.LookAt(target.position);
-                if (unit.Attack is not MeleeAttack_Base)
+                if (unit.Move.CanDash && IsCastHit(-transform.up, wallDistanceCheck))
                 {
-                    StartMove(transform.position*2-target.position);
+                    if (unit.TryDash())
+                    {
+                        continue;
+                    }
+                }
+                //if (unit.Attack is not MeleeAttack_Base)
+                {
+                //    Evade();
                 }
                 if (unit.Attack.CanAttack)
                 {
@@ -72,15 +80,28 @@ namespace Controls
         private void AttackDecision()
         {
             float range = unit.Attack.AttackRange;
-            if ((target.position - transform.position).sqrMagnitude > range * range)
+            //works while we are facing the player
+            if (!IsCastHit(transform.up, range))
             {
                 StartMove(target.position);
             }
             else
             {
+                StartMove(target.position);
                 unit.TryAttack();
                 tangentDir = Random.Range(0, 2) == 0 ? 1 : -1;
             }
+        }
+
+        private bool IsCastHit(Vector3 direction, float range)
+        {
+            RaycastHit2D hit;
+            hit = Physics2D.CircleCast(transform.position, 1, transform.right, range);
+            if (hit)
+            {
+                return true;
+            }
+            return false;
         }
 
         private void StartMove(Vector3 destination)
@@ -100,6 +121,12 @@ namespace Controls
                 unit.TryMove((dest - transform.position).normalized);
                 yield return null;
             }
+        }
+
+        private void OnDrawGizmos()
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawLine(transform.position, -transform.up * wallDistanceCheck);
         }
     }
 }
