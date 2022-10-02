@@ -34,6 +34,7 @@ public class Unit_Base : MonoBehaviour
     private Vector3 initialPosition;
 
 
+
     private void Start()
     {
         ChangeBody();
@@ -55,6 +56,7 @@ public class Unit_Base : MonoBehaviour
 
     public void ChangeBody()
     {
+
         if (!gameObject.activeInHierarchy)
         {
             //respawn
