@@ -726,9 +726,9 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 1, g: 1, b: 1, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -861,7 +861,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_DontDestroyOnLoad: 0
-  mainTime: 3
+  mainTime: 100
 --- !u!4 &617627695
 Transform:
   m_ObjectHideFlags: 0
@@ -1321,6 +1321,18 @@ PrefabInstance:
       propertyPath: HandsPosition
       value: 
       objectReference: {fileID: 300885909}
+    - target: {fileID: 6354963061725855156, guid: 34b2eb0ec919bd842a1095180cdb98ca, type: 3}
+      propertyPath: DefaultHPColor.b
+      value: 0.04705883
+      objectReference: {fileID: 0}
+    - target: {fileID: 6354963061725855156, guid: 34b2eb0ec919bd842a1095180cdb98ca, type: 3}
+      propertyPath: DefaultHPColor.g
+      value: 0.04705883
+      objectReference: {fileID: 0}
+    - target: {fileID: 6354963061725855156, guid: 34b2eb0ec919bd842a1095180cdb98ca, type: 3}
+      propertyPath: DefaultHPColor.r
+      value: 0.78823537
+      objectReference: {fileID: 0}
     - target: {fileID: 6354963061725855167, guid: 34b2eb0ec919bd842a1095180cdb98ca, type: 3}
       propertyPath: m_Name
       value: Bug (1)
@@ -2285,6 +2297,18 @@ PrefabInstance:
       propertyPath: HandsPosition
       value: 
       objectReference: {fileID: 1469074726}
+    - target: {fileID: 6354963061725855156, guid: 34b2eb0ec919bd842a1095180cdb98ca, type: 3}
+      propertyPath: DefaultHPColor.b
+      value: 0.04705883
+      objectReference: {fileID: 0}
+    - target: {fileID: 6354963061725855156, guid: 34b2eb0ec919bd842a1095180cdb98ca, type: 3}
+      propertyPath: DefaultHPColor.g
+      value: 0.04705883
+      objectReference: {fileID: 0}
+    - target: {fileID: 6354963061725855156, guid: 34b2eb0ec919bd842a1095180cdb98ca, type: 3}
+      propertyPath: DefaultHPColor.r
+      value: 0.78823537
+      objectReference: {fileID: 0}
     - target: {fileID: 6354963061725855167, guid: 34b2eb0ec919bd842a1095180cdb98ca, type: 3}
       propertyPath: m_Name
       value: PlayerBug

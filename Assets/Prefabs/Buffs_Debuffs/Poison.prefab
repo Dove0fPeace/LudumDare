@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c91e004010cc9af4c99d39540b17798f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  HP_Bar_Color: {r: 0, g: 0.3679245, b: 0.0036962593, a: 1}
   Damage: 0.1
   Time: 3
   Target: {fileID: 0}

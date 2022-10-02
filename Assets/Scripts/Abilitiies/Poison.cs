@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Poison : MonoBehaviour
 {
+    public Color HP_Bar_Color;
+
     public float Damage;
     public float Time;
 
@@ -14,11 +16,12 @@ public class Poison : MonoBehaviour
     {
         timer = Timer.CreateTimer(Time);
         timer.OnTick += DamageTarget;
-        print("poison");
+        Target.ChangeHPBarColor(HP_Bar_Color);
     }
 
     private void OnDestroy()
     {
+        Target.ChangeHPBarColor(Target.DefaultHPColor);
         timer.OnTick += DamageTarget;
         timer.Destroy();
     }

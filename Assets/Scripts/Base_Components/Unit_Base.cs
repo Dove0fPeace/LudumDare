@@ -9,6 +9,8 @@ public class Unit_Base : MonoBehaviour
     public int MaxHitPoints;
     [HideInInspector]public float CurrentHP;
     public Slider HpBar;
+    private RectTransform fillRect;
+    public Color DefaultHPColor;
 
     [Space(5)]
 
@@ -40,6 +42,8 @@ public class Unit_Base : MonoBehaviour
         HpBar.value = HpBar.maxValue;
         initialPosition = transform.position;
         AudioSource = GetComponent<AudioSource>();
+
+        fillRect = HpBar.fillRect;
 
         GameLoop.Instance.AddToUnitList(this);
     }
@@ -165,7 +169,11 @@ public class Unit_Base : MonoBehaviour
             CurrentHP = MaxHitPoints;
         }
     }
-
+    
+    public void ChangeHPBarColor(Color color)
+    {
+        fillRect.GetComponent<Image>().color = color;
+    }
     public void Death()
     {
         gameObject.SetActive(false);
