@@ -24,14 +24,17 @@ public class Move_Base : MonoBehaviour
 
     public float DashImpulse = 300f;
     public float DashMoveBlock = 1f;
+    public bool InvincibleInDash;
 
 
     private List<float> speedCoefs = new List<float>(3);
     public virtual Insects InsectType => Insects.Generic;
+    private Unit_Base self;
 
     private void Start()
     {
         rb = transform.root.GetComponent<Rigidbody2D>();
+        self = transform.root.GetComponent<Unit_Base>();
     }
     private void FixedUpdate()
     {
@@ -99,6 +102,7 @@ public class Move_Base : MonoBehaviour
 
     IEnumerator Dashing()
     {
+        self.Armor.invincible = InvincibleInDash;
         rb.gameObject.layer = LayerMask.NameToLayer("bugDash");
         IsCanMove = false;
         CanDash = false;
@@ -106,6 +110,7 @@ public class Move_Base : MonoBehaviour
         IsCanMove = true;
         yield return new WaitForSeconds(DashCooldown - DashMoveBlock);
         rb.gameObject.layer = LayerMask.NameToLayer("bug");
+        self.Armor.invincible = false;
         CanDash = true;
     }
 
