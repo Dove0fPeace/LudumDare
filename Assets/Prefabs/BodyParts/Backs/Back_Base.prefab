@@ -142,5 +142,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Part: 0
-  _MaxHitPoints: 10
+  PhysicalResist: 1
   vfx: {fileID: 8437859875350132919, guid: 715402191ed609f4789526781fed63ad, type: 3}
+  sfx: {fileID: 8300000, guid: b054a7709f15e6646be4bf87634a8138, type: 3}

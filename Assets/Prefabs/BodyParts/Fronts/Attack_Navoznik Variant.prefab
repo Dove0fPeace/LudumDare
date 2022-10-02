@@ -276,7 +276,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Part: 2
+  AttackRange: 30
   Damage: 10
+  sfx: {fileID: 8300000, guid: 35fe5d0a6b87d9142a5c592a1d23e117, type: 3}
   AttackCooldown: 2
   HandsPlace: {fileID: 0}
   animator: {fileID: 0}
