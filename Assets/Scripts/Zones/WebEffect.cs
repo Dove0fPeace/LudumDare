@@ -21,13 +21,13 @@ namespace Zones
 
         public void Apply(Unit_Base unit)
         {
-            unit.Move.speedModifier = slowCoef;
+            unit.Move.ApplySpeedModifier(slowCoef);
             this.unit = unit;
         }
 
         protected override void ZoneRemoved()
         {
-            unit.Move.speedModifier = slowCoef;
+            unit.Move.ApplySpeedModifier(slowCoef, false);
             base.ZoneRemoved();
         }
     }

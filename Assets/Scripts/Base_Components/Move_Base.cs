@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Move_Base : MonoBehaviour
@@ -20,14 +22,14 @@ public class Move_Base : MonoBehaviour
 
     private float dashTime = 0;
     private bool CanDash => dashTime <= 0;
-    
-    [Header("Do not touch")]
-    public float speedModifier = 1f;
+
+    private List<float> speedCoefs = new List<float>(3);
     public virtual Insects InsectType => Insects.Generic;
 
     private void Start()
     {
         rb = transform.root.GetComponent<Rigidbody2D>();
+        speedCoefs.Add(1f);
     }
     private void Update()
     {
@@ -58,12 +60,19 @@ public class Move_Base : MonoBehaviour
                 inputHorizontal *= DiagonalSpeedLimit;
                 inputVertical *= DiagonalSpeedLimit;
             }
-            rb.velocity = new Vector2(inputHorizontal, inputVertical) * MoveSpeed * speedModifier * Time.deltaTime;
+            rb.velocity = new Vector2(inputHorizontal, inputVertical) * MoveSpeed * SpeedModifier() * Time.deltaTime;
         }
         else
         {
             rb.velocity = Vector2.zero;
         }
+    }
+
+    public float SpeedModifier()
+    {
+        float speedModifier = (speedCoefs[1] + speedCoefs[^1]) / 2;
+        Debug.LogError(speedModifier);
+        return speedModifier;
     }
 
     public virtual void Dash()
@@ -72,5 +81,21 @@ public class Move_Base : MonoBehaviour
         dashTime = DashCooldown;
         print("Dash");
     }
-    
+
+    public void ApplySpeedModifier(float modifier, bool active = true)
+    {
+        if (active)
+        {
+            speedCoefs.Add(modifier);
+        }
+        else
+        {
+            if (speedCoefs.Contains(modifier))
+            {
+                speedCoefs.Remove(modifier);
+            }
+        }
+        speedCoefs.Sort();
+    }
+
 }
