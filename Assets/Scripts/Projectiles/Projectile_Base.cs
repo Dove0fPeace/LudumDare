@@ -51,7 +51,6 @@ public class Projectile_Base : MonoBehaviour
     
     public virtual void Spawn(Unit_Base parent, float damage)
     {
-
         Damage = damage;
         Parent = parent;
         rb.AddForce(transform.right * Speed,ForceMode2D.Impulse);

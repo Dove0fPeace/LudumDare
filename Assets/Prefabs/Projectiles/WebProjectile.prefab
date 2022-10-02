@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 5479019930206790412}
   - component: {fileID: 1617291179479205550}
   - component: {fileID: 5686571374471759264}
-  - component: {fileID: 2640077605423772644}
+  - component: {fileID: 8373842378824041589}
   m_Layer: 3
-  m_Name: SpiderSuperAbility
+  m_Name: WebProjectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 2
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.4056604, g: 0.39609292, b: 0.39609292, a: 1}
+  m_Color: {r: 0.4339623, g: 0.43191528, b: 0.43191528, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -118,13 +118,13 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &2640077605423772644
+--- !u!114 &8373842378824041589
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -142,4 +142,4 @@ MonoBehaviour:
   ImpactEffect: {fileID: 0}
   webZone: {fileID: 416114725858537391, guid: 8786e01851acef848998cecd3e57a0e4, type: 3}
   webEffect: {fileID: -887747471198487271, guid: 47d98828f7495f545b98038c7c07895f, type: 3}
-  maxDistance: 5
+  maxDistance: 8

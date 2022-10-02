@@ -1,12 +1,11 @@
 using UnityEngine;
-using UnityEngine.Serialization;
 using Zones;
 
 namespace Projectiles
 {
     public class WebProjectile: Projectile_Base
     {
-        [FormerlySerializedAs("web")] public GameObject webZone;
+        public GameObject webZone;
         public WebEffect webEffect;
         public float maxDistance = 8f;
         
@@ -30,6 +29,7 @@ namespace Projectiles
 
         protected override void OnEnemyHit(Unit_Base unit)
         {
+            Debug.LogError("web hit");
             Instantiate(webEffect, unit.transform).Apply(unit);
         }
     }

@@ -351,4 +351,4 @@ MonoBehaviour:
   HandsPlace: {fileID: 0}
   animator: {fileID: 0}
   AttackAnimationName: 
-  ProjectilePrefab: {fileID: 2640077605423772644, guid: 24858e0d7b005e04998fcea107c9fee5, type: 3}
+  ProjectilePrefab: {fileID: 8373842378824041589, guid: 5012847d5fc23ed4f8f5d1dec3ca3d70, type: 3}

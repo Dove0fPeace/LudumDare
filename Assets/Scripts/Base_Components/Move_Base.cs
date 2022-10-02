@@ -84,7 +84,6 @@ public class Move_Base : MonoBehaviour
         float speedPenalty = speedCoefs[0];
         float speedBoost = speedCoefs[^1];
         float speedModifier = (speedPenalty + speedBoost) / 2f;
-        Debug.LogError(speedModifier);
         return speedModifier;
     }
 
