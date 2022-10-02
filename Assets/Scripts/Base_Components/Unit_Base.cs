@@ -40,6 +40,8 @@ public class Unit_Base : MonoBehaviour
         HpBar.value = HpBar.maxValue;
         initialPosition = transform.position;
         AudioSource = GetComponent<AudioSource>();
+
+        GameLoop.Instance.AddToUnitList(this);
     }
 
     private void Update()
