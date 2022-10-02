@@ -128,7 +128,7 @@ public class Unit_Base : MonoBehaviour
     {
         print("Take damage " + damage);
         CurrentHP -= damage * Armor.PhysicalResist;
-
+        Armor.PlayDamageEffect();
          if(CurrentHP <= 0)
          {
             Death();
