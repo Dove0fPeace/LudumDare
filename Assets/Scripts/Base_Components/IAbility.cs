@@ -4,6 +4,6 @@ namespace Base_Components
     {
         public void Use();
         
-        public virtual Insects InsectType => Insects.Generic;
+        public virtual Insects Insect => Insects.Generic;
     }
 }

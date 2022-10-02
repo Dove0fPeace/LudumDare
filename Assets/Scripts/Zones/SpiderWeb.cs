@@ -4,7 +4,7 @@ namespace Zones
     {
         protected override void UnitEnter(Unit_Base unit)
         {
-            if (unit.Move.InsectType == Insects.Spider || unit.Ability.InsectType == Insects.Spider)
+            if (unit.Move.InsectType == Insects.Spider || unit.Ability.Insect == Insects.Spider)
             {
                 return;
             }

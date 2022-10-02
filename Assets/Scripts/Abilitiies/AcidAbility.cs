@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class AcidAbility : MeleeAttack_Base, IAbility
 {
-    public Insects InsectType = Insects.Scorpion;
+    public Insects Insect = Insects.Scorpion;
 
     public Poison PoisonPrefab;
     public void Use()
