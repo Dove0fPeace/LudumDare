@@ -1,0 +1,45 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Navoznik_RangeAttack : RangeAttack_Base
+{
+    public float BallRestoreTime;
+    private float currentRestoreTime;
+
+    private bool ballIsSpawned;
+    private BugBall currentProjectile;
+    protected override void Start()
+    {
+        base.Start();
+        SpawnBall();
+        currentRestoreTime = BallRestoreTime;
+    }
+
+    private void Update()
+    {
+        if(ballIsSpawned == false)
+        {
+            currentRestoreTime -= Time.deltaTime;
+            if(currentRestoreTime <= 0)
+            {
+                SpawnBall();
+            }
+        }
+    }
+
+    private void SpawnBall()
+    {
+        ballIsSpawned = true;
+        var projectile = Instantiate(ProjectilePrefab, HandsPlace.position, HandsPlace.rotation, HandsPlace);
+        projectile.Spawn(self, Damage);
+        currentProjectile = projectile.transform.GetComponent<BugBall>();
+    }
+
+    public override void Attack()
+    {
+        if (ballIsSpawned == false) return;
+        currentProjectile.Launch();
+        ballIsSpawned = false;
+    }
+}

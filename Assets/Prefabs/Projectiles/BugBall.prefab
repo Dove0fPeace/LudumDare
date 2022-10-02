@@ -10,11 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 207034706238229424}
   - component: {fileID: 5479019930206790412}
-  - component: {fileID: 1091091447070835708}
   - component: {fileID: 1617291179479205550}
   - component: {fileID: 5686571374471759264}
+  - component: {fileID: -1999959431083125431}
   m_Layer: 3
-  m_Name: Projectile
+  m_Name: BugBall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 7631798722645274474}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -2.28, y: 0.75, z: 0}
-  m_LocalScale: {x: 0.3946, y: 0.3946, z: 0.3946}
+  m_LocalScale: {x: 0.25355816, y: 0.25355816, z: 0.25355816}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -87,21 +87,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1091091447070835708
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7631798722645274474}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e2061928bd17465499c9230f6c6651ad, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Speed: 250
-  ProjectileLifeTime: 3
-  ImpactEffect: {fileID: 0}
 --- !u!50 &1617291179479205550
 Rigidbody2D:
   serializedVersion: 4
@@ -139,3 +124,27 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &-1999959431083125431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7631798722645274474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ee512912114e65498b5ff52cc098dbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Speed: 200
+  ProjectileLifeTime: 3
+  Damage: 0
+  ImpactEffect: {fileID: 0}
+  Stage1_Damage: 1
+  Stage2_Damage: 1.5
+  Stage3_Damage: 2.5
+  Stage1_Large: 0.25
+  Stage2_Large: 0.45
+  Stage3_Large: 0.75
+  Stage1_EndDistance: 30
+  Stage2_EndDistance: 60

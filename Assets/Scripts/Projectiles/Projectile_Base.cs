@@ -6,14 +6,14 @@ public class Projectile_Base : MonoBehaviour
 {
     public float Speed;
     public float ProjectileLifeTime;
-    private int Damage;
+    public float Damage;
 
     public GameObject ImpactEffect;
 
-    private Rigidbody2D rb;
-    private CircleCollider2D projectilleCollider;
+    protected Rigidbody2D rb;
+    protected CircleCollider2D projectilleCollider;
 
-    private Unit_Base Parent;
+    protected Unit_Base Parent;
 
     private void Awake()
     {
@@ -21,18 +21,13 @@ public class Projectile_Base : MonoBehaviour
         projectilleCollider = transform.GetComponent<CircleCollider2D>();
     }
 
-    private void Update()
+    protected virtual void Update()
     {
         ProjectileLifeTime -= Time.deltaTime;
         if(ProjectileLifeTime <= 0)
         {
             OnProjectileLifeEnd();
         }
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        projectilleCollider.isTrigger = false;
     }
     
     protected virtual void OnCollisionEnter2D(Collision2D collision)
@@ -49,11 +44,12 @@ public class Projectile_Base : MonoBehaviour
         OnProjectileLifeEnd();
     }
     
-    public void Spawn(Unit_Base parent, int damage)
+    public virtual void Spawn(Unit_Base parent, float damage)
     {
 
         Damage = damage;
         Parent = parent;
+        Physics2D.IgnoreCollision(parent.GetComponent<Collider2D>(), projectilleCollider);
         rb.AddForce(transform.right * Speed,ForceMode2D.Force);
     }
 

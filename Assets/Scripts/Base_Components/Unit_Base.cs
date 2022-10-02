@@ -136,7 +136,7 @@ public class Unit_Base : MonoBehaviour
         BackPosition.right = targetLookPos - new Vector2 (transform.position.x, transform.position.y);
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(float damage)
     {
         print("Take damage " + damage);
         CurrentHP -= damage * Armor.PhysicalResist;
