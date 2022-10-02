@@ -12,6 +12,7 @@ namespace Controls
         public Transform target;
 
         private Coroutine moving;
+        private int tangentDir;
         
         private void Awake()
         {
@@ -25,9 +26,36 @@ namespace Controls
             while (true)
             {
                 yield return waitForSeconds;
+                if (target is null)
+                {
+                    StopCoroutine(moving);
+                    yield break;
+                }
                 unit.LookAt(target.position);
-                AttackDecision();
+                if (unit.Attack is not MeleeAttack_Base)
+                {
+                    StartMove(transform.position*2-target.position);
+                }
+                if (unit.Attack.CanAttack)
+                {
+                    AttackDecision();
+                }
+                else
+                {
+                    Evade();
+                }
             }
+        }
+
+        private void Evade()
+        {
+            if (Random.Range(0, 3) == 0)
+            {
+                StartMove(transform.position - transform.up);
+                return;
+            }
+            Vector3 dest = transform.position - transform.up + transform.right*30*tangentDir;
+            StartMove(dest);
         }
 
         private void AttackDecision()
@@ -35,16 +63,23 @@ namespace Controls
             float range = unit.Attack.AttackRange;
             if ((target.position - transform.position).sqrMagnitude > range * range)
             {
-                if (moving != null)
-                {
-                    StopCoroutine(moving);
-                }
-                moving = StartCoroutine(Moving(target.position));
+                StartMove(target.position);
             }
             else
             {
                 unit.TryAttack();
+                tangentDir = Random.Range(0, 2) == 0 ? 1 : -1;
             }
+        }
+
+        private void StartMove(Vector3 destination)
+        {
+            if (moving != null)
+            {
+                StopCoroutine(moving);
+            }
+
+            moving = StartCoroutine(Moving(destination));
         }
 
         IEnumerator Moving(Vector3 dest)
