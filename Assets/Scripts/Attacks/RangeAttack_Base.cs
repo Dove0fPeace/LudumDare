@@ -1,15 +1,22 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
 public class RangeAttack_Base : Attack_Base
 {
     public Projectile_Base ProjectilePrefab;
 
-    public override void Attack()
+    protected override void Start()
     {
-        base.Attack();
-        var projectile = Instantiate(ProjectilePrefab, HandsPlace.position, HandsPlace.rotation);
-        projectile.Spawn(self, Damage);
+        base.Start();
+        HandsPlace = self.HandsPosition;
+    }
+
+    public override bool Attack()
+    {
+        if (base.Attack())
+        {
+            var projectile = Instantiate(ProjectilePrefab, HandsPlace.position, HandsPlace.rotation);
+            projectile.Spawn(self, Damage);
+            return true;
+        }
+
+        return false;
     }
 }

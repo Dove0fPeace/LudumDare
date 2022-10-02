@@ -31,6 +31,7 @@ public class Unit_Base : MonoBehaviour
     private AudioSource AudioSource;
     private Vector3 initialPosition;
 
+
     private void Start()
     {
         ChangeBody();
@@ -68,7 +69,6 @@ public class Unit_Base : MonoBehaviour
         Armor = back.GetComponentInChildren<Armor_Base>();
         Move = front.GetComponentInChildren<Move_Base>();
         Attack = front.GetComponentInChildren<Attack_Base>();
-        Attack.HandsPlace = HandsPosition;
         Ability = back.GetComponentInChildren<IAbility>();
     }
 

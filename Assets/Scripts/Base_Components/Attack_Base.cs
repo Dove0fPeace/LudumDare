@@ -19,6 +19,7 @@ public class Attack_Base : MonoBehaviour
     [Header("Animation")]
     public Animator animator;
     public string AttackAnimationName;
+    public virtual Insects InsectType => Insects.Generic;
 
     protected Unit_Base self;
 
@@ -33,14 +34,16 @@ public class Attack_Base : MonoBehaviour
             attackTime -= Time.deltaTime;
     }
 
-    public virtual void Attack()
+    public virtual bool Attack()
     {
-        if(CanAttack == false) return;
+        if(CanAttack == false) return false;
         //animator.Play(AttackAnimationName, 0, 0f);
         attackTime = AttackCooldown;
         if (sfx)
         {
             self.PlayAudioOneshot(sfx);
         }
+
+        return true;
     }
 }

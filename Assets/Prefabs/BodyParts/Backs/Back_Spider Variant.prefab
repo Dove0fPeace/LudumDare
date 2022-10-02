@@ -319,5 +319,32 @@ PrefabInstance:
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[27].y
       value: -0.460059
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 71760020265922923, guid: 720fa54495e0d9c44a4dd6ee71950180, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 720fa54495e0d9c44a4dd6ee71950180, type: 3}
+--- !u!1 &1487722471448117679 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2702795108372186246, guid: 720fa54495e0d9c44a4dd6ee71950180, type: 3}
+  m_PrefabInstance: {fileID: 3541855020456084777}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &-557724160585215564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1487722471448117679}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 958a6471f1bef2342bfe19a1c10299bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Part: 2
+  AttackRange: 30
+  Damage: 0
+  sfx: {fileID: 0}
+  AttackCooldown: 4
+  HandsPlace: {fileID: 0}
+  animator: {fileID: 0}
+  AttackAnimationName: 
+  ProjectilePrefab: {fileID: 2640077605423772644, guid: 24858e0d7b005e04998fcea107c9fee5, type: 3}

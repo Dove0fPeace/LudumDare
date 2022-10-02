@@ -8,6 +8,15 @@ public enum BodyPart
     Abilitiy
 }
 
+public enum Insects
+{
+    Scarabei,
+    Spider,
+    Scorpion,
+    Moth,
+    Generic
+}
+
 [CreateAssetMenu()]
 public sealed class Bodytypes : ScriptableObject
 {
