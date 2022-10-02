@@ -218,6 +218,7 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 4486493365180743735, guid: e6349607294709f4f9e1852963948e4d, type: 3}
     - {fileID: -6444207460106306709, guid: e6349607294709f4f9e1852963948e4d, type: 3}
+    - {fileID: 146070501400393255, guid: e6349607294709f4f9e1852963948e4d, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e6349607294709f4f9e1852963948e4d, type: 3}
 --- !u!1 &1565244126578075357 stripped
 GameObject:
@@ -262,3 +263,23 @@ MonoBehaviour:
   AttackAnimationName: 
   AttackCastRadius: 1
   DamageDelay: 1
+--- !u!114 &-169919470452825059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1565244126578075357}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1827aaa6028a5c245b1b5fbc1c62ce04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Part: 1
+  rb: {fileID: 0}
+  MoveSpeed: 150
+  DiagonalSpeedLimit: 0.7
+  IsCanMove: 1
+  DashCooldown: 0
+  DashSpeed: 0
+  speedModifier: 1

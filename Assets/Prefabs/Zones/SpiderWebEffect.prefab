@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 4142578583007190376}
   - component: {fileID: 7604609225788031813}
   - component: {fileID: 7848549477167551983}
-  - component: {fileID: -4195610456805317163}
+  - component: {fileID: -887747471198487271}
   m_Layer: 0
-  m_Name: SpiderWeb
+  m_Name: SpiderWebEffect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 416114725858537391}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.2, y: 0.2, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -72,8 +72,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -34655755
-  m_SortingLayer: 1
+  m_SortingLayerID: 302222033
+  m_SortingLayer: 5
   m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 26efad2304e424848a378479c4b2dc9f, type: 3}
   m_Color: {r: 0.2735849, g: 0.26197046, b: 0.26197046, a: 1}
@@ -102,7 +102,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &-4195610456805317163
+--- !u!114 &-887747471198487271
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -111,11 +111,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 416114725858537391}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9be3aff3ba4646a691351eb83dce11c1, type: 3}
+  m_Script: {fileID: 11500000, guid: e0fc33f50d96454493a729140edd83c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MinSize: 0.2
-  MaxSize: 0.2
+  MinSize: 1
+  MaxSize: 1
   scaleTime: 1
-  initialScale: 0.02
+  initialScale: 0.2
+  lifeTime: 10
   slowCoef: 0.7

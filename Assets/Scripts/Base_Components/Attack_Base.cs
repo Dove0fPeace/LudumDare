@@ -34,14 +34,16 @@ public class Attack_Base : MonoBehaviour
             attackTime -= Time.deltaTime;
     }
 
-    public virtual void Attack()
+    public virtual bool Attack()
     {
-        if(CanAttack == false) return;
+        if(CanAttack == false) return false;
         //animator.Play(AttackAnimationName, 0, 0f);
         attackTime = AttackCooldown;
         if (sfx)
         {
             self.PlayAudioOneshot(sfx);
         }
+
+        return true;
     }
 }

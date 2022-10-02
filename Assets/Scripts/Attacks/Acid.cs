@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class Acid : Attack_Base
 {
-    public override void Attack()
+    public override bool Attack()
     {
         print("Acid");
+        return true;
     }
 }

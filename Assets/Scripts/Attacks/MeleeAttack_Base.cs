@@ -1,8 +1,5 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using DG.Tweening;
-using UnityEditor;
 
 public class MeleeAttack_Base : Attack_Base
 {
@@ -10,11 +7,16 @@ public class MeleeAttack_Base : Attack_Base
     public float AttackCastRadius;
     public float DamageDelay;
 
-    public override void Attack()
+    public override bool Attack()
     {
-        print("Attack");
-        base.Attack();
-        StartCoroutine(CheckRaycastOnAttack());
+        if (base.Attack())
+        {
+            print("Attack");
+            StartCoroutine(CheckRaycastOnAttack());
+            return true;
+        }
+
+        return false;
     }
 
     public IEnumerator CheckRaycastOnAttack()

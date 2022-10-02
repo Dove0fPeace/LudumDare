@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Projectile_Base : MonoBehaviour
@@ -15,13 +13,13 @@ public class Projectile_Base : MonoBehaviour
 
     private Unit_Base Parent;
 
-    private void Awake()
+    protected virtual void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         projectilleCollider = transform.GetComponent<CircleCollider2D>();
     }
 
-    private void Update()
+    protected virtual void Update()
     {
         ProjectileLifeTime -= Time.deltaTime;
         if(ProjectileLifeTime <= 0)
@@ -35,7 +33,7 @@ public class Projectile_Base : MonoBehaviour
         projectilleCollider.isTrigger = false;
     }
     
-    protected virtual void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         Unit_Base enemy = collision.transform.root.GetComponent<Unit_Base>();
         if(enemy != null)
@@ -44,9 +42,14 @@ public class Projectile_Base : MonoBehaviour
             {
                 return;
             }
-            enemy.TakeDamage(Damage);
+            OnEnemyHit(enemy);
         }
         OnProjectileLifeEnd();
+    }
+
+    protected virtual void OnEnemyHit(Unit_Base unit)
+    {
+        unit.TakeDamage(Damage);
     }
     
     public void Spawn(Unit_Base parent, int damage)
@@ -57,7 +60,7 @@ public class Projectile_Base : MonoBehaviour
         rb.AddForce(transform.right * Speed,ForceMode2D.Force);
     }
 
-    private void OnProjectileLifeEnd()
+    protected void OnProjectileLifeEnd()
     {
         if (ImpactEffect != null)
         {

@@ -21,6 +21,7 @@ public class Move_Base : MonoBehaviour
     private float dashTime = 0;
     private bool CanDash => dashTime <= 0;
     
+    [Header("Do not touch")]
     public float speedModifier = 1f;
     public virtual Insects InsectType => Insects.Generic;
 

@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using DG.Tweening;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -11,11 +12,25 @@ namespace Base_Components
         public float MaxSize = 3f;
         public float scaleTime = 1f;
         public float initialScale = 0.3f;
-        
+        public float lifeTime = 10;
+
         private void Start()
         {
             float size = Random.Range(MinSize, MaxSize);
             transform.DOScale(Vector3.one * size, scaleTime).From(initialScale);
+            StartCoroutine(Life());
+        }
+
+        IEnumerator Life()
+        {
+            yield return new WaitForSeconds(lifeTime);
+            ZoneRemoved();
+        }
+
+        protected virtual void ZoneRemoved()
+        {
+            transform.DOScale(Vector3.one * initialScale, scaleTime);
+            Destroy(gameObject, scaleTime);
         }
 
         private void OnTriggerStay2D(Collider2D other)
