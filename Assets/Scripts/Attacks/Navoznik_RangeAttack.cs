@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Navoznik_RangeAttack : RangeAttack_Base
@@ -45,5 +43,10 @@ public class Navoznik_RangeAttack : RangeAttack_Base
         currentProjectile.Launch();
         ballIsSpawned = false;
         return true;
+    }
+
+    private void OnDestroy()
+    {
+        Destroy(currentProjectile.gameObject);
     }
 }
