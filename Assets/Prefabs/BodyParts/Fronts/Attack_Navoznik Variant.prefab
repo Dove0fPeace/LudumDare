@@ -279,7 +279,7 @@ CapsuleCollider2D:
   m_Offset: {x: 0.8543253, y: -0.11322451}
   m_Size: {x: 2.231246, y: 5.098899}
   m_Direction: 0
---- !u!114 &-254088746593534592
+--- !u!114 &4965324716250864351
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -288,15 +288,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 7292338706385043160}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c6e58e927a6f6734190e6b82fe0df008, type: 3}
+  m_Script: {fileID: 11500000, guid: 93037439dcbfc6940a1bfe0f84077958, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Part: 2
   AttackRange: 30
   Damage: 10
-  sfx: {fileID: 8300000, guid: 35fe5d0a6b87d9142a5c592a1d23e117, type: 3}
-  AttackCooldown: 2
+  sfx: {fileID: 0}
+  AttackCooldown: 3
   HandsPlace: {fileID: 0}
   animator: {fileID: 0}
   AttackAnimationName: 
-  ProjectilePrefab: {fileID: 1091091447070835708, guid: e98af2daa6700a14aa6d15e287c471f3, type: 3}
+  ProjectilePrefab: {fileID: -1999959431083125431, guid: 4751f8e032fd1e1428293eaf0fd055a7, type: 3}
+  BallRestoreTime: 1.5
