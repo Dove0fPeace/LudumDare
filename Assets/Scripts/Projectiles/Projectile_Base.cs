@@ -5,29 +5,37 @@ using UnityEngine;
 public class Projectile_Base : MonoBehaviour
 {
     public float Speed;
+    public float ProjectileLifeTime;
     private int Damage;
 
     public GameObject ImpactEffect;
 
     private Rigidbody2D rb;
+    private CircleCollider2D projectilleCollider;
 
     private Unit_Base Parent;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        projectilleCollider = transform.GetComponent<CircleCollider2D>();
     }
 
     private void Update()
     {
-        
-        float stepLenght = Time.deltaTime * Speed;
-        Vector2 step = transform.right * stepLenght;
-        transform.position += new Vector3(step.x, step.y, 0);
-        
+        ProjectileLifeTime -= Time.deltaTime;
+        if(ProjectileLifeTime <= 0)
+        {
+            OnProjectileLifeEnd();
+        }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        projectilleCollider.isTrigger = false;
+    }
+    
+    protected virtual void OnCollisionEnter2D(Collision2D collision)
     {
         Unit_Base enemy = collision.transform.root.GetComponent<Unit_Base>();
         if(enemy != null)
@@ -37,14 +45,16 @@ public class Projectile_Base : MonoBehaviour
                 return;
             }
             enemy.TakeDamage(Damage);
+            OnProjectileLifeEnd();
         }
-        OnProjectileLifeEnd();
     }
+    
     public void Spawn(Unit_Base parent, int damage)
     {
 
         Damage = damage;
         Parent = parent;
+        rb.AddForce(transform.right * Speed,ForceMode2D.Impulse);
     }
 
     private void OnProjectileLifeEnd()

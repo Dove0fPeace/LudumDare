@@ -100,7 +100,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 10
+  ProjectileLifeTime: 3
   ImpactEffect: {fileID: 0}
+  profectileRadius: 0
 --- !u!50 &1617291179479205550
 Rigidbody2D:
   serializedVersion: 4
@@ -132,7 +134,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}

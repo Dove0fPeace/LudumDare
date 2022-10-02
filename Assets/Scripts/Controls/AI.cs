@@ -37,6 +37,7 @@ namespace Controls
             while (true)
             {
                 yield return waitForSeconds;
+<<<<<<< Updated upstream
                 if (!target.gameObject.activeInHierarchy)
                 {
                     StopCoroutine(moving);
@@ -55,6 +56,13 @@ namespace Controls
                 {
                     Evade();
                 }
+=======
+                if(target != null)
+                {
+                    unit.LookAt(target.position);
+                }
+                AttackDecision();
+>>>>>>> Stashed changes
             }
         }
 
