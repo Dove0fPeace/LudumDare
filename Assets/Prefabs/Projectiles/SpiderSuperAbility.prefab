@@ -136,8 +136,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd7ca0d442e649ab8793c92829abc0be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 250
+  Speed: 10
   ProjectileLifeTime: 3
+  Damage: 0
   ImpactEffect: {fileID: 0}
   webZone: {fileID: 416114725858537391, guid: 8786e01851acef848998cecd3e57a0e4, type: 3}
   webEffect: {fileID: -887747471198487271, guid: 47d98828f7495f545b98038c7c07895f, type: 3}

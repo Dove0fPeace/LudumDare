@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class BugBall : Projectile_Base
@@ -22,11 +23,8 @@ public class BugBall : Projectile_Base
     private int ballStage = 1;
 
     private bool IsLaunched;
+    private Collider2D collider1;
 
-    private void Start()
-    {
-
-    }
     protected override void Update()
     {
         if(IsLaunched)
@@ -60,14 +58,20 @@ public class BugBall : Projectile_Base
     {
         Damage = damage;
         Parent = parent;
+        rb.isKinematic = true;
+        collider1 = GetComponent<Collider2D>();
+        collider1.enabled = false;
     }
 
     public void Launch()
     {
+        rb.isKinematic = false;
+        collider1.enabled = true;
         IsLaunched = true;
-        rb.AddForce(transform.forward * Speed, ForceMode2D.Force);
         transform.SetParent(null);
+        rb.AddForce(transform.right * Speed, ForceMode2D.Impulse);
     }
+
     public void ChangeStage(int changeTo)
     {
         switch(changeTo)

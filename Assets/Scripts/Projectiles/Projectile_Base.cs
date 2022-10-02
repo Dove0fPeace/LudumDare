@@ -54,8 +54,7 @@ public class Projectile_Base : MonoBehaviour
 
         Damage = damage;
         Parent = parent;
-        //Physics2D.IgnoreCollision(, projectilleCollider);
-        rb.AddForce(transform.right * Speed,ForceMode2D.Force);
+        rb.AddForce(transform.right * Speed,ForceMode2D.Impulse);
     }
 
     protected void OnProjectileLifeEnd()
