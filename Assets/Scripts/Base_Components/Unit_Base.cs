@@ -29,6 +29,7 @@ public class Unit_Base : MonoBehaviour
     public Vector2 targetLookPos;
 
     private AudioSource AudioSource;
+    private Vector3 initialPosition;
 
     private void Start()
     {
@@ -36,6 +37,7 @@ public class Unit_Base : MonoBehaviour
         CurrentHP = MaxHitPoints;
         HpBar.maxValue = MaxHitPoints;
         HpBar.value = HpBar.maxValue;
+        initialPosition = transform.position;
     }
 
     private void Update()
@@ -45,6 +47,15 @@ public class Unit_Base : MonoBehaviour
 
     public void ChangeBody()
     {
+        if (!gameObject.activeInHierarchy)
+        {
+            //respawn
+            transform.position = initialPosition;
+            CurrentHP = MaxHitPoints;
+            HpBar.maxValue = MaxHitPoints;
+            HpBar.value = HpBar.maxValue;
+            gameObject.SetActive(true);
+        } 
         Clear();
 
         front = Instantiate(Bodytypes.Fronts[Random.Range(0, Bodytypes.Fronts.Length)],
@@ -155,6 +166,6 @@ public class Unit_Base : MonoBehaviour
 
     public void Death()
     {
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 }

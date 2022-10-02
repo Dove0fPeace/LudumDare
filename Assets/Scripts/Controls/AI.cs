@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Controls
 {
@@ -17,7 +19,16 @@ namespace Controls
         private void Awake()
         {
             unit = GetComponent<Unit_Base>();
+        }
+
+        private void OnEnable()
+        {
             StartCoroutine(AILoop());
+        }
+
+        private void OnDisable()
+        {
+            StopAllCoroutines();
         }
 
         IEnumerator AILoop()
@@ -26,10 +37,10 @@ namespace Controls
             while (true)
             {
                 yield return waitForSeconds;
-                if (target is null)
+                if (!target.gameObject.activeInHierarchy)
                 {
                     StopCoroutine(moving);
-                    yield break;
+                    continue;
                 }
                 unit.LookAt(target.position);
                 if (unit.Attack is not MeleeAttack_Base)
