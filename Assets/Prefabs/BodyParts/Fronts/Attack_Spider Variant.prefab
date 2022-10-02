@@ -289,7 +289,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Part: 1
   rb: {fileID: 0}
-  MoveSpeed: 150
+  MoveSpeed: 225
   DiagonalSpeedLimit: 0.7
   IsCanMove: 1
   CanDash: 1
