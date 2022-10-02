@@ -29,7 +29,6 @@ namespace Projectiles
 
         protected override void OnEnemyHit(Unit_Base unit)
         {
-            Debug.LogError("web hit");
             Instantiate(webEffect, unit.transform).Apply(unit);
         }
     }
