@@ -351,5 +351,35 @@ PrefabInstance:
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[32].y
       value: -0.10523695
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 71760020265922923, guid: 720fa54495e0d9c44a4dd6ee71950180, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 720fa54495e0d9c44a4dd6ee71950180, type: 3}
+--- !u!1 &673369415500154303 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2702795108372186246, guid: 720fa54495e0d9c44a4dd6ee71950180, type: 3}
+  m_PrefabInstance: {fileID: 3231904748501188921}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7695186906741818798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 673369415500154303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 877dee5486c0da4408d08d33d0fe807b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Part: 2
+  AttackRange: 1.5
+  Damage: 10
+  sfx: {fileID: 0}
+  AttackCooldown: 10
+  HandsPlace: {fileID: 0}
+  animator: {fileID: 0}
+  AttackAnimationName: 
+  AttackCastRadius: 0.5
+  DamageDelay: 0
+  InsectType: 2
+  PoisonPrefab: {fileID: 6954970962049813863, guid: 495d845e99bf0804ba3d5536c43e58d6, type: 3}

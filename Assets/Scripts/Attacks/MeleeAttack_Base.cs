@@ -11,7 +11,6 @@ public class MeleeAttack_Base : Attack_Base
     {
         if (base.Attack())
         {
-            print("Attack");
             StartCoroutine(CheckRaycastOnAttack());
             return true;
         }
@@ -28,12 +27,16 @@ public class MeleeAttack_Base : Attack_Base
         if(hit)
         {
             Unit_Base enemy = hit.collider.transform.root.GetComponent<Unit_Base>();
-            if(enemy != null && enemy != self)
+            if(enemy != null)
             {
-                print(enemy.name);
-                enemy.TakeDamage(Damage);
+                OnEnemyHit(enemy);
             }
         }
+    }
+
+    public virtual void OnEnemyHit(Unit_Base unit)
+    {
+        unit.TakeDamage(Damage);
     }
 #if UNITY_EDITOR
     private void OnDrawGizmos()
