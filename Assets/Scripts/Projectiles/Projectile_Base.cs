@@ -46,7 +46,7 @@ public class Projectile_Base : MonoBehaviour
 
     protected virtual void OnEnemyHit(Unit_Base unit)
     {
-        unit.TakeDamage(Damage);
+        unit.TakeDamage(Damage, false);
     }
     
     public virtual void Spawn(Unit_Base parent, float damage)

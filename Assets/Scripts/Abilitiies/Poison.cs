@@ -28,6 +28,6 @@ public class Poison : MonoBehaviour
     public void DamageTarget()
     {
         if(Target == null)return;
-        Target.TakeDamage(Damage);
+        Target.TakeDamage(Damage, true);
     }
 }

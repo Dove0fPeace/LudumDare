@@ -38,7 +38,7 @@ public class MeleeAttack_Base : Attack_Base
 
     public virtual void OnEnemyHit(Unit_Base unit)
     {
-        unit.TakeDamage(Damage);
+        unit.TakeDamage(Damage,false);
     }
 #if UNITY_EDITOR
     private void OnDrawGizmos()

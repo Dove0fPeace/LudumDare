@@ -142,14 +142,21 @@ public class Unit_Base : MonoBehaviour
         BackPosition.right = targetLookPos - new Vector2 (transform.position.x, transform.position.y);
     }
 
-    public void TakeDamage(float damage)
+    public void TakeDamage(float damage, bool isPoison)
     {
         print("Take damage " + damage);
-        CurrentHP -= Armor.CalculateDamage(damage);
-         if(CurrentHP <= 0)
-         {
+        if(!isPoison)
+        {
+            CurrentHP -= Armor.CalculateDamage(damage);
+        }
+        else
+        {
+            CurrentHP -= damage;
+        }
+        if(CurrentHP <= 0)
+        {
             Death();
-         }
+        }
     }
 
     public void Heal(int heal)
