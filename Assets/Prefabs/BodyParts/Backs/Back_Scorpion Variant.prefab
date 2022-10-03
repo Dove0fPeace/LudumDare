@@ -385,3 +385,5 @@ MonoBehaviour:
   AttackAnimationName: 
   ProjectilePrefab: {fileID: 3242962407902946182, guid: c683097efd593af4694a6d5dd2d1ca8d, type: 3}
   Insect: 2
+  AbilityUISprite: {fileID: 0}
+  AbilityCooldown: 10

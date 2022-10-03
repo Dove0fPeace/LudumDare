@@ -37,7 +37,7 @@ public class GameLoop : SingletonBase<GameLoop>
 
     private void Start()
     {
-        gameLoopTimer = Timer.CreateTimer(mainTime, true);
+        gameLoopTimer = Timer.CreateTimer(mainTime, true,true);
         gameLoopTimer.OnTimeRunOut += RandomEffect;
         trapSpawnPoints = TrapSpawnPoint.GetComponentsInChildren<Transform>();
         if(SpawwnPlayer)

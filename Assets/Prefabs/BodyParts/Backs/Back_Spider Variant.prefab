@@ -352,3 +352,5 @@ MonoBehaviour:
   animator: {fileID: 0}
   AttackAnimationName: 
   ProjectilePrefab: {fileID: 8373842378824041589, guid: 5012847d5fc23ed4f8f5d1dec3ca3d70, type: 3}
+  AbilityUISprite: {fileID: 0}
+  AbilityCooldown: 4
