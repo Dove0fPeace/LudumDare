@@ -116,7 +116,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MinSize: 1
   MaxSize: 3
-  scaleTime: 0
+  scaleTime: 1
   initialScale: 0.3
   lifeTime: 10
   slowCoef: 0.7

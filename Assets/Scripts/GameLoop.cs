@@ -33,6 +33,7 @@ public class GameLoop : SingletonBase<GameLoop>
     public Zone_Base[] Traps;
 
     private Transform spawnedPlayer;
+    private Unit_Base lastEnemy;
 
 
     private void Start()
@@ -65,7 +66,17 @@ public class GameLoop : SingletonBase<GameLoop>
             int point = Random.Range(0, trapSpawnPoints.Length);
             var enemy =  Instantiate(EnemyPrefab, trapSpawnPoints[point].position, trapSpawnPoints[point].rotation);
             enemy.target = spawnedPlayer;
+            lastEnemy = enemy.GetComponent<Unit_Base>();
         }
+    }
+
+    public void ChangeEnemy()
+    {
+        if (lastEnemy is null)
+        {
+            SpawnEnemy(1);
+        }
+        lastEnemy.ChangeBody();
     }
 
     public void ChangePlayer()
