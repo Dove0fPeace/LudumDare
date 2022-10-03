@@ -11,6 +11,10 @@ PrefabInstance:
       propertyPath: PhysicalResist
       value: 0.7
       objectReference: {fileID: 0}
+    - target: {fileID: -2835738847252084048, guid: 720fa54495e0d9c44a4dd6ee71950180, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 22100000, guid: 258f9c6168d7bca43ac44d553c519d3f, type: 2}
     - target: {fileID: 2702795108372186246, guid: 720fa54495e0d9c44a4dd6ee71950180, type: 3}
       propertyPath: m_Name
       value: Back_Navoznik Variant

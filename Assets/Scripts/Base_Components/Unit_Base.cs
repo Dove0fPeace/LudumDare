@@ -27,7 +27,9 @@ public class Unit_Base : MonoBehaviour
     public Transform BackPosition;
 
     private GameObject front;
+    private Animator frontAnim;
     private GameObject back;
+    private Animator backAnim;
     
     private AudioSource AudioSource;
     private Vector3 initialPosition;
@@ -73,8 +75,10 @@ public class Unit_Base : MonoBehaviour
 
         front = Instantiate(Bodytypes.GetRandomFront(), FrontPosition, false);
         front.transform.localPosition = Vector3.zero;
+        frontAnim = front.GetComponent<Animator>();
         back = Instantiate(Bodytypes.GetRandomBack(), BackPosition, false);
         back.transform.localPosition = Vector3.zero;
+        backAnim = back.GetComponent<Animator>();
         
         //priorities: move and attack from front, armor and ability from back
         Armor = front.GetComponentInChildren<Armor_Base>();
@@ -108,6 +112,12 @@ public class Unit_Base : MonoBehaviour
         }
     }
 
+    private void PlayAnim(string anim)
+    {
+        frontAnim.Play(anim);
+        backAnim.Play(anim);
+    }
+
     public bool TryMove(Vector2 direction)
     {
         if (Move is null || !Move.IsCanMove)
@@ -115,7 +125,17 @@ public class Unit_Base : MonoBehaviour
             return false;
         }
         Move.SetMove(direction.x, direction.y);
+        PlayAnim("Move");
         return true;
+    }
+
+    public void StopAnimation(string stateName)
+    {
+        if (frontAnim.GetCurrentAnimatorStateInfo(0).IsName(stateName))
+        {
+            frontAnim.StopPlayback();
+            backAnim.StopPlayback();
+        }
     }
 
     public bool TryDash()
@@ -125,6 +145,7 @@ public class Unit_Base : MonoBehaviour
             return false;
         }
         Move.Dash();
+        PlayAnim("Move");
         return true;
     }
 
@@ -136,6 +157,7 @@ public class Unit_Base : MonoBehaviour
         }
         
         Attack.Attack();
+        PlayAnim("Attack");
         return true;
     }
 
@@ -146,6 +168,7 @@ public class Unit_Base : MonoBehaviour
             return false;
         }
         Ability.Use();
+        PlayAnim("Ability");
         return true;
     }
 

@@ -60,6 +60,7 @@ public class Move_Base : MonoBehaviour
         else
         {
             rb.velocity = Vector2.zero;
+            self.StopAnimation("Move");
         }
     }
 
