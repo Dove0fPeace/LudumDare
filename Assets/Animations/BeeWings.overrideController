@@ -6,8 +6,8 @@ AnimatorOverrideController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: MothFront
+  m_Name: BeeWings
   m_Controller: {fileID: 9100000, guid: 283d8171f62c62e44b74730bac499c4b, type: 2}
   m_Clips:
   - m_OriginalClip: {fileID: 7400000, guid: ef4f6ce3b67eaed43a3fc3c3cc7a0d34, type: 2}
-    m_OverrideClip: {fileID: 7400000, guid: 87d0f83a1fed22e4986d42c08c57aa7a, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 922e0eb68237c4145afc24759bc494e6, type: 2}

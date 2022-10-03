@@ -27,7 +27,7 @@ public class Unit_Base : MonoBehaviour
     public Transform BackPosition;
 
     private GameObject front;
-    private Animator frontAnim;
+    private Animator[] frontAnims;
     private GameObject back;
     private Animator backAnim;
     
@@ -75,7 +75,7 @@ public class Unit_Base : MonoBehaviour
 
         front = Instantiate(Bodytypes.GetRandomFront(), FrontPosition.position, FrontPosition.rotation, FrontPosition);
         front.transform.localPosition = Vector3.zero;
-        frontAnim = front.GetComponent<Animator>();
+        frontAnims = front.GetComponentsInChildren<Animator>();
         back = Instantiate(Bodytypes.GetRandomBack(), BackPosition.position, BackPosition.rotation, BackPosition);
         back.transform.localPosition = Vector3.zero;
         backAnim = back.GetComponent<Animator>();
@@ -114,13 +114,19 @@ public class Unit_Base : MonoBehaviour
 
     private void PlayAnimBool(string anim, bool on)
     {
-        frontAnim.SetBool(anim, on);
+        foreach (var frontAnim in frontAnims)
+        {
+            frontAnim.SetBool(anim, on);
+        }
         backAnim.SetBool(anim, on);
     }
     
     private void PlayAnim(string anim)
     {
-        frontAnim.SetTrigger(anim);
+        foreach (var frontAnim in frontAnims)
+        {
+            frontAnim.SetTrigger(anim);
+        }
         backAnim.SetTrigger(anim);
     }
 
@@ -130,6 +136,15 @@ public class Unit_Base : MonoBehaviour
         {
             return false;
         }
+
+        //stop movement
+        if (direction.sqrMagnitude < 1)
+        {
+            Move.SetMove(0, 0);
+            PlayAnimBool("Move", false);
+            return false;
+        }
+        
         Move.SetMove(direction.x, direction.y);
         PlayAnimBool("Move", true);
         return true;

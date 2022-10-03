@@ -151,8 +151,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Part: 2
-  AttackRange: 30
-  Damage: 2
+  AttackRange: 3
+  Damage: 3
   sfx: {fileID: 0}
   AttackCooldown: 2
   HandsPlace: {fileID: 0}
