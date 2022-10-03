@@ -41,6 +41,9 @@ public class Unit_Base : MonoBehaviour
     public Kokon KokonPrefab;
     private Control_Base control;
 
+    private Vector2 targetLookAt;
+    private float rotateSpeed = 8f;
+
 
     private void Start()
     {
@@ -66,6 +69,12 @@ public class Unit_Base : MonoBehaviour
     private void Update()
     {
         HpBar.value = CurrentHP;
+
+        float angle = Vector2.SignedAngle(RotationRoot.right, targetLookAt);
+        if (Mathf.Abs(angle) > rotateSpeed)
+        {
+            RotationRoot.rotation = Quaternion.Euler(0, 0, Mathf.Sign(angle)*rotateSpeed) * RotationRoot.rotation;
+        }
     }
 
     public void ChangeBody()
@@ -205,7 +214,12 @@ public class Unit_Base : MonoBehaviour
 
     public void LookAt(Vector2 targetLookPos)
     {
-        RotationRoot.right = targetLookPos - new Vector2 (transform.position.x, transform.position.y);
+        float angle = Vector2.SignedAngle(RotationRoot.right, targetLookPos - (Vector2)transform.position);
+        if (Mathf.Abs(angle) < rotateSpeed)
+        {
+            return;
+        } 
+        targetLookAt = targetLookPos - (Vector2)transform.position;
     }
     
 

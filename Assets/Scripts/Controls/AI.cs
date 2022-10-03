@@ -8,7 +8,7 @@ namespace Controls
     public class AI : Control_Base
     {
         private Unit_Base unit;
-        public float smartness = 5f;
+        public float smartness = 3f;
         public float movePrecision = 1f;
         public Transform target;
         public float wallDistanceCheck = 3f;
