@@ -5,23 +5,23 @@ using UnityEngine;
 public class Dash_Base : MonoBehaviour
 {
     public float DashCooldown = 3f;
-    private float dashCurrentCooldown;
+    public float dashCurrentCooldown;
     public float DashForce;
     public float DashMoveBlock = 1f;
     public bool InvincibleInDash;
 
     public bool CanDash = true;
 
-    private Rigidbody2D rb;
-    private Move_Base Move_Target;
-    private Unit_Base self;
+    public Rigidbody2D rb;
+    public Move_Base Move_Target;
+    public Unit_Base self;
 
-    private Player_HUD hud;
+    public Player_HUD hud;
 
-    private Timer dashTimer;
+    public Timer dashTimer;
     
 
-    private void Start()
+    protected virtual void Start()
     {
         rb = transform.root.GetComponent<Rigidbody2D>();
         self = transform.root.GetComponent<Unit_Base>();

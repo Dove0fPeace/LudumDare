@@ -353,6 +353,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7837323009512365644, guid: 720fa54495e0d9c44a4dd6ee71950180, type: 3}
+    - {fileID: 71760020265922923, guid: 720fa54495e0d9c44a4dd6ee71950180, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 720fa54495e0d9c44a4dd6ee71950180, type: 3}
 --- !u!1 &1439471048519816383 stripped
 GameObject:
@@ -395,7 +396,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &-6527233038889278586
+--- !u!114 &-2649699712082430092
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -404,11 +405,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 1439471048519816383}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa337c56bc61fc3448ca274f80756a04, type: 3}
+  m_Script: {fileID: 11500000, guid: ea70b201f807d1047a56c9738acc7152, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   DashCooldown: 3
+  dashCurrentCooldown: 0
   DashForce: 5
   DashMoveBlock: 1
-  InvincibleInDash: 0
+  InvincibleInDash: 1
   CanDash: 1
+  rb: {fileID: 0}
+  Move_Target: {fileID: 0}
+  self: {fileID: 0}
+  hud: {fileID: 0}
+  dashTimer: {fileID: 0}

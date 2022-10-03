@@ -172,7 +172,7 @@ public class Unit_Base : MonoBehaviour
 
     public bool TryDash()
     {
-        if (Move is null || !Move.IsCanMove)
+        if (Dash is null || !Dash.CanDash)
         {
             return false;
         }
