@@ -1,0 +1,13 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: ScarabeiFront
+  m_Controller: {fileID: 9100000, guid: 283d8171f62c62e44b74730bac499c4b, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: cff7c618e7af0474ea36c5dd1d4317dd, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 81dc00f70fd31134f99f2cf87a047c66, type: 2}
