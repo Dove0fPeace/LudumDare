@@ -108,7 +108,7 @@ public class Unit_Base : MonoBehaviour
         
         //init components
         Armor.invincible = invincible;
-        Armor.PlayDamageEffect();
+        //Armor.PlayDamageEffect();
     }
 
     public void PlayAudioOneshot(AudioClip clip)
