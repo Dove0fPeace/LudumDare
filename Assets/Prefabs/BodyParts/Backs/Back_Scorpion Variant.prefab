@@ -7,6 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -8189072859394294054, guid: 720fa54495e0d9c44a4dd6ee71950180, type: 3}
+      propertyPath: PhysicalResist
+      value: 0.8
+      objectReference: {fileID: 0}
     - target: {fileID: 2702795108372186246, guid: 720fa54495e0d9c44a4dd6ee71950180, type: 3}
       propertyPath: m_Name
       value: Back_Scorpion Variant
@@ -25,11 +29,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5794836439227616626, guid: 720fa54495e0d9c44a4dd6ee71950180, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.03
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5794836439227616626, guid: 720fa54495e0d9c44a4dd6ee71950180, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.58
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5794836439227616626, guid: 720fa54495e0d9c44a4dd6ee71950180, type: 3}
       propertyPath: m_LocalPosition.z
@@ -372,14 +376,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Part: 2
-  AttackRange: 4
-  Damage: 10
+  AttackRange: 5
+  Damage: 4
   sfx: {fileID: 0}
   AttackCooldown: 10
   HandsPlace: {fileID: 0}
   animator: {fileID: 0}
   AttackAnimationName: 
-  AttackCastRadius: 1
-  DamageDelay: 0
-  InsectType: 2
+  AttackCastRadius: 3
+  DamageDelay: 1
+  Insect: 2
   PoisonPrefab: {fileID: 6954970962049813863, guid: 495d845e99bf0804ba3d5536c43e58d6, type: 3}

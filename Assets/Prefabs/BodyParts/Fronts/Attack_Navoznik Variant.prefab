@@ -220,11 +220,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 146070501400393255, guid: e6349607294709f4f9e1852963948e4d, type: 3}
       propertyPath: DashForce
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 146070501400393255, guid: e6349607294709f4f9e1852963948e4d, type: 3}
       propertyPath: MoveSpeed
-      value: 150
+      value: 175
       objectReference: {fileID: 0}
     - target: {fileID: 146070501400393255, guid: e6349607294709f4f9e1852963948e4d, type: 3}
       propertyPath: DashImpulse
@@ -232,7 +232,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 146070501400393255, guid: e6349607294709f4f9e1852963948e4d, type: 3}
       propertyPath: DashCooldown
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4486493365180743732, guid: e6349607294709f4f9e1852963948e4d, type: 3}
       propertyPath: m_Sprite
