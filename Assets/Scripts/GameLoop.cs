@@ -53,6 +53,7 @@ public class GameLoop : SingletonBase<GameLoop>
         intro.enabled = false;
         outro.enabled = false;
         storyPhase = StoryContainer.storyPhase;
+        Start10secs();
         StartCoroutine(StartSequence(StoryContainer.GetEnemiesCount(storyPhase), StoryContainer.GetEnemiesHp(storyPhase), StoryContainer.GetEnemiesBrain(storyPhase), StoryContainer.GetStory(storyPhase), storyPhase == 0));
     }
 
@@ -102,7 +103,6 @@ public class GameLoop : SingletonBase<GameLoop>
         {
             unitBase.GetComponent<Control_Base>().enabled = true;
         }
-        Start10secs();
     }
 
     private void OnDestroy()

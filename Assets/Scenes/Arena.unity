@@ -3510,9 +3510,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_DontDestroyOnLoad: 0
-  DashIcon: {fileID: 1836039954}
+  DashIcon: {fileID: 0}
   DashIconOverlay: {fileID: 1172462454}
-  AbilityIcon: {fileID: 25479259}
+  AbilityIcon: {fileID: 0}
   AbilityIconOverlay: {fileID: 202107335}
 --- !u!1 &1481393217
 GameObject:
