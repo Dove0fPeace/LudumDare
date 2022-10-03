@@ -8,4 +8,6 @@ AnimatorOverrideController:
   m_PrefabAsset: {fileID: 0}
   m_Name: MantisFront
   m_Controller: {fileID: 9100000, guid: 283d8171f62c62e44b74730bac499c4b, type: 2}
-  m_Clips: []
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: cff7c618e7af0474ea36c5dd1d4317dd, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: f1d93eff4901259418151f7d33e18fb8, type: 2}
