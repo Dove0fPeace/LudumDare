@@ -61,7 +61,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5901229448230539131, guid: ac910be198ea24b468662adb43ea40b2, type: 3}
       propertyPath: m_Name
-      value: Bug-base
+      value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ac910be198ea24b468662adb43ea40b2, type: 3}

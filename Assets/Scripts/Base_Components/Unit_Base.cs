@@ -269,6 +269,7 @@ public class Unit_Base : MonoBehaviour
     }
     public void Death()
     {
+        GameLoop.Instance.RemoveFromUnitList(this);
         gameObject.SetActive(false);
     }
 }

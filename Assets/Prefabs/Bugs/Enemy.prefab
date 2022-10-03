@@ -85,3 +85,4 @@ MonoBehaviour:
   smartness: 5
   movePrecision: 1
   target: {fileID: 0}
+  wallDistanceCheck: 3
