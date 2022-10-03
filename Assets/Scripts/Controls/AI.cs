@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -12,13 +11,16 @@ namespace Controls
         public float smartness = 5f;
         public float movePrecision = 1f;
         public Transform target;
+        public float wallDistanceCheck = 3f;
 
         private Coroutine moving;
         private int tangentDir;
+        private Transform realUnit;
         
         private void Awake()
         {
             unit = GetComponent<Unit_Base>();
+            realUnit = unit.RotationRoot;
         }
 
         private void OnEnable()
@@ -43,9 +45,17 @@ namespace Controls
                     continue;
                 }
                 unit.LookAt(target.position);
-                if (unit.Attack is not MeleeAttack_Base)
+                if (unit.Ability.CanUse())
                 {
-                    StartMove(transform.position*2-target.position);
+                    unit.Ability.Use();
+                    continue;
+                }
+                if (unit.Move.CanDash && IsCastHit(-realUnit.right, wallDistanceCheck))
+                {
+                    if (unit.TryDash())
+                    {
+                        continue;
+                    }
                 }
                 if (unit.Attack.CanAttack)
                 {
@@ -62,25 +72,38 @@ namespace Controls
         {
             if (Random.Range(0, 3) == 0)
             {
-                StartMove(transform.position - transform.up);
+                StartMove(realUnit.position - realUnit.right);
                 return;
             }
-            Vector3 dest = transform.position - transform.up + transform.right*30*tangentDir;
+            Vector3 dest = realUnit.position - realUnit.right + realUnit.up*30*tangentDir;
             StartMove(dest);
         }
 
         private void AttackDecision()
         {
             float range = unit.Attack.AttackRange;
-            if ((target.position - transform.position).sqrMagnitude > range * range)
+            //works while we are facing the player
+            if (!IsCastHit(realUnit.right, range))
             {
                 StartMove(target.position);
             }
             else
             {
+                StartMove(target.position);
                 unit.TryAttack();
                 tangentDir = Random.Range(0, 2) == 0 ? 1 : -1;
             }
+        }
+
+        private bool IsCastHit(Vector3 direction, float range)
+        {
+            RaycastHit2D hit;
+            hit = Physics2D.CircleCast(realUnit.position, 1, direction, range);
+            if (hit)
+            {
+                return true;
+            }
+            return false;
         }
 
         private void StartMove(Vector3 destination)
@@ -95,11 +118,17 @@ namespace Controls
 
         IEnumerator Moving(Vector3 dest)
         {
-            while ((transform.position - dest).sqrMagnitude > movePrecision*movePrecision)
+            while ((realUnit.position - dest).sqrMagnitude > movePrecision*movePrecision)
             {
-                unit.TryMove((dest - transform.position).normalized);
+                unit.TryMove((dest - realUnit.position).normalized);
                 yield return null;
             }
+        }
+
+        private void OnDrawGizmos()
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawLine(realUnit.position, realUnit.position-realUnit.right * wallDistanceCheck);
         }
     }
 }

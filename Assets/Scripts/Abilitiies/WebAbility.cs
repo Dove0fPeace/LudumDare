@@ -21,6 +21,11 @@ public class WebAbility : RangeAttack_Base, IAbility
         base.Start();
         InitiateAbility();
     }
+    
+    public bool CanUse()
+    {
+        return CanAttack;
+    }
 
     public void InitiateAbility()
     {

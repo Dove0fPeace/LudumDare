@@ -269,6 +269,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Part: 2
+  UnableToAttack: 1
   AttackRange: 30
   Damage: 0
   sfx: {fileID: 0}

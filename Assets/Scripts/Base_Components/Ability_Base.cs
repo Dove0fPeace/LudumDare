@@ -8,8 +8,7 @@ public class Ability_Base : MonoBehaviour, IAbility
     public float AbilityCooldown;
     private float abilityTime = 0;
     private bool CanAbility => abilityTime <= 0;
-
-
+    
 
     private void Update()
     {
@@ -22,6 +21,11 @@ public class Ability_Base : MonoBehaviour, IAbility
         if(!CanAbility) return;
         print("Use ability");
         abilityTime = AbilityCooldown;
+    }
+
+    public bool CanUse()
+    {
+        return false;
     }
 
     public void InitiateAbility()
