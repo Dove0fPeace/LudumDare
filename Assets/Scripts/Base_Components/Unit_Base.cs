@@ -226,7 +226,7 @@ public class Unit_Base : MonoBehaviour
 
     public void TakeDamage(float damage, bool isPoison)
     {
-        print("Take damage " + damage);
+        print("Take damage " + damage + gameObject.name);
         if(!isPoison)
         {
             CurrentHP -= Armor.CalculateDamage(damage);

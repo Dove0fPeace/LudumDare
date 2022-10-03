@@ -12,6 +12,8 @@ public class Dash_Base : MonoBehaviour
 
     public bool CanDash = true;
 
+    public bool DashNow = false;
+
     public Rigidbody2D rb;
     public Move_Base Move_Target;
     public Unit_Base self;
@@ -58,9 +60,10 @@ public class Dash_Base : MonoBehaviour
         return true;
     }
 
-    IEnumerator Dashing()
+    protected virtual IEnumerator Dashing()
     {
         self.SetInvincible(InvincibleInDash);
+        DashNow = true;
         Move_Target.SetLayer(LayerMask.NameToLayer("bugDash"));
         Move_Target.IsCanMove = false;
         CanDash = false;
@@ -70,9 +73,11 @@ public class Dash_Base : MonoBehaviour
         yield return new WaitForSeconds(DashCooldown - DashMoveBlock);
         Move_Target.SetLayer(LayerMask.NameToLayer("bug"));
         self.SetInvincible(false);
+        DashNow = false;
         CanDash = true;
         hud.InitUI(ObjWithCooldown.Dash, null);
         dashTimer.Pause();
         dashTimer.Restart();
+
     }
 }
