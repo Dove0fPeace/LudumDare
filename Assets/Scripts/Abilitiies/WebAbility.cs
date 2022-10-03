@@ -1,10 +1,12 @@
 using Base_Components;
+using Controls;
 using UnityEngine;
 
 public class WebAbility : RangeAttack_Base, IAbility
 {
     public Insects Insect => Insects.Spider;
 
+    private AI ai;
 
     [Header("Ability Settings")]
     public Sprite AbilityUISprite;
@@ -19,6 +21,7 @@ public class WebAbility : RangeAttack_Base, IAbility
     protected override void Start()
     {
         base.Start();
+        ai = transform.root.GetComponent<AI>();
         InitiateAbility();
     }
     
@@ -32,13 +35,14 @@ public class WebAbility : RangeAttack_Base, IAbility
         timer = Timer.CreateTimer(AbilityCooldown, false);
         timer.Pause();
         hud = Player_HUD.Instance;
-        hud.InitUI(ObjWithCooldown.Ability, AbilityUISprite);
+        hud.InitUI(ObjWithCooldown.Ability);
         timer.OnTick += OnCDTick;
         timer.OnTimeRunOut += OnCDComplete;
     }
 
     private void OnCDTick()
     {
+        if (ai != null) return;
         currentCooldown = timer.CurrentTime / AbilityCooldown;
         hud.UpdateCooldown(ObjWithCooldown.Ability, currentCooldown);
     }
@@ -46,9 +50,10 @@ public class WebAbility : RangeAttack_Base, IAbility
     private void OnCDComplete()
     {
         CooldownIsDown = true;
-        hud.InitUI(ObjWithCooldown.Ability, AbilityUISprite);
         timer.Restart();
         timer.Pause();
+        if (ai != null) return;
+        hud.InitUI(ObjWithCooldown.Ability);
     }
 
     public void Use()
@@ -64,6 +69,6 @@ public class WebAbility : RangeAttack_Base, IAbility
         timer.OnTick -= OnCDTick;
         timer.OnTimeRunOut -= OnCDComplete;
         timer.Destroy();
-        hud.InitUI(ObjWithCooldown.Ability, null);
+        hud.InitUI(ObjWithCooldown.Ability);
     }
 }

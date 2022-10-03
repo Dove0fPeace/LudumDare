@@ -1,3 +1,4 @@
+using Controls;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -21,6 +22,8 @@ public class Dash_Base : MonoBehaviour
     public Player_HUD hud;
 
     public Timer dashTimer;
+
+    public AI ai;
     
 
     protected virtual void Start()
@@ -29,8 +32,16 @@ public class Dash_Base : MonoBehaviour
         self = transform.root.GetComponent<Unit_Base>();
         Move_Target = self.Move;
 
-        hud = Player_HUD.Instance;
-        hud.InitUI(ObjWithCooldown.Dash, null);
+        ai = transform.root.GetComponent<AI>();
+
+        if(ai == null)
+        {
+
+            hud = Player_HUD.Instance;
+
+            hud.InitUI(ObjWithCooldown.Dash);
+        }
+
 
         dashTimer = Timer.CreateTimer(DashCooldown, false);
         dashTimer.OnTick += UpdateDashUI;
@@ -44,6 +55,7 @@ public class Dash_Base : MonoBehaviour
 
     protected virtual void UpdateDashUI()
     {
+        if (ai != null) return;
         dashCurrentCooldown = dashTimer.CurrentTime / DashCooldown;
         hud.UpdateCooldown(ObjWithCooldown.Dash, dashCurrentCooldown);
     }
@@ -75,7 +87,10 @@ public class Dash_Base : MonoBehaviour
         self.SetInvincible(false);
         DashNow = false;
         CanDash = true;
-        hud.InitUI(ObjWithCooldown.Dash, null);
+        if(ai != null)
+        {
+            //hud.InitUI(ObjWithCooldown.Dash);
+        }
         dashTimer.Pause();
         dashTimer.Restart();
 

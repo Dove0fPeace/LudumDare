@@ -1,4 +1,5 @@
 using Base_Components;
+using Controls;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -18,11 +19,14 @@ public class Bombardir_Ability : MeleeAttack_Base, IAbility
     private float currentCooldown;
 
     private Player_HUD hud;
+    private AI ai; 
 
     protected override void Start()
     {
         base.Start();
         InitiateAbility();
+        ai = transform.root.GetComponent<AI>();
+        
     }
 
     protected override void Update()
@@ -33,6 +37,7 @@ public class Bombardir_Ability : MeleeAttack_Base, IAbility
             CurrentTickTIme -= Time.deltaTime;
             if(CurrentTickTIme <= 0)
             {
+                print("tick");
                 currentTickCount--;
                 if(currentTickCount <= 0)
                 {
@@ -49,7 +54,10 @@ public class Bombardir_Ability : MeleeAttack_Base, IAbility
         {
             currentCooldown = 0;
         }
-        hud.UpdateCooldown(ObjWithCooldown.Ability, currentCooldown);       
+        if (ai == null)
+        {
+            hud.UpdateCooldown(ObjWithCooldown.Ability, currentCooldown);       
+        }
     }
 
 
@@ -60,21 +68,20 @@ public class Bombardir_Ability : MeleeAttack_Base, IAbility
 
     public void InitiateAbility()
     {
+        var ai = transform.root.GetComponent<AI>();
+        if (ai != null) return;
+
         hud = Player_HUD.Instance;
-        hud.InitUI(ObjWithCooldown.Ability, AbilityUISprite);
+        hud.InitUI(ObjWithCooldown.Ability);
     }
 
 
     public void Use()
     {
-        Attack();
-    }
-
-    public override bool Attack()
-    {
-
-        currentTickCount = AbilityTickCount - 1;
+        print("Use");
         isUse = true;
-        return base.Attack();
+        CurrentTickTIme = AbilityTickTime;
+        currentTickCount = AbilityTickCount;
+        Attack();
     }
 }
