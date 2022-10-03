@@ -14,12 +14,6 @@ public class ButterflyDash : Dash_Base, IAbility
     {
         base.Start();
         InitiateAbility();
-        dashTimer.OnTick += UpdateUI;
-    }
-
-    private void OnDestroy()
-    {
-        dashTimer.OnTick -= UpdateUI;
     }
 
     public void InitiateAbility()
@@ -27,11 +21,16 @@ public class ButterflyDash : Dash_Base, IAbility
         hud.InitUI(ObjWithCooldown.Ability, null);
     }
 
-    private void UpdateUI()
+    protected override void UpdateDashUI()
     {
+        base.UpdateDashUI();
         hud.UpdateCooldown(ObjWithCooldown.Ability, dashCurrentCooldown);
     }
 
+    private void OnDestroy()
+    {
+        hud.InitUI(ObjWithCooldown.Ability, null);
+    }
     public void Use()
     {
         if(!CanDash) return;
