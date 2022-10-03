@@ -18,7 +18,19 @@ PrefabInstance:
     - target: {fileID: 3791362604563600914, guid: 720fa54495e0d9c44a4dd6ee71950180, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 6f1f64b5a88824d48a4756b2013e6bc4, type: 3}
+      objectReference: {fileID: -1467094148, guid: e6ca2f45a3c819d43b48cf983ebb2502, type: 3}
+    - target: {fileID: 3791362604563600914, guid: 720fa54495e0d9c44a4dd6ee71950180, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3791362604563600914, guid: 720fa54495e0d9c44a4dd6ee71950180, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3791362604563600914, guid: 720fa54495e0d9c44a4dd6ee71950180, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3791362604563600914, guid: 720fa54495e0d9c44a4dd6ee71950180, type: 3}
       propertyPath: m_SortingLayer
       value: 4
@@ -81,19 +93,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7837323009512365644, guid: 720fa54495e0d9c44a4dd6ee71950180, type: 3}
       propertyPath: m_SpriteTilingProperty.pivot.x
-      value: 0.55444753
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7837323009512365644, guid: 720fa54495e0d9c44a4dd6ee71950180, type: 3}
       propertyPath: m_SpriteTilingProperty.pivot.y
-      value: 0.48575497
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7837323009512365644, guid: 720fa54495e0d9c44a4dd6ee71950180, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 10
+      value: 1.85
       objectReference: {fileID: 0}
     - target: {fileID: 7837323009512365644, guid: 720fa54495e0d9c44a4dd6ee71950180, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 8
+      value: 1.85
       objectReference: {fileID: 0}
     - target: {fileID: 7837323009512365644, guid: 720fa54495e0d9c44a4dd6ee71950180, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.size
