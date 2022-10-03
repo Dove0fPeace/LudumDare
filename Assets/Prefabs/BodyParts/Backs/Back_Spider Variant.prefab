@@ -423,7 +423,7 @@ MonoBehaviour:
   UnableToAttack: 0
   AttackRange: 30
   Damage: 0
-  sfx: {fileID: 0}
+  sfx: {fileID: 8300000, guid: 5dcc09e72ca1f584fb1dc15baf51d2a3, type: 3}
   AttackCooldown: 4
   HandsPlace: {fileID: 0}
   animator: {fileID: 0}
