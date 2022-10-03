@@ -154,7 +154,7 @@ public class Unit_Base : MonoBehaviour
         }
 
         //stop movement
-        if (direction.sqrMagnitude < 1)
+        if (direction.sqrMagnitude < 0.5f)
         {
             Move.SetMove(0, 0);
             PlayAnimBool("Move", false);

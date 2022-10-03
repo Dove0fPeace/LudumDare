@@ -318,7 +318,7 @@ MonoBehaviour:
   animator: {fileID: 0}
   AttackAnimationName: 
   AttackCastRadius: 1
-  DamageDelay: 1
+  DamageDelay: 0.2
 --- !u!114 &-169919470452825059
 MonoBehaviour:
   m_ObjectHideFlags: 0
