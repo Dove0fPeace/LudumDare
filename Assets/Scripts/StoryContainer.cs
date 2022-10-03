@@ -4,6 +4,52 @@ namespace DefaultNamespace
     {
         public static int storyPhase = 0;
         
+        private static string[][] EngStories = new string[][]
+        {
+            new []
+            {
+                "Awake and break out of your cocoon, little one. You were made to break the will of disobedient people and put them on their knees.",
+                "Just like your brothers and sisters,  you are the best of my creations. And still, you are far from perfect.",
+                "Prove the opposite to your Master! Kill your brothers and sisters in the arena and soak up their essence. Become the apex predator!",
+                "..."
+            },
+            new []
+            {
+                "— Do-o-o-es this o-o-o-ne speak?",
+                "...",
+                "— I am already bet-ter than youu, and Massster seesss it. Pre-pare to die, filtth."
+            },
+            new []
+            {
+            "— How many have you already killed?",
+            "— Juuust three-e of themm",
+            "— Weak one, I've killed four already. I managed to split my sister's belly while I was waiting for this fight. My father was very pleased with me!",
+            "— Cleverr...",
+            "— Let the battle begin!"
+            },
+            new []
+            {
+                "What a wonderful creation you are! I can see your power. Kill the rest of them, take from them what is yours.",
+                "After all, you are the one I believe in and the one who will defeat the champion of the people. You may then feast, absorb the defiant and break their will.",
+                "— How many have you killed?",
+                "— You won't be the final one..."
+            },
+            new []
+            {
+                "It’s been a long time since I’ve enjoyed watching someone fight like this. Usually there’s no one to fight, because I eat everyone. But you’re perfect!",
+                "The essence of pure primitive cruelty, cunning, and endless will to live. Dopamine overflows in me with the thought of your devotion, in your desire to serve you have cut down all of your kin.",
+                "Although, there is one left. And I will not tolerate defeat.",
+                "— Any last words?",
+                "— LAST WORDS?! How dare you behave so brazenly with the ppppperfect creation?",
+                "...",
+                "— Brainless piece of meat. Your essence belongs to me. I’ll rip you apart, bastard."
+            },
+            new []
+            {
+                "It is so amusing to watch those who walk the path of mine. Go now to the exit of the arena, I will lead you to the people..."
+            }
+        };
+        
         private static string[][] Stories = new string[][]
         {
             new []
@@ -47,7 +93,7 @@ namespace DefaultNamespace
         public static string[] GetStory(int num)
         {
             storyPhase = num;
-            return Stories[num];
+            return EngStories[num];
         }
 
         public static int GetEnemiesCount(int num)

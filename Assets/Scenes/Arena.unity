@@ -214,9 +214,27 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 82815679712834433, guid: 148d0fe69e37f034d9c19542f7659f86, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 82815679712834444, guid: 148d0fe69e37f034d9c19542f7659f86, type: 3}
       propertyPath: m_Name
       value: IntroCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 82815679874605153, guid: 148d0fe69e37f034d9c19542f7659f86, type: 3}
+      propertyPath: m_text
+      value: "There is a lonely planet in one pocket of the Universe. In the god-forgotten
+        time an ancient monster awoke in the planet's depth - Shkhorn the One, Shkhorn
+        the Monster, summoned by the god's nightmare, who unifies all around him
+        without any goal or aim. \n\nThe people tried to save themselves but they
+        where helpless. Their bodies were consumed by the monster. But not their
+        will. The people's minds were not united with the mind of the Shkhorn. Moreover,
+        the people, led by the pure cold hatred, separated themselves from the monster
+        and declared an eternal war.\n\nThe Shkhorn, who took in the cunning and
+        wisdom of the people, conceived and constructed the Arena. A place where
+        his champion will be brought to life, the one who will at last overpower
+        the people.\r\n"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 148d0fe69e37f034d9c19542f7659f86, type: 3}
@@ -1324,6 +1342,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 329868596}
     m_Modifications:
+    - target: {fileID: 8581125650251297956, guid: 5e34a56f4a7bafc4eba6f891b54582e2, type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 8581125650305983098, guid: 5e34a56f4a7bafc4eba6f891b54582e2, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1658,6 +1680,7 @@ MonoBehaviour:
   textBox: {fileID: 443882953}
   intro: {fileID: 888998905}
   outro: {fileID: 1620008309}
+  GameOn: 0
   PlayerPrefab: {fileID: 3135298652271322703, guid: f40a5e8d3bbba3846b4c2d228ee981b1, type: 3}
   PLayerSpawnPoint: {fileID: 1527402341}
   targetCamera: {fileID: 352408460}
@@ -1698,15 +1721,15 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: a19e515169d9c8c438b08fa0c9482f68, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 3cf6c342082e13f42b0fd9efd0dab414, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.8
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 203
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -3320,6 +3343,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6864460141299418118, guid: df6d0fdd7b245724db23a51d5e2633a5, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6864460141299418119, guid: df6d0fdd7b245724db23a51d5e2633a5, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -3425,6 +3452,28 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2800000, guid: ac0aa3057624768449cff0b0c443c145, type: 3}
     - target: {fileID: 6864460142922076002, guid: df6d0fdd7b245724db23a51d5e2633a5, type: 3}
+      propertyPath: m_text
+      value: "   Champion of Shkhorn made his way through his relatives and received
+        the greatest reward - leaving the arena and fulfilling the will of its creator.
+        For a long, long time the champion walked through the endless tunnel, inside
+        the flesh of Shkorn and finally came out to the human biomass.\r\n    That\u2019s
+        where he met his last enemy, the champion of men, an ugly monster like himself.
+        But a man is not equal to the spawn of Shkorn and therefore in a minute,
+        in a disembodied state, the human was digested.\n    Many decades have passed
+        since then. Champion of the Shkhorn devoured countless human flesh and grew
+        in size. He grew and grew until he noticed that all human biomass was now
+        a part of him. But with the new body, something else had come. The champion
+        understood why people were able to take over the Shkhorn\u2019s body. His
+        savage mind struggled to cope with the rush of cold hatred, fearful anger,
+        burning wrath and deep despair. But he failed. He was torn apart by human
+        emotions and former champion of the Shkhorn, with his personality, dissolved
+        into biomass.\r\n    The Circle Was Complete.\r\n\n\n"
+      objectReference: {fileID: 0}
+    - target: {fileID: 6864460142922076002, guid: df6d0fdd7b245724db23a51d5e2633a5, type: 3}
+      propertyPath: m_fontSize
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 6864460142922076002, guid: df6d0fdd7b245724db23a51d5e2633a5, type: 3}
       propertyPath: m_fontColor.b
       value: 0.8773585
       objectReference: {fileID: 0}
@@ -3435,6 +3484,10 @@ PrefabInstance:
     - target: {fileID: 6864460142922076002, guid: df6d0fdd7b245724db23a51d5e2633a5, type: 3}
       propertyPath: m_fontColor.r
       value: 0.79045033
+      objectReference: {fileID: 0}
+    - target: {fileID: 6864460142922076002, guid: df6d0fdd7b245724db23a51d5e2633a5, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 6864460142922076002, guid: df6d0fdd7b245724db23a51d5e2633a5, type: 3}
       propertyPath: m_fontColor32.rgba
