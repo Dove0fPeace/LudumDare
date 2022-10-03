@@ -204,7 +204,7 @@ public class Unit_Base : MonoBehaviour
 
     public bool TryAbility()
     {
-        if (Ability is null)
+        if (Ability is null || Ability.CanUse() == false)
         {
             return false;
         }
