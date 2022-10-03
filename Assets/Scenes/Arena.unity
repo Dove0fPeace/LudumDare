@@ -585,7 +585,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
-  m_FillAmount: 1
+  m_FillAmount: 0
   m_FillClockwise: 0
   m_FillOrigin: 2
   m_UseSpriteMesh: 0
@@ -1326,6 +1326,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_DontDestroyOnLoad: 0
   mainTime: 10
+  AudioOnLoopTimesEnd: {fileID: 0}
   PlayerPrefab: {fileID: 3135298652271322703, guid: f40a5e8d3bbba3846b4c2d228ee981b1, type: 3}
   PLayerSpawnPoint: {fileID: 1527402341}
   targetCamera: {fileID: 352408460}
@@ -2626,7 +2627,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
-  m_FillAmount: 1
+  m_FillAmount: 0
   m_FillClockwise: 0
   m_FillOrigin: 2
   m_UseSpriteMesh: 0

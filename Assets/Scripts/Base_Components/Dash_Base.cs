@@ -40,7 +40,7 @@ public class Dash_Base : MonoBehaviour
         dashTimer.Destroy();
     }
 
-    private void UpdateDashUI()
+    protected virtual void UpdateDashUI()
     {
         dashCurrentCooldown = dashTimer.CurrentTime / DashCooldown;
         hud.UpdateCooldown(ObjWithCooldown.Dash, dashCurrentCooldown);
