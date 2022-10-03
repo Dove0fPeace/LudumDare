@@ -12,7 +12,7 @@ public class Attack_Base : MonoBehaviour
     public AudioClip sfx;
 
     public float AttackCooldown;
-    private float attackTime = 0;
+    public float attackTime = 0;
     public bool CanAttack => attackTime <= 0 && !UnableToAttack;
 
     public Transform HandsPlace;
@@ -29,7 +29,7 @@ public class Attack_Base : MonoBehaviour
         animator = GetComponent<Animator>();
         self = transform.root.GetComponent<Unit_Base>();
     }
-    private void Update()
+    protected virtual void Update()
     {
         if(attackTime > 0)
             attackTime -= Time.deltaTime;
