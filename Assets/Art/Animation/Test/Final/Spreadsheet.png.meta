@@ -204,12 +204,12 @@ TextureImporter:
       name: Spreadsheet_4
       rect:
         serializedVersion: 2
-        x: 985
+        x: 984
         y: 1733
         width: 185
         height: 185
       alignment: 9
-      pivot: {x: 0.63, y: 0.47}
+      pivot: {x: 0.615, y: 0.47}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -230,7 +230,7 @@ TextureImporter:
         width: 185
         height: 185
       alignment: 9
-      pivot: {x: 0.63, y: 0.47}
+      pivot: {x: 0.615, y: 0.47}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -251,7 +251,7 @@ TextureImporter:
         width: 185
         height: 185
       alignment: 9
-      pivot: {x: 0.63, y: 0.47}
+      pivot: {x: 0.615, y: 0.47}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -272,7 +272,7 @@ TextureImporter:
         width: 185
         height: 185
       alignment: 9
-      pivot: {x: 0.63, y: 0.47}
+      pivot: {x: 0.615, y: 0.47}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
