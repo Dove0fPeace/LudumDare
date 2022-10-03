@@ -1332,7 +1332,7 @@ MonoBehaviour:
   SpawwnPlayer: 1
   GodMode: 0
   EnemyPrefab: {fileID: -1215429076435941195, guid: 6b77990008b3b3a418cd35ffa92a7077, type: 3}
-  EnemySpawnCount: 2
+  EnemySpawnCount: 1
   TrapSpawnPoint: {fileID: 961743928}
   MinTrapsSpawn: 1
   MaxTrapsSpawn: 5
@@ -3127,8 +3127,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 617627694}
         m_TargetAssemblyTypeName: GameLoop, Assembly-CSharp
-        m_MethodName: SpawnEnemy
-        m_Mode: 3
+        m_MethodName: ChangeEnemy
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
