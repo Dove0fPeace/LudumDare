@@ -269,6 +269,26 @@ CapsuleCollider2D:
   m_Offset: {x: 0.27770463, y: 0.0032497644}
   m_Size: {x: 0.6945769, y: 1.2434919}
   m_Direction: 0
+--- !u!95 &861513645749111276
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1565244126578075357}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 22100000, guid: 68f32a17c2a3fca4eaa5328745d782f2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &-6683031612784024704
 MonoBehaviour:
   m_ObjectHideFlags: 0
