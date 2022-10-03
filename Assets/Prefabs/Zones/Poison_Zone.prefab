@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7848549477167551983}
   - component: {fileID: 2776424960524771887}
   m_Layer: 0
-  m_Name: Sticky
+  m_Name: Poison_Zone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: -34655755
   m_SortingLayer: 1
   m_SortingOrder: -1
-  m_Sprite: {fileID: 21300000, guid: 11e2fa2e2604be448abe80759c0888b5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 14b33f42ed6466947b48996cf957793b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

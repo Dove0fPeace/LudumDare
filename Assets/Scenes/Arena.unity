@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731715, g: 0.13414735, b: 0.121078536, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1338,6 +1338,8 @@ MonoBehaviour:
   MaxTrapsSpawn: 5
   Traps:
   - {fileID: 2776424960524771887, guid: 214da21af3193f14897cdba509f14c6d, type: 3}
+  - {fileID: 2776424960524771887, guid: 02671afaa633f2345880cb9fdf83e2ee, type: 3}
+  - {fileID: 2776424960524771887, guid: 9decfc36d93e70f4287c8cbb0da1e912, type: 3}
 --- !u!4 &617627695
 Transform:
   m_ObjectHideFlags: 0
