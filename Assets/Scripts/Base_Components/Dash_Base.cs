@@ -70,8 +70,8 @@ public class Dash_Base : MonoBehaviour
         yield return new WaitForSeconds(DashMoveBlock);
         rb.Sleep();
         Move_Target.IsCanMove = true;
-        yield return new WaitForSeconds(DashCooldown - DashMoveBlock);
         Move_Target.SetLayer(LayerMask.NameToLayer("bug"));
+        yield return new WaitForSeconds(DashCooldown - DashMoveBlock);
         self.SetInvincible(false);
         DashNow = false;
         CanDash = true;
