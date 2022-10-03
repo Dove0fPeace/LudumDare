@@ -516,7 +516,7 @@ MonoBehaviour:
   MaxHitPoints: 50
   CurrentHP: 0
   HpBar: {fileID: 3175565258032047397}
-  DefaultHPColor: {r: 0, g: 0, b: 0, a: 0}
+  DefaultHPColor: {r: 0.78823537, g: 0.04705883, b: 0.04705883, a: 1}
   Bodytypes: {fileID: 11400000, guid: ca844ead88c1dd54cbecb745c5fb9ba7, type: 2}
   Armor: {fileID: 0}
   Move: {fileID: 0}

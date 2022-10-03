@@ -7,7 +7,7 @@ public class Unit_Base : MonoBehaviour
 {
     [Header("HP")]
     public int MaxHitPoints;
-    [HideInInspector]public float CurrentHP;
+    public float CurrentHP;
     public Slider HpBar;
     private RectTransform fillRect;
     public Color DefaultHPColor;
