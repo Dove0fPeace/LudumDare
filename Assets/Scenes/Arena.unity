@@ -1220,11 +1220,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_DontDestroyOnLoad: 0
   mainTime: 10
-  PlayerPrefab: {fileID: 8394180998769690139, guid: 4bcbc4e20eb970445ad808a4658efb60, type: 3}
+  PlayerPrefab: {fileID: 3135298652271322703, guid: f40a5e8d3bbba3846b4c2d228ee981b1, type: 3}
   PLayerSpawnPoint: {fileID: 1527402341}
   targetCamera: {fileID: 352408460}
   SpawwnPlayer: 1
-  EnemyPrefab: {fileID: 3175565258017640245, guid: 6b77990008b3b3a418cd35ffa92a7077, type: 3}
+  GodMode: 1
+  EnemyPrefab: {fileID: -1215429076435941195, guid: 6b77990008b3b3a418cd35ffa92a7077, type: 3}
   EnemySpawnCount: 2
   TrapSpawnPoint: {fileID: 961743928}
   MinTrapsSpawn: 1
@@ -2773,14 +2774,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1527402340}
-  m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: -2.4, y: 0.1, z: -0.22273047}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!1 &1533218995
 GameObject:
   m_ObjectHideFlags: 0

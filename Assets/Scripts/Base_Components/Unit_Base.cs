@@ -1,6 +1,5 @@
 using Base_Components;
 using UnityEngine;
-using Random = UnityEngine.Random;
 using UnityEngine.UI;
 
 public class Unit_Base : MonoBehaviour
@@ -21,15 +20,15 @@ public class Unit_Base : MonoBehaviour
     public Attack_Base Attack;
     public IAbility Ability;
 
-    [Header("BodyPosition")]
+    [Header("BodyPosition")] 
+    public Transform RotationRoot;
     public Transform HandsPosition;
+    public Transform FrontPosition;
     public Transform BackPosition;
 
     private GameObject front;
     private GameObject back;
     
-    public Vector2 targetLookPos;
-
     private AudioSource AudioSource;
     private Vector3 initialPosition;
     private bool invincible;
@@ -61,7 +60,6 @@ public class Unit_Base : MonoBehaviour
 
     public void ChangeBody()
     {
-
         if (!gameObject.activeInHierarchy)
         {
             //respawn
@@ -73,17 +71,23 @@ public class Unit_Base : MonoBehaviour
         } 
         Clear();
 
-        front = Instantiate(Bodytypes.Fronts[Random.Range(0, Bodytypes.Fronts.Length)],
-            BackPosition.position,
-            BackPosition.rotation, BackPosition);
-        back = Instantiate(Bodytypes.Backs[Random.Range(0, Bodytypes.Backs.Length)],
-            BackPosition.position,
-            BackPosition.rotation, BackPosition);
+        front = Instantiate(Bodytypes.GetRandomFront(), FrontPosition, false);
+        front.transform.localPosition = Vector3.zero;
+        back = Instantiate(Bodytypes.GetRandomBack(), BackPosition, false);
+        back.transform.localPosition = Vector3.zero;
+        
+        //priorities: move and attack from front, armor and ability from back
+        Armor = front.GetComponentInChildren<Armor_Base>();
         Armor = back.GetComponentInChildren<Armor_Base>();
-        Armor.invincible = invincible;
+        Move = back.GetComponentInChildren<Move_Base>();
         Move = front.GetComponentInChildren<Move_Base>();
+        Attack = back.GetComponentInChildren<Attack_Base>();
         Attack = front.GetComponentInChildren<Attack_Base>();
+        Ability = front.GetComponentInChildren<IAbility>();
         Ability = back.GetComponentInChildren<IAbility>();
+        
+        //init components
+        Armor.invincible = invincible;
     }
 
     public void PlayAudioOneshot(AudioClip clip)
@@ -147,7 +151,7 @@ public class Unit_Base : MonoBehaviour
 
     public void LookAt(Vector2 targetLookPos)
     {
-        BackPosition.right = targetLookPos - new Vector2 (transform.position.x, transform.position.y);
+        RotationRoot.right = targetLookPos - new Vector2 (transform.position.x, transform.position.y);
     }
 
     public void TakeDamage(float damage, bool isPoison)
