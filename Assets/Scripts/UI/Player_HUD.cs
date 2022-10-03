@@ -1,5 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -19,6 +19,10 @@ public class Player_HUD : SingletonBase<Player_HUD>
     public Image AbilityIcon;
     public Image AbilityIconOverlay;
 
+    [Header("AttackPossibility")] public Image[] AttackIcons;
+    private Unit_Base Player;
+    private bool attackDisabled;
+
     public void InitUI(ObjWithCooldown obj, Sprite sprite)
     {
         switch (obj)
@@ -30,6 +34,31 @@ public class Player_HUD : SingletonBase<Player_HUD>
                 //AbilityIcon.sprite = sprite;
                 AbilityIconOverlay.fillAmount = 0;
                 break;
+        }
+    }
+
+    protected override void Awake()
+    {
+        Player = GameObject.FindWithTag("Player").GetComponent<Unit_Base>();
+    }
+
+    private void Update()
+    {
+        if (!attackDisabled && Player.Attack.UnableToAttack)
+        {
+            attackDisabled = true;
+            foreach (Image attackIcon in AttackIcons)
+            {
+                attackIcon.DOColor(Color.gray, 1f);
+            }
+        }
+        else if (attackDisabled && !Player.Attack.UnableToAttack)
+        {
+            attackDisabled = false;
+            foreach (Image attackIcon in AttackIcons)
+            {
+                attackIcon.DOColor(Color.white, 1f);
+            }
         }
     }
 
