@@ -14,7 +14,7 @@ public class GameLoop : SingletonBase<GameLoop>
 
     public CinemachineVirtualCamera targetCamera;
 
-    [Header("Eсли на сцене уже есть жук игрока - убери галку")]
+    [Header("EСЃР»Рё РЅР° СЃС†РµРЅРµ СѓР¶Рµ РµСЃС‚СЊ Р¶СѓРє РёРіСЂРѕРєР° - СѓР±РµСЂРё РіР°Р»РєСѓ")]
     public bool SpawwnPlayer = true;
 
     private Timer gameLoopTimer;
@@ -32,6 +32,8 @@ public class GameLoop : SingletonBase<GameLoop>
     public int MaxTrapsSpawn;
     public Zone_Base[] Traps;
 
+    private Transform spawnedPlayer;
+
 
     private void Start()
     {
@@ -40,8 +42,8 @@ public class GameLoop : SingletonBase<GameLoop>
         trapSpawnPoints = TrapSpawnPoint.GetComponentsInChildren<Transform>();
         if(SpawwnPlayer)
         {
-            var player = Instantiate(PlayerPrefab, PLayerSpawnPoint.position, PLayerSpawnPoint.rotation);
-            targetCamera.Follow = player.transform;
+            spawnedPlayer = Instantiate(PlayerPrefab, PLayerSpawnPoint.position, PLayerSpawnPoint.rotation).transform;
+            targetCamera.Follow = spawnedPlayer;
         }
         SpawnEnemy(EnemySpawnCount);
     }
@@ -61,7 +63,7 @@ public class GameLoop : SingletonBase<GameLoop>
         {
             int point = Random.Range(0, trapSpawnPoints.Length);
             var enemy =  Instantiate(EnemyPrefab, trapSpawnPoints[point].position, trapSpawnPoints[point].rotation);
-            enemy.target = PlayerPrefab.transform;
+            enemy.target = spawnedPlayer;
         }
     }
 
