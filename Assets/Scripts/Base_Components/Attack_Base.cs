@@ -28,6 +28,10 @@ public class Attack_Base : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         self = transform.root.GetComponent<Unit_Base>();
+        if (transform.root.gameObject.CompareTag("Player"))
+        {
+            Player_HUD.Instance.ChangeAttack(UnableToAttack);
+        }
     }
     private void Update()
     {

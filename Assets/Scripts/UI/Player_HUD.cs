@@ -1,4 +1,3 @@
-using System;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
@@ -12,11 +11,9 @@ public enum ObjWithCooldown
 public class Player_HUD : SingletonBase<Player_HUD>
 {
     [Header("Dash")]
-    public Image DashIcon;
     public Image DashIconOverlay;
 
     [Header("Ability")]
-    public Image AbilityIcon;
     public Image AbilityIconOverlay;
 
     [Header("AttackPossibility")] public Image[] AttackIcons;
@@ -28,23 +25,17 @@ public class Player_HUD : SingletonBase<Player_HUD>
         switch (obj)
         {
             case ObjWithCooldown.Dash:
-                DashIconOverlay.fillAmount = 0;
+                DashIconOverlay.fillAmount = 1;
                 break;
             case ObjWithCooldown.Ability:
-                //AbilityIcon.sprite = sprite;
-                AbilityIconOverlay.fillAmount = 0;
+                AbilityIconOverlay.fillAmount = 1;
                 break;
         }
     }
 
-    protected override void Awake()
+    public void ChangeAttack(bool unable)
     {
-        Player = GameObject.FindWithTag("Player").GetComponent<Unit_Base>();
-    }
-
-    private void Update()
-    {
-        if (!attackDisabled && Player.Attack.UnableToAttack)
+        if (!attackDisabled && unable)
         {
             attackDisabled = true;
             foreach (Image attackIcon in AttackIcons)
@@ -52,7 +43,7 @@ public class Player_HUD : SingletonBase<Player_HUD>
                 attackIcon.DOColor(Color.gray, 1f);
             }
         }
-        else if (attackDisabled && !Player.Attack.UnableToAttack)
+        else if (attackDisabled && !unable)
         {
             attackDisabled = false;
             foreach (Image attackIcon in AttackIcons)
@@ -67,12 +58,11 @@ public class Player_HUD : SingletonBase<Player_HUD>
         switch(obj)
         { 
             case ObjWithCooldown.Dash:
-                DashIconOverlay.fillAmount = percent;
+                DashIconOverlay.fillAmount = (1-percent);
                 break;
             case ObjWithCooldown.Ability:
-                AbilityIconOverlay.fillAmount = percent;
+                AbilityIconOverlay.fillAmount = (1-percent);
                 break;
         }
-
     }
 }
