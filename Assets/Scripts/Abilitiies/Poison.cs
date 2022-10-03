@@ -16,7 +16,7 @@ public class Poison : MonoBehaviour
 
     private void Start()
     {
-        timer = Timer.CreateTimer(TickInterval, true);
+        timer = Timer.CreateTimer(TickInterval, true, true);
         timer.OnTimeRunOut += DamageTarget;
         Target.ChangeHPBarColor(HP_Bar_Color);
         currentTicks = 0;

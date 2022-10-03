@@ -47,8 +47,8 @@ public class Move_Base : MonoBehaviour
 
     private void UpdateDashUI()
     {
-        dashCurrentCooldown = dashTimer.CurrentTime;
-        hud.UpdateCooldown(ObjWithCooldown.Dash, (int)dashCurrentCooldown);
+        dashCurrentCooldown = dashTimer.CurrentTime / DashCooldown;
+        hud.UpdateCooldown(ObjWithCooldown.Dash, dashCurrentCooldown);
     }
     private void FixedUpdate()
     {

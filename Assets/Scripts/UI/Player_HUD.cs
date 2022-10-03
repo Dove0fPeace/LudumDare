@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 
 public enum ObjWithCooldown
 {
@@ -14,36 +13,35 @@ public class Player_HUD : SingletonBase<Player_HUD>
 {
     [Header("Dash")]
     public Image DashIcon;
-    public TMP_Text DashCooldownCounter;
+    public Image DashIconOverlay;
 
     [Header("Ability")]
     public Image AbilityIcon;
-    public TMP_Text AbilityCooldownCounter;
+    public Image AbilityIconOverlay;
 
     public void InitUI(ObjWithCooldown obj, Sprite sprite)
     {
         switch (obj)
         {
             case ObjWithCooldown.Dash:
-                //DashIcon.sprite = sprite;
-                DashCooldownCounter.text = "";
+                DashIconOverlay.fillAmount = 0;
                 break;
             case ObjWithCooldown.Ability:
                 //AbilityIcon.sprite = sprite;
-                AbilityCooldownCounter.text = "";
+                AbilityIconOverlay.fillAmount = 0;
                 break;
         }
     }
 
-    public void UpdateCooldown(ObjWithCooldown obj, int cooldown)
+    public void UpdateCooldown(ObjWithCooldown obj, float percent)
     {
         switch(obj)
         { 
             case ObjWithCooldown.Dash:
-                DashCooldownCounter.text =(1+ cooldown).ToString();
+                DashIconOverlay.fillAmount = percent;
                 break;
             case ObjWithCooldown.Ability:
-                AbilityCooldownCounter.text = (1 + cooldown).ToString();
+                AbilityIconOverlay.fillAmount = percent;
                 break;
         }
 

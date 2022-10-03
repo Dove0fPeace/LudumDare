@@ -34,8 +34,8 @@ public class WebAbility : RangeAttack_Base, IAbility
 
     private void OnCDTick()
     {
-        currentCooldown = timer.CurrentTime;
-        hud.UpdateCooldown(ObjWithCooldown.Ability, (int)currentCooldown);
+        currentCooldown = timer.CurrentTime / AbilityCooldown;
+        hud.UpdateCooldown(ObjWithCooldown.Ability, currentCooldown);
     }
 
     private void OnCDComplete()
