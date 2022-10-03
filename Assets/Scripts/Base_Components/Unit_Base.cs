@@ -99,6 +99,7 @@ public class Unit_Base : MonoBehaviour
     public void GenerateNewBody()
     {
         canvas.enabled = true;
+        Clear();
         front = Instantiate(Bodytypes.GetRandomFront(), FrontPosition.position, FrontPosition.rotation, FrontPosition);
         front.transform.localPosition = Vector3.zero;
         frontAnims = front.GetComponentsInChildren<Animator>();
