@@ -383,7 +383,5 @@ MonoBehaviour:
   HandsPlace: {fileID: 0}
   animator: {fileID: 0}
   AttackAnimationName: 
-  AttackCastRadius: 3
-  DamageDelay: 1
+  ProjectilePrefab: {fileID: 3242962407902946182, guid: c683097efd593af4694a6d5dd2d1ca8d, type: 3}
   Insect: 2
-  PoisonPrefab: {fileID: 6954970962049813863, guid: 495d845e99bf0804ba3d5536c43e58d6, type: 3}
