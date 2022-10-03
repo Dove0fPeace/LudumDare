@@ -387,6 +387,42 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2702795108372186246, guid: 720fa54495e0d9c44a4dd6ee71950180, type: 3}
   m_PrefabInstance: {fileID: 3231904748501188921}
   m_PrefabAsset: {fileID: 0}
+--- !u!70 &7439963185408319260
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 673369415500154303}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.39664042, y: -0.061155915}
+  m_Size: {x: 0.97776985, y: 0.97776985}
+  m_Direction: 0
+--- !u!95 &-4163717591483747423
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 673369415500154303}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 22100000, guid: 2aed40d8932bf1f428f1e96f8b2d6834, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &7695186906741818798
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -409,19 +445,3 @@ MonoBehaviour:
   AttackAnimationName: 
   ProjectilePrefab: {fileID: 3242962407902946182, guid: c683097efd593af4694a6d5dd2d1ca8d, type: 3}
   Insect: 2
---- !u!70 &7439963185408319260
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 673369415500154303}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.39664042, y: -0.061155915}
-  m_Size: {x: 0.97776985, y: 0.97776985}
-  m_Direction: 0

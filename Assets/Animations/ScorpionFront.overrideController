@@ -9,5 +9,5 @@ AnimatorOverrideController:
   m_Name: ScorpionFront
   m_Controller: {fileID: 9100000, guid: 283d8171f62c62e44b74730bac499c4b, type: 2}
   m_Clips:
-  - m_OriginalClip: {fileID: 7400000, guid: e8af6c546a9b2df4baee62787dbf73da, type: 2}
-    m_OverrideClip: {fileID: 7400000, guid: 3243da9d1367f634ebc348a209764cdf, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: cff7c618e7af0474ea36c5dd1d4317dd, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: bab319856a1f8e947b3a6425f053fece, type: 2}
