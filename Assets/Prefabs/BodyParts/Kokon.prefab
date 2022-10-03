@@ -74,7 +74,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 302222033
   m_SortingLayer: 5
-  m_SortingOrder: 1
+  m_SortingOrder: -2
   m_Sprite: {fileID: 21300000, guid: 9b43bf44f886df04cb09c791a539fe86, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -98,8 +98,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 618b7bbd734db4a4bb5365a9859b0a3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  KokonFX: {fileID: 0}
+  KokonFX: {fileID: 8437859875350132919, guid: a6072a2e6874e3448bd476e74630514c, type: 3}
   TargetControl: {fileID: 0}
+  unit: {fileID: 0}
 --- !u!95 &5811812849229622949
 Animator:
   serializedVersion: 4

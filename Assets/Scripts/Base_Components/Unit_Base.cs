@@ -42,7 +42,7 @@ public class Unit_Base : MonoBehaviour
     private Control_Base control;
 
     private Vector2 targetLookAt;
-    private float rotateSpeed = 8f;
+    private float rotateSpeed = 5f;
 
 
     private void Start()
