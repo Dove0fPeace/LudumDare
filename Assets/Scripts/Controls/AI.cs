@@ -41,7 +41,11 @@ namespace Controls
                 yield return waitForSeconds;
                 if (!target.gameObject.activeInHierarchy)
                 {
-                    if (moving != null) StopCoroutine(moving);
+                    if (moving != null)
+                    {
+                        StopCoroutine(moving);
+                        unit.TryMove(Vector2.zero);
+                    }
                     continue;
                 }
                 unit.LookAt(target.position);
