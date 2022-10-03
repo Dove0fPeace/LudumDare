@@ -179,7 +179,7 @@ public class GameLoop : SingletonBase<GameLoop>
     {
         audioSource.PlayOneShot(AudioOnLoopTimesEnd);
 
-        InvokeChangeSingleBody();
+        InvokeChangeAllBodies();
         
         int Effect = Random.Range(1, 3);
         switch (Effect)
