@@ -22,14 +22,15 @@ public class MeleeAttack_Base : Attack_Base
     {
         yield return new WaitForSeconds(DamageDelay);
 
-        RaycastHit2D hit;
-        hit = Physics2D.CircleCast(transform.position, AttackCastRadius, transform.right, AttackRange);
-        if (hit)
+        RaycastHit2D[] hit;
+        hit = Physics2D.CircleCastAll(transform.position, AttackCastRadius, transform.right, AttackRange);
+
+        foreach (RaycastHit2D hit2 in hit)
         {
-            Unit_Base enemy = hit.collider.transform.root.GetComponent<Unit_Base>();
-            if (enemy != null)
+            Unit_Base enemy =  hit2.transform.root.GetComponent<Unit_Base>();
+            if(enemy != null && enemy != self)
             {
-                print("Enemy hit "+enemy.name);
+                print(gameObject.name +" hit "+enemy.name);
                 OnEnemyHit(enemy);
             }
         }

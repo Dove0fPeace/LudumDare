@@ -37,6 +37,7 @@ public class Bombardir_Ability : MeleeAttack_Base, IAbility
             CurrentTickTIme -= Time.deltaTime;
             if(CurrentTickTIme <= 0)
             {
+                print("tick");
                 currentTickCount--;
                 if(currentTickCount <= 0)
                 {
@@ -77,14 +78,10 @@ public class Bombardir_Ability : MeleeAttack_Base, IAbility
 
     public void Use()
     {
-        Attack();
-    }
-
-    public override bool Attack()
-    {
-
-        currentTickCount = AbilityTickCount - 1;
+        print("Use");
         isUse = true;
-        return base.Attack();
+        CurrentTickTIme = AbilityTickTime;
+        currentTickCount = AbilityTickCount;
+        Attack();
     }
 }
