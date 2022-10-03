@@ -8,6 +8,9 @@ using Cinemachine;
 public class GameLoop : SingletonBase<GameLoop>
 {
     public float mainTime = 10f;
+    public AudioClip AudioOnLoopTimesEnd;
+
+    private AudioSource audioSource;
 
     public PlayerControl PlayerPrefab;
     public Transform PLayerSpawnPoint;
@@ -38,6 +41,8 @@ public class GameLoop : SingletonBase<GameLoop>
 
     private void Start()
     {
+        audioSource = transform.GetComponent<AudioSource>();
+
         gameLoopTimer = Timer.CreateTimer(mainTime, true,true);
         gameLoopTimer.OnTimeRunOut += RandomEffect;
         trapSpawnPoints = TrapSpawnPoint.GetComponentsInChildren<Transform>();
@@ -86,6 +91,8 @@ public class GameLoop : SingletonBase<GameLoop>
 
     private void RandomEffect()
     {
+        audioSource.PlayOneShot(AudioOnLoopTimesEnd);
+
         int Effect = Random.Range(1, 3);
 
         switch (Effect)
