@@ -49,11 +49,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5794836439227616626, guid: 720fa54495e0d9c44a4dd6ee71950180, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.03
+      value: -7.9325986
       objectReference: {fileID: 0}
     - target: {fileID: 5794836439227616626, guid: 720fa54495e0d9c44a4dd6ee71950180, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.58
+      value: 0.1909593
       objectReference: {fileID: 0}
     - target: {fileID: 5794836439227616626, guid: 720fa54495e0d9c44a4dd6ee71950180, type: 3}
       propertyPath: m_LocalPosition.z
@@ -107,7 +107,8 @@ PrefabInstance:
       propertyPath: m_SpriteTilingProperty.oldSize.y
       value: 1.85
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 71760020265922923, guid: 720fa54495e0d9c44a4dd6ee71950180, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 720fa54495e0d9c44a4dd6ee71950180, type: 3}
 --- !u!1 &5364047700441618475 stripped
 GameObject:
@@ -150,6 +151,33 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &-2761939061545501968
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5364047700441618475}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40f9ee79732d04741a0bb5a97af029d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Part: 2
+  UnableToAttack: 0
+  AttackRange: 2.9
+  Damage: 5
+  sfx: {fileID: 0}
+  AttackCooldown: 5
+  attackTime: 0
+  HandsPlace: {fileID: 0}
+  animator: {fileID: 0}
+  AttackAnimationName: 
+  AttackCastRadius: 0.4
+  DamageDelay: 0
+  AbilityUISprite: {fileID: 0}
+  AbilityTickTime: 0.3
+  AbilityTickCount: 7
 --- !u!114 &1989133574779242332
 MonoBehaviour:
   m_ObjectHideFlags: 0

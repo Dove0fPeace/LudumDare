@@ -1455,6 +1455,7 @@ MonoBehaviour:
   targetCamera: {fileID: 352408460}
   SpawwnPlayer: 1
   GodMode: 1
+  RespawnSceneOnDeath: 0
   EnemyPrefab: {fileID: -1215429076435941195, guid: 6b77990008b3b3a418cd35ffa92a7077, type: 3}
   EnemySpawnCount: 1
   TrapSpawnPoint: {fileID: 961743928}
