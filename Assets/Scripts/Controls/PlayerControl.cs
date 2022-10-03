@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Controls
@@ -48,6 +49,7 @@ namespace Controls
         }
         private void OnDisable()
         {
+            unit.TryMove(Vector2.zero);
             disable = true;
         }
     }
