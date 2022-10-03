@@ -71,9 +71,9 @@ public class Unit_Base : MonoBehaviour
         } 
         Clear();
 
-        front = Instantiate(Bodytypes.GetRandomFront(), FrontPosition, false);
+        front = Instantiate(Bodytypes.GetRandomFront(), FrontPosition.position, FrontPosition.rotation, FrontPosition);
         front.transform.localPosition = Vector3.zero;
-        back = Instantiate(Bodytypes.GetRandomBack(), BackPosition, false);
+        back = Instantiate(Bodytypes.GetRandomBack(), BackPosition.position, BackPosition.rotation, BackPosition);
         back.transform.localPosition = Vector3.zero;
         
         //priorities: move and attack from front, armor and ability from back

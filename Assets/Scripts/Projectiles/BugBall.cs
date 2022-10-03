@@ -1,4 +1,5 @@
 using System.Collections;
+using DG.Tweening;
 using UnityEngine;
 
 public class BugBall : Projectile_Base
@@ -78,15 +79,15 @@ public class BugBall : Projectile_Base
         {
             case 1:
                 Damage *=  Stage1_Damage;
-                transform.localScale = new Vector3(Stage1_Large, Stage1_Large);
+                transform.DOScale(new Vector3(Stage1_Large, Stage1_Large), 1f);
                 break;
             case 2:
                 Damage *= Stage2_Damage;
-                transform.localScale = new Vector3(Stage2_Large, Stage2_Large);
+                transform.DOScale(new Vector3(Stage2_Large, Stage2_Large), 1f);
                 break;
             case 3:
                 Damage *= Stage3_Damage;
-                transform.localScale = new Vector3(Stage3_Large, Stage3_Large);
+                transform.DOScale(new Vector3(Stage3_Large, Stage3_Large), 1f);
                 break;
         }
     }
