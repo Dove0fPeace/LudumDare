@@ -13,7 +13,7 @@ public class Attack_Base : MonoBehaviour
 
     public float AttackCooldown;
     private float attackTime = 0;
-    public bool CanAttack => attackTime <= 0 || UnableToAttack;
+    public bool CanAttack => attackTime <= 0 && !UnableToAttack;
 
     public Transform HandsPlace;
 

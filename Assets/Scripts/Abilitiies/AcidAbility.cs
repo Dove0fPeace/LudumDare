@@ -21,6 +21,11 @@ public class AcidAbility : RangeAttack_Base, IAbility
         InitiateAbility();
     }
 
+    public bool CanUse()
+    {
+        return CanAttack;
+    }
+
     public void InitiateAbility()
     {
         timer = Timer.CreateTimer(AbilityCooldown,false);
