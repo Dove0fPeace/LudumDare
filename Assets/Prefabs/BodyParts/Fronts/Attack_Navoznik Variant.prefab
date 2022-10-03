@@ -278,7 +278,11 @@ MonoBehaviour:
   Part: 2
   AttackRange: 30
   Damage: 10
+<<<<<<< Updated upstream
   sfx: {fileID: 8300000, guid: 35fe5d0a6b87d9142a5c592a1d23e117, type: 3}
+=======
+  sfx: {fileID: 8300000, guid: a19e515169d9c8c438b08fa0c9482f68, type: 3}
+>>>>>>> Stashed changes
   AttackCooldown: 2
   HandsPlace: {fileID: 0}
   animator: {fileID: 0}

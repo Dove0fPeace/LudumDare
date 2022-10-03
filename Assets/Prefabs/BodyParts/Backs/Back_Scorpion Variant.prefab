@@ -7,6 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -8189072859394294054, guid: 720fa54495e0d9c44a4dd6ee71950180, type: 3}
+      propertyPath: sfx
+      value: 
+      objectReference: {fileID: 8300000, guid: a19e515169d9c8c438b08fa0c9482f68, type: 3}
     - target: {fileID: 2702795108372186246, guid: 720fa54495e0d9c44a4dd6ee71950180, type: 3}
       propertyPath: m_Name
       value: Back_Scorpion Variant
