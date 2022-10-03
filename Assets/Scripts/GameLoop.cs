@@ -16,7 +16,7 @@ public class GameLoop : SingletonBase<GameLoop>
 
     [Header("Eсли на сцене уже есть жук игрока - убери галку")]
     public bool SpawwnPlayer = true;
-
+    public bool GodMode;
     private Timer gameLoopTimer;
 
     private List<Unit_Base> unitList = new List<Unit_Base>();
@@ -44,6 +44,7 @@ public class GameLoop : SingletonBase<GameLoop>
         {
             spawnedPlayer = Instantiate(PlayerPrefab, PLayerSpawnPoint.position, PLayerSpawnPoint.rotation).transform;
             targetCamera.Follow = spawnedPlayer;
+            spawnedPlayer.GetComponent<Unit_Base>().SetGodMode(GodMode);
         }
         SpawnEnemy(EnemySpawnCount);
     }

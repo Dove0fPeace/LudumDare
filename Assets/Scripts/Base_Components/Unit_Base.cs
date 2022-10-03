@@ -32,7 +32,7 @@ public class Unit_Base : MonoBehaviour
 
     private AudioSource AudioSource;
     private Vector3 initialPosition;
-
+    private bool invincible;
 
 
     private void Start()
@@ -47,6 +47,11 @@ public class Unit_Base : MonoBehaviour
         fillRect = HpBar.fillRect;
 
         GameLoop.Instance.AddToUnitList(this);
+    }
+
+    public void SetGodMode(bool on = true)
+    {
+        invincible = on;
     }
 
     private void Update()
@@ -75,6 +80,7 @@ public class Unit_Base : MonoBehaviour
             BackPosition.position,
             BackPosition.rotation, BackPosition);
         Armor = back.GetComponentInChildren<Armor_Base>();
+        Armor.invincible = invincible;
         Move = front.GetComponentInChildren<Move_Base>();
         Attack = front.GetComponentInChildren<Attack_Base>();
         Ability = back.GetComponentInChildren<IAbility>();
