@@ -22,7 +22,7 @@ namespace Controls
             }
             unit.TryMove(input);
             
-            if (Input.GetButtonDown("Fire3"))
+            if (Input.GetButtonDown("Jump"))
             {
                 unit.TryDash();
             }

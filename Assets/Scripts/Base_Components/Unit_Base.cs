@@ -19,6 +19,7 @@ public class Unit_Base : MonoBehaviour
 
     public Armor_Base Armor;
     public Move_Base Move;
+    public Dash_Base Dash;
     public Attack_Base Attack;
     public IAbility Ability;
 
@@ -105,9 +106,11 @@ public class Unit_Base : MonoBehaviour
         Attack = front.GetComponentInChildren<Attack_Base>();
         Ability = front.GetComponentInChildren<IAbility>();
         Ability = back.GetComponentInChildren<IAbility>();
+        Dash = front.GetComponentInChildren<Dash_Base>();
+        Dash = back.GetComponentInChildren<Dash_Base>();
         
         //init components
-        Armor.invincible = invincible;
+        SetInvincible(invincible);
         //Armor.PlayDamageEffect();
     }
 
@@ -173,7 +176,7 @@ public class Unit_Base : MonoBehaviour
         {
             return false;
         }
-        Move.Dash();
+        Dash.Dash();
         PlayAnimBool("Move", true);
         return true;
     }
@@ -223,6 +226,10 @@ public class Unit_Base : MonoBehaviour
         }
     }
 
+    public void SetInvincible(bool set)
+    {
+        Armor.invincible = set;
+    }
     public void Heal(int heal)
     {
         CurrentHP += heal;

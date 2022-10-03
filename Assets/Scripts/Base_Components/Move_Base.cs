@@ -12,22 +12,9 @@ public class Move_Base : MonoBehaviour
     public float DiagonalSpeedLimit = 0.7f;
 
     public bool IsCanMove = true;
-    public bool CanDash = true;
 
     float inputHorizontal;
     float inputVertical;
-
-
-    [Header("Dash")]
-    
-    public float DashCooldown = 3f;
-    private float dashCurrentCooldown;
-    public float DashForce;
-    public float DashMoveBlock = 1f;
-    public bool InvincibleInDash;
-
-    private Player_HUD hud;
-    private Timer dashTimer;
 
 
     private List<float> speedCoefs = new List<float>(3);
@@ -39,17 +26,8 @@ public class Move_Base : MonoBehaviour
     {
         rb = transform.root.GetComponent<Rigidbody2D>();
         self = transform.root.GetComponent<Unit_Base>();
-        hud = Player_HUD.Instance;
-        hud.InitUI(ObjWithCooldown.Dash, null);
-        dashTimer = Timer.CreateTimer(DashCooldown,false);
-        dashTimer.OnTick += UpdateDashUI;
     }
 
-    private void UpdateDashUI()
-    {
-        dashCurrentCooldown = dashTimer.CurrentTime / DashCooldown;
-        hud.UpdateCooldown(ObjWithCooldown.Dash, dashCurrentCooldown);
-    }
     private void FixedUpdate()
     {
         if(IsCanMove)
@@ -60,8 +38,6 @@ public class Move_Base : MonoBehaviour
 
     private void OnDestroy()
     {
-        dashTimer.OnTick -= UpdateDashUI;
-        dashTimer.Destroy();
         rb.velocity = Vector2.zero;
     }
 
@@ -109,37 +85,7 @@ public class Move_Base : MonoBehaviour
         return speedModifier;
     }
 
-    public virtual bool Dash()
-    {
-        if (!CanDash)
-        {
-            return false;
-        }
-        rb.AddForce(DashForce*transform.right, ForceMode2D.Impulse);
-        StartCoroutine(Dashing());
-        dashTimer.Play();
-        return true;
-    }
-
-    IEnumerator Dashing()
-    {
-        self.Armor.invincible = InvincibleInDash;
-        SetLayer(LayerMask.NameToLayer("bugDash"));
-        IsCanMove = false;
-        CanDash = false;
-        yield return new WaitForSeconds(DashMoveBlock);
-        rb.Sleep();
-        IsCanMove = true;
-        yield return new WaitForSeconds(DashCooldown - DashMoveBlock);
-        SetLayer(LayerMask.NameToLayer("bug"));
-        self.Armor.invincible = false;
-        CanDash = true;
-        hud.InitUI(ObjWithCooldown.Dash, null);
-        dashTimer.Pause();
-        dashTimer.Restart();
-    }
-
-    private void SetLayer(int layer)
+    public void SetLayer(int layer)
     {
         rb.gameObject.layer = layer;
         Collider2D[] colliders = rb.gameObject.GetComponentsInChildren<Collider2D>();

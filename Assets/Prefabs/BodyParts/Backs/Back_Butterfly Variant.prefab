@@ -395,3 +395,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &-6527233038889278586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1439471048519816383}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa337c56bc61fc3448ca274f80756a04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DashCooldown: 3
+  DashForce: 5
+  DashMoveBlock: 1
+  InvincibleInDash: 0
+  CanDash: 1
