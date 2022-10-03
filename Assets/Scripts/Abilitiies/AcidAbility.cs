@@ -1,29 +1,63 @@
 using Base_Components;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class AcidAbility : MeleeAttack_Base, IAbility
+public class AcidAbility : RangeAttack_Base, IAbility
 {
     public Insects Insect = Insects.Scorpion;
 
-    public Poison PoisonPrefab;
+    [Header("Ability Settings")]
+    public Sprite AbilityUISprite;
+    public float AbilityCooldown;
+
+    private Timer timer;
+    private float currentCooldown;
+    private bool CooldownIsDown = true;
+
+    private Player_HUD hud;
+
+    protected override void Start()
+    {
+        base.Start();
+        InitiateAbility();
+    }
+
+    public void InitiateAbility()
+    {
+        timer = Timer.CreateTimer(AbilityCooldown,false);
+        timer.Pause();
+        hud = Player_HUD.Instance;
+        hud.InitUI(ObjWithCooldown.Ability, AbilityUISprite);
+        timer.OnTick += OnCDTick;
+        timer.OnTimeRunOut += OnCDComplete;
+    }
+
+    private void OnCDTick()
+    {
+        currentCooldown = timer.CurrentTime / AbilityCooldown;
+        hud.UpdateCooldown(ObjWithCooldown.Ability, currentCooldown);
+    }
+
+    private void OnCDComplete()
+    {
+        CooldownIsDown = true;
+        hud.InitUI(ObjWithCooldown.Ability, AbilityUISprite);
+        timer.Restart();
+        timer.Pause();
+    }
+
     public void Use()
     {
+        if (!CooldownIsDown) return;
         Attack();
+        CooldownIsDown = false;
+        timer.Play();
     }
 
-    public override void OnEnemyHit(Unit_Base unit)
+    private void OnDestroy()
     {
-        print("On poison hit");
-        base.OnEnemyHit(unit);
-        Poison existPoison = unit.transform.GetComponent<Poison>();
-        if(existPoison != null)
-        {
-            Destroy(existPoison);
-        }
-
-        Poison newPoison = Instantiate(PoisonPrefab, unit.transform);
-        newPoison.Target = unit;            
+        timer.OnTick -= OnCDTick;
+        timer.OnTimeRunOut -= OnCDComplete;
+        timer.Destroy();
     }
+
 }

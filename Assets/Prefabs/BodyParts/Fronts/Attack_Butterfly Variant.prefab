@@ -309,11 +309,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 146070501400393255, guid: e6349607294709f4f9e1852963948e4d, type: 3}
       propertyPath: DashForce
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 146070501400393255, guid: e6349607294709f4f9e1852963948e4d, type: 3}
       propertyPath: MoveSpeed
-      value: 150
+      value: 250
       objectReference: {fileID: 0}
     - target: {fileID: 146070501400393255, guid: e6349607294709f4f9e1852963948e4d, type: 3}
       propertyPath: DashImpulse
@@ -328,12 +328,36 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4486493365180743732, guid: e6349607294709f4f9e1852963948e4d, type: 3}
+      propertyPath: m_Size.x
+      value: 1.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 4486493365180743732, guid: e6349607294709f4f9e1852963948e4d, type: 3}
+      propertyPath: m_Size.y
+      value: 1.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 4486493365180743732, guid: e6349607294709f4f9e1852963948e4d, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: b400f255a724e5449bfdedb93b4a9899, type: 3}
+      objectReference: {fileID: 2043173461, guid: e6ca2f45a3c819d43b48cf983ebb2502, type: 3}
+    - target: {fileID: 4486493365180743732, guid: e6349607294709f4f9e1852963948e4d, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4486493365180743732, guid: e6349607294709f4f9e1852963948e4d, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4486493365180743732, guid: e6349607294709f4f9e1852963948e4d, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4486493365180743732, guid: e6349607294709f4f9e1852963948e4d, type: 3}
       propertyPath: m_SortingLayer
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4486493365180743732, guid: e6349607294709f4f9e1852963948e4d, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4486493365180743732, guid: e6349607294709f4f9e1852963948e4d, type: 3}
       propertyPath: m_SortingLayerID
@@ -437,10 +461,30 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.6808536, y: -0.14774466}
-  m_Size: {x: 2.8813825, y: 7.877846}
+  m_Offset: {x: 0.17206311, y: -0.024235547}
+  m_Size: {x: 0.68011236, y: 1.8192836}
   m_Direction: 0
---- !u!114 &-7696117333538472764
+--- !u!95 &-6996022242197474564
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6774159076601696587}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 22100000, guid: e87379acd03d6724bbb5d3635c268e96, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &2869456784344852914
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -453,7 +497,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Part: 2
-  UnableToAttack: 1
   AttackRange: 30
   Damage: 0
   sfx: {fileID: 0}

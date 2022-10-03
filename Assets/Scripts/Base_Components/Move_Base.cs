@@ -19,21 +19,36 @@ public class Move_Base : MonoBehaviour
 
 
     [Header("Dash")]
+    
     public float DashCooldown = 3f;
-
+    private float dashCurrentCooldown;
     public float DashForce;
     public float DashMoveBlock = 1f;
     public bool InvincibleInDash;
+
+    private Player_HUD hud;
+    private Timer dashTimer;
 
 
     private List<float> speedCoefs = new List<float>(3);
     public virtual Insects InsectType => Insects.Generic;
     private Unit_Base self;
 
+
     private void Start()
     {
         rb = transform.root.GetComponent<Rigidbody2D>();
         self = transform.root.GetComponent<Unit_Base>();
+        hud = Player_HUD.Instance;
+        hud.InitUI(ObjWithCooldown.Dash, null);
+        dashTimer = Timer.CreateTimer(DashCooldown,false);
+        dashTimer.OnTick += UpdateDashUI;
+    }
+
+    private void UpdateDashUI()
+    {
+        dashCurrentCooldown = dashTimer.CurrentTime / DashCooldown;
+        hud.UpdateCooldown(ObjWithCooldown.Dash, dashCurrentCooldown);
     }
     private void FixedUpdate()
     {
@@ -41,6 +56,13 @@ public class Move_Base : MonoBehaviour
         {
             Move();
         }
+    }
+
+    private void OnDestroy()
+    {
+        dashTimer.OnTick -= UpdateDashUI;
+        dashTimer.Destroy();
+        rb.velocity = Vector2.zero;
     }
 
     public void SetMove(float horizontal, float vertical)
@@ -95,6 +117,7 @@ public class Move_Base : MonoBehaviour
         }
         rb.AddForce(DashForce*transform.right, ForceMode2D.Impulse);
         StartCoroutine(Dashing());
+        dashTimer.Play();
         return true;
     }
 
@@ -111,6 +134,9 @@ public class Move_Base : MonoBehaviour
         SetLayer(LayerMask.NameToLayer("bug"));
         self.Armor.invincible = false;
         CanDash = true;
+        hud.InitUI(ObjWithCooldown.Dash, null);
+        dashTimer.Pause();
+        dashTimer.Restart();
     }
 
     private void SetLayer(int layer)

@@ -1,16 +1,17 @@
 using Base_Components;
 using UnityEngine;
-using Random = UnityEngine.Random;
 using UnityEngine.UI;
+using Controls;
 
 public class Unit_Base : MonoBehaviour
 {
     [Header("HP")]
     public int MaxHitPoints;
-    [HideInInspector]public float CurrentHP;
+    public float CurrentHP;
     public Slider HpBar;
     private RectTransform fillRect;
     public Color DefaultHPColor;
+    public Canvas canvas;
 
     [Space(5)]
 
@@ -21,21 +22,28 @@ public class Unit_Base : MonoBehaviour
     public Attack_Base Attack;
     public IAbility Ability;
 
-    [Header("BodyPosition")]
+    [Header("BodyPosition")] 
+    public Transform RotationRoot;
     public Transform HandsPosition;
+    public Transform FrontPosition;
     public Transform BackPosition;
 
     private GameObject front;
+    private Animator[] frontAnims;
     private GameObject back;
+    private Animator backAnim;
     
-    public Vector2 targetLookPos;
-
     private AudioSource AudioSource;
     private Vector3 initialPosition;
+    private bool invincible;
+
+    public Kokon KokonPrefab;
+    private Control_Base control;
 
 
     private void Start()
     {
+        control = transform.GetComponent<Control_Base>();
         ChangeBody();
         CurrentHP = MaxHitPoints;
         HpBar.maxValue = MaxHitPoints;
@@ -46,6 +54,12 @@ public class Unit_Base : MonoBehaviour
         fillRect = HpBar.fillRect;
 
         GameLoop.Instance.AddToUnitList(this);
+
+    }
+
+    public void SetGodMode(bool on = true)
+    {
+        invincible = on;
     }
 
     private void Update()
@@ -63,19 +77,38 @@ public class Unit_Base : MonoBehaviour
             HpBar.maxValue = MaxHitPoints;
             HpBar.value = HpBar.maxValue;
             gameObject.SetActive(true);
-        } 
-        Clear();
+        }
 
-        front = Instantiate(Bodytypes.Fronts[Random.Range(0, Bodytypes.Fronts.Length)],
-            BackPosition.position,
-            BackPosition.rotation, BackPosition);
-        back = Instantiate(Bodytypes.Backs[Random.Range(0, Bodytypes.Backs.Length)],
-            BackPosition.position,
-            BackPosition.rotation, BackPosition);
+        Clear();
+        canvas.enabled = false;
+        var kokon = Instantiate(KokonPrefab, transform.position, transform.rotation);
+        kokon.unit = this;
+        kokon.TargetControl = control;
+    }
+
+    public void GenerateNewBody()
+    {
+        canvas.enabled = true;
+        front = Instantiate(Bodytypes.GetRandomFront(), FrontPosition.position, FrontPosition.rotation, FrontPosition);
+        front.transform.localPosition = Vector3.zero;
+        frontAnims = front.GetComponentsInChildren<Animator>();
+        back = Instantiate(Bodytypes.GetRandomBack(), BackPosition.position, BackPosition.rotation, BackPosition);
+        back.transform.localPosition = Vector3.zero;
+        backAnim = back.GetComponent<Animator>();
+        
+        //priorities: move and attack from front, armor and ability from back
+        Armor = front.GetComponentInChildren<Armor_Base>();
         Armor = back.GetComponentInChildren<Armor_Base>();
+        Move = back.GetComponentInChildren<Move_Base>();
         Move = front.GetComponentInChildren<Move_Base>();
+        Attack = back.GetComponentInChildren<Attack_Base>();
         Attack = front.GetComponentInChildren<Attack_Base>();
+        Ability = front.GetComponentInChildren<IAbility>();
         Ability = back.GetComponentInChildren<IAbility>();
+        
+        //init components
+        Armor.invincible = invincible;
+        //Armor.PlayDamageEffect();
     }
 
     public void PlayAudioOneshot(AudioClip clip)
@@ -96,13 +129,41 @@ public class Unit_Base : MonoBehaviour
         }
     }
 
+    private void PlayAnimBool(string anim, bool on)
+    {
+        foreach (var frontAnim in frontAnims)
+        {
+            frontAnim.SetBool(anim, on);
+        }
+        backAnim.SetBool(anim, on);
+    }
+    
+    private void PlayAnim(string anim)
+    {
+        foreach (var frontAnim in frontAnims)
+        {
+            frontAnim.SetTrigger(anim);
+        }
+        backAnim.SetTrigger(anim);
+    }
+
     public bool TryMove(Vector2 direction)
     {
         if (Move is null || !Move.IsCanMove)
         {
             return false;
         }
+
+        //stop movement
+        if (direction.sqrMagnitude < 0.5f)
+        {
+            Move.SetMove(0, 0);
+            PlayAnimBool("Move", false);
+            return false;
+        }
+        
         Move.SetMove(direction.x, direction.y);
+        PlayAnimBool("Move", true);
         return true;
     }
 
@@ -113,6 +174,7 @@ public class Unit_Base : MonoBehaviour
             return false;
         }
         Move.Dash();
+        PlayAnimBool("Move", true);
         return true;
     }
 
@@ -122,8 +184,8 @@ public class Unit_Base : MonoBehaviour
         {
             return false;
         }
-        
         Attack.Attack();
+        PlayAnim("Attack");
         return true;
     }
 
@@ -134,13 +196,15 @@ public class Unit_Base : MonoBehaviour
             return false;
         }
         Ability.Use();
+        PlayAnim("Ability");
         return true;
     }
 
     public void LookAt(Vector2 targetLookPos)
     {
-        BackPosition.right = targetLookPos - new Vector2 (transform.position.x, transform.position.y);
+        RotationRoot.right = targetLookPos - new Vector2 (transform.position.x, transform.position.y);
     }
+    
 
     public void TakeDamage(float damage, bool isPoison)
     {

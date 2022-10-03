@@ -47,7 +47,7 @@ public class Timer : MonoBehaviour
         }
     }
 
-    public static Timer CreateTimer(float time, bool isLoop)
+    public static Timer CreateTimer(float time,bool playOnStart, bool isLoop)
     {
         if (TimerCollector == null)
         {
@@ -57,12 +57,13 @@ public class Timer : MonoBehaviour
         Timer timer = TimerCollector.AddComponent<Timer>();
 
         timer.maxTime = time;
+        timer.isPaused = !playOnStart;
         timer.IsLoop = isLoop;
 
         return timer;
     }
     
-    public static Timer CreateTimer(float time)
+    public static Timer CreateTimer(float time, bool playOnStart)
     {
         if (TimerCollector == null)
         {
@@ -72,6 +73,7 @@ public class Timer : MonoBehaviour
         Timer timer = TimerCollector.AddComponent<Timer>();
 
         timer.maxTime = time;
+        timer.isPaused = !playOnStart;
 
         return timer;
     }

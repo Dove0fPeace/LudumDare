@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 7631798722645274474}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -2.28, y: 0.75, z: 0}
-  m_LocalScale: {x: 0.75219727, y: 0.75219727, z: 0.75219727}
+  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -143,8 +143,8 @@ MonoBehaviour:
   Stage1_Damage: 1
   Stage2_Damage: 1.4
   Stage3_Damage: 1.7
-  Stage1_Large: 1
-  Stage2_Large: 1.5
-  Stage3_Large: 2
+  Stage1_Large: 0.25
+  Stage2_Large: 0.6
+  Stage3_Large: 1
   Stage1_EndDistance: 15
   Stage2_EndDistance: 30

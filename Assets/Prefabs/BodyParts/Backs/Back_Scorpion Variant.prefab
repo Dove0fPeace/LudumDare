@@ -7,6 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -8189072859394294054, guid: 720fa54495e0d9c44a4dd6ee71950180, type: 3}
+      propertyPath: PhysicalResist
+      value: 0.8
+      objectReference: {fileID: 0}
     - target: {fileID: 2702795108372186246, guid: 720fa54495e0d9c44a4dd6ee71950180, type: 3}
       propertyPath: m_Name
       value: Back_Scorpion Variant
@@ -18,18 +22,38 @@ PrefabInstance:
     - target: {fileID: 3791362604563600914, guid: 720fa54495e0d9c44a4dd6ee71950180, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: c9f47c7deaa84f542b44da46c032bb6d, type: 3}
+      objectReference: {fileID: -145175704, guid: e6ca2f45a3c819d43b48cf983ebb2502, type: 3}
+    - target: {fileID: 3791362604563600914, guid: 720fa54495e0d9c44a4dd6ee71950180, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3791362604563600914, guid: 720fa54495e0d9c44a4dd6ee71950180, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3791362604563600914, guid: 720fa54495e0d9c44a4dd6ee71950180, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3791362604563600914, guid: 720fa54495e0d9c44a4dd6ee71950180, type: 3}
+      propertyPath: m_SortingLayer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3791362604563600914, guid: 720fa54495e0d9c44a4dd6ee71950180, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -1500003651
+      objectReference: {fileID: 0}
     - target: {fileID: 5794836439227616626, guid: 720fa54495e0d9c44a4dd6ee71950180, type: 3}
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5794836439227616626, guid: 720fa54495e0d9c44a4dd6ee71950180, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.03
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5794836439227616626, guid: 720fa54495e0d9c44a4dd6ee71950180, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.58
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5794836439227616626, guid: 720fa54495e0d9c44a4dd6ee71950180, type: 3}
       propertyPath: m_LocalPosition.z
@@ -64,24 +88,28 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7837323009512365644, guid: 720fa54495e0d9c44a4dd6ee71950180, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7837323009512365644, guid: 720fa54495e0d9c44a4dd6ee71950180, type: 3}
       propertyPath: m_Offset.x
       value: -0.74
       objectReference: {fileID: 0}
     - target: {fileID: 7837323009512365644, guid: 720fa54495e0d9c44a4dd6ee71950180, type: 3}
       propertyPath: m_SpriteTilingProperty.pivot.x
-      value: 0.5734409
+      value: 0.63
       objectReference: {fileID: 0}
     - target: {fileID: 7837323009512365644, guid: 720fa54495e0d9c44a4dd6ee71950180, type: 3}
       propertyPath: m_SpriteTilingProperty.pivot.y
-      value: 0.49366885
+      value: 0.47
       objectReference: {fileID: 0}
     - target: {fileID: 7837323009512365644, guid: 720fa54495e0d9c44a4dd6ee71950180, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 10
+      value: 1.85
       objectReference: {fileID: 0}
     - target: {fileID: 7837323009512365644, guid: 720fa54495e0d9c44a4dd6ee71950180, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 8
+      value: 1.85
       objectReference: {fileID: 0}
     - target: {fileID: 7837323009512365644, guid: 720fa54495e0d9c44a4dd6ee71950180, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.size
@@ -359,6 +387,42 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2702795108372186246, guid: 720fa54495e0d9c44a4dd6ee71950180, type: 3}
   m_PrefabInstance: {fileID: 3231904748501188921}
   m_PrefabAsset: {fileID: 0}
+--- !u!70 &7439963185408319260
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 673369415500154303}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.39664042, y: -0.061155915}
+  m_Size: {x: 0.97776985, y: 0.97776985}
+  m_Direction: 0
+--- !u!95 &-4163717591483747423
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 673369415500154303}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 22100000, guid: 2aed40d8932bf1f428f1e96f8b2d6834, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &7695186906741818798
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -372,14 +436,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Part: 2
-  AttackRange: 4
-  Damage: 10
-  sfx: {fileID: 0}
+  AttackRange: 5
+  Damage: 4
+  sfx: {fileID: 8300000, guid: d3642d9e8f89c2847b1f9e4f59c8f5b5, type: 3}
   AttackCooldown: 10
   HandsPlace: {fileID: 0}
   animator: {fileID: 0}
   AttackAnimationName: 
-  AttackCastRadius: 1
-  DamageDelay: 0
-  InsectType: 2
-  PoisonPrefab: {fileID: 6954970962049813863, guid: 495d845e99bf0804ba3d5536c43e58d6, type: 3}
+  ProjectilePrefab: {fileID: 3242962407902946182, guid: c683097efd593af4694a6d5dd2d1ca8d, type: 3}
+  Insect: 2
+  AbilityUISprite: {fileID: 0}
+  AbilityCooldown: 10

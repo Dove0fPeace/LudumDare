@@ -6,7 +6,7 @@ using Random = UnityEngine.Random;
 namespace Controls
 {
     [RequireComponent(typeof(Unit_Base))]
-    public class AI : MonoBehaviour
+    public class AI : Control_Base
     {
         private Unit_Base unit;
         public float smartness = 5f;
@@ -40,7 +40,7 @@ namespace Controls
                 yield return waitForSeconds;
                 if (!target.gameObject.activeInHierarchy)
                 {
-                    StopCoroutine(moving);
+                    if (moving != null) StopCoroutine(moving);
                     continue;
                 }
                 unit.LookAt(target.position);

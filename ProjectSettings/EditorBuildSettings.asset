@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Arena.unity
+    guid: 6143cbcaa2dc5dd4d967b95c939838b2
   m_configObjects: {}
