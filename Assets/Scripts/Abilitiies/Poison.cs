@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Poison : MonoBehaviour
@@ -8,15 +6,19 @@ public class Poison : MonoBehaviour
 
     public float Damage;
     public float Time;
+    public int TotalTicks = 3;
 
     public Unit_Base Target;
     private Timer timer;
+
+    private int currentTicks;
 
     private void Start()
     {
         timer = Timer.CreateTimer(Time);
         timer.OnTick += DamageTarget;
         Target.ChangeHPBarColor(HP_Bar_Color);
+        currentTicks = 0;
     }
 
     private void OnDestroy()
@@ -29,5 +31,10 @@ public class Poison : MonoBehaviour
     {
         if(Target == null)return;
         Target.TakeDamage(Damage, true);
+        currentTicks++;
+        if (currentTicks >= TotalTicks)
+        {
+            Destroy(gameObject);
+        }
     }
 }

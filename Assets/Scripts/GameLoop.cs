@@ -67,6 +67,11 @@ public class GameLoop : SingletonBase<GameLoop>
         }
     }
 
+    public void ChangePlayer()
+    {
+        spawnedPlayer.GetComponent<Unit_Base>().ChangeBody();
+    }
+
     private void RandomEffect()
     {
         int Effect = Random.Range(1, 3);

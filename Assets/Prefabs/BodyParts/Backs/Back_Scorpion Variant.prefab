@@ -378,7 +378,7 @@ MonoBehaviour:
   Part: 2
   AttackRange: 5
   Damage: 4
-  sfx: {fileID: 0}
+  sfx: {fileID: 8300000, guid: d3642d9e8f89c2847b1f9e4f59c8f5b5, type: 3}
   AttackCooldown: 10
   HandsPlace: {fileID: 0}
   animator: {fileID: 0}

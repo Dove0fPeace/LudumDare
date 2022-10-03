@@ -1,7 +1,4 @@
 using Base_Components;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 
 public class AcidAbility : MeleeAttack_Base, IAbility
 {
