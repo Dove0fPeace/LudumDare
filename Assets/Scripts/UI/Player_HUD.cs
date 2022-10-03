@@ -40,7 +40,7 @@ public class Player_HUD : SingletonBase<Player_HUD>
             attackDisabled = true;
             foreach (Image attackIcon in AttackIcons)
             {
-                attackIcon.DOColor(Color.gray, 1f);
+                attackIcon.DOColor(new Color(0.1f, 0.1f, 0.1f, 1), 1f);
             }
         }
         else if (attackDisabled && !unable)

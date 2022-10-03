@@ -32,23 +32,7 @@ public class Bombardir_Ability : MeleeAttack_Base, IAbility
     protected override void Update()
     {
         base.Update();
-        if(isUse)
-        {
-            CurrentTickTIme -= Time.deltaTime;
-            if(CurrentTickTIme <= 0)
-            {
-                print("tick");
-                currentTickCount--;
-                if(currentTickCount <= 0)
-                {
-                    isUse = false;
-                    
-                }
-                CheckRaycastOnAttack();
-                print("Attack");
-                CurrentTickTIme = AbilityTickTime;
-            }
-        }
+        
         currentCooldown = attackTime / AttackCooldown;
         if(currentCooldown <= 0)
         {
@@ -78,10 +62,6 @@ public class Bombardir_Ability : MeleeAttack_Base, IAbility
 
     public void Use()
     {
-        print("Use");
-        isUse = true;
-        CurrentTickTIme = AbilityTickTime;
-        currentTickCount = AbilityTickCount;
         Attack();
     }
 }

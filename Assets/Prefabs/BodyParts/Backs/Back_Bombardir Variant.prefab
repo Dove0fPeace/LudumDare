@@ -166,7 +166,7 @@ MonoBehaviour:
   Part: 2
   UnableToAttack: 0
   AttackRange: 2.9
-  Damage: 5
+  Damage: 10
   sfx: {fileID: 0}
   AttackCooldown: 5
   attackTime: 0

@@ -50,6 +50,8 @@ public class GameLoop : SingletonBase<GameLoop>
 
     private void Start()
     {
+        spawnedPlayer = null;
+        lastEnemy = null;
         audioSource = transform.GetComponent<AudioSource>();
         trapSpawnPoints = TrapSpawnPoint.GetComponentsInChildren<Transform>();
         intro.enabled = false;
@@ -83,13 +85,16 @@ public class GameLoop : SingletonBase<GameLoop>
         }
         textBox.transform.parent.gameObject.SetActive(true);
         EnemySpawnCount = enemiesNumber;
-        if (intro & SpawnPlayer)
+        if (spawnedPlayer is null)
         {
             spawnedPlayer = Instantiate(PlayerPrefab, PLayerSpawnPoint.position, PLayerSpawnPoint.rotation).transform;
             targetCamera.Follow = spawnedPlayer;
             spawnedPlayer.GetComponent<Unit_Base>().SetGodMode(GodMode);
         }
-        spawnedPlayer.GetComponent<Unit_Base>().HealRelative(1f);
+        else
+        {
+            spawnedPlayer.GetComponent<Unit_Base>().HealRelative(1f);
+        }
         SpawnEnemy(EnemySpawnCount, enemiesHP, brain);
         yield return new WaitForSeconds(0.8f);
         foreach (var unitBase in unitList)
