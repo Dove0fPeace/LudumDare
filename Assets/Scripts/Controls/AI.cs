@@ -50,7 +50,7 @@ namespace Controls
                     unit.Ability.Use();
                     continue;
                 }
-                if (unit.Dash.CanDash && IsCastHit(-realUnit.right, wallDistanceCheck))
+                if (unit.Dash.CanDash && (IsCastHit(-realUnit.right, wallDistanceCheck) || (unit.CurrentHP/unit.MaxHitPoints) < 0.5f))
                 {
                     if (unit.TryDash())
                     {
