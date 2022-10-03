@@ -27,9 +27,7 @@ public class Unit_Base : MonoBehaviour
     public Transform BackPosition;
 
     private GameObject front;
-    private Animator frontAnim;
     private GameObject back;
-    private Animator backAnim;
     
     private AudioSource AudioSource;
     private Vector3 initialPosition;
@@ -75,10 +73,8 @@ public class Unit_Base : MonoBehaviour
 
         front = Instantiate(Bodytypes.GetRandomFront(), FrontPosition, false);
         front.transform.localPosition = Vector3.zero;
-        frontAnim = front.GetComponent<Animator>();
         back = Instantiate(Bodytypes.GetRandomBack(), BackPosition, false);
         back.transform.localPosition = Vector3.zero;
-        backAnim = back.GetComponent<Animator>();
         
         //priorities: move and attack from front, armor and ability from back
         Armor = front.GetComponentInChildren<Armor_Base>();
@@ -112,33 +108,14 @@ public class Unit_Base : MonoBehaviour
         }
     }
 
-    private void PlayAnimBool(string anim, bool on)
-    {
-        frontAnim.SetBool(anim, on);
-        backAnim.SetBool(anim, on);
-    }
-    
-    private void PlayAnim(string anim)
-    {
-        frontAnim.SetTrigger(anim);
-        backAnim.SetTrigger(anim);
-    }
-
     public bool TryMove(Vector2 direction)
     {
         if (Move is null || !Move.IsCanMove)
         {
             return false;
         }
-
-        PlayAnimBool("Move", true);
         Move.SetMove(direction.x, direction.y);
         return true;
-    }
-
-    public void StopAnimation()
-    {
-        PlayAnimBool("Move", false);
     }
 
     public bool TryDash()
@@ -148,7 +125,6 @@ public class Unit_Base : MonoBehaviour
             return false;
         }
         Move.Dash();
-        PlayAnimBool("Move", true);
         return true;
     }
 
@@ -158,8 +134,8 @@ public class Unit_Base : MonoBehaviour
         {
             return false;
         }
+        
         Attack.Attack();
-        PlayAnim("Attack");
         return true;
     }
 
@@ -170,7 +146,6 @@ public class Unit_Base : MonoBehaviour
             return false;
         }
         Ability.Use();
-        PlayAnim("Ability");
         return true;
     }
 
