@@ -534,7 +534,8 @@ MonoBehaviour:
   MaxHitPoints: 50
   CurrentHP: 0
   HpBar: {fileID: 708259034127014102}
-  DefaultHPColor: {r: 0, g: 0, b: 0, a: 0}
+  DefaultHPColor: {r: 0.764151, g: 0.111739054, b: 0.111739054, a: 1}
+  canvas: {fileID: 708259034202226475}
   Bodytypes: {fileID: 11400000, guid: ca844ead88c1dd54cbecb745c5fb9ba7, type: 2}
   Armor: {fileID: 0}
   Move: {fileID: 0}
@@ -543,6 +544,7 @@ MonoBehaviour:
   HandsPosition: {fileID: 708259033173593773}
   FrontPosition: {fileID: 8796650321517346216}
   BackPosition: {fileID: 7104395053890724439}
+  KokonPrefab: {fileID: 1772360680528241975, guid: 8eb812e551324b94493f782ebf375fba, type: 3}
 --- !u!82 &708259034112652603
 AudioSource:
   m_ObjectHideFlags: 0
