@@ -254,7 +254,7 @@ public class Unit_Base : MonoBehaviour
         }
     }
 
-    public void Heal(float healPercent)
+    public void HealRelative(float healPercent)
     {
         CurrentHP += (int)(MaxHitPoints * healPercent);
         if(CurrentHP > MaxHitPoints)

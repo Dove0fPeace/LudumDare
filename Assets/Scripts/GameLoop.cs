@@ -84,6 +84,7 @@ public class GameLoop : SingletonBase<GameLoop>
             targetCamera.Follow = spawnedPlayer;
             spawnedPlayer.GetComponent<Unit_Base>().SetGodMode(GodMode);
         }
+        spawnedPlayer.GetComponent<Unit_Base>().HealRelative(1f);
         SpawnEnemy(EnemySpawnCount, enemiesHP, brain);
         yield return new WaitForSeconds(0.8f);
         foreach (var unitBase in unitList)
