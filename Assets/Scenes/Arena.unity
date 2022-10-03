@@ -216,7 +216,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 82815679712834433, guid: 148d0fe69e37f034d9c19542f7659f86, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 82815679712834444, guid: 148d0fe69e37f034d9c19542f7659f86, type: 3}
       propertyPath: m_Name
@@ -236,6 +236,46 @@ PrefabInstance:
         his champion will be brought to life, the one who will at last overpower
         the people.\r\n"
       objectReference: {fileID: 0}
+    - target: {fileID: 82815679874605153, guid: 148d0fe69e37f034d9c19542f7659f86, type: 3}
+      propertyPath: m_fontSize
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 82815679874605153, guid: 148d0fe69e37f034d9c19542f7659f86, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 82815679874605154, guid: 148d0fe69e37f034d9c19542f7659f86, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -300
+      objectReference: {fileID: 0}
+    - target: {fileID: 82815679874605154, guid: 148d0fe69e37f034d9c19542f7659f86, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: -300
+      objectReference: {fileID: 0}
+    - target: {fileID: 82815679874605154, guid: 148d0fe69e37f034d9c19542f7659f86, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -50
+      objectReference: {fileID: 0}
+    - target: {fileID: 82815679874605154, guid: 148d0fe69e37f034d9c19542f7659f86, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 82815680904611591, guid: 148d0fe69e37f034d9c19542f7659f86, type: 3}
+      propertyPath: m_Color.b
+      value: 0.38679248
+      objectReference: {fileID: 0}
+    - target: {fileID: 82815680904611591, guid: 148d0fe69e37f034d9c19542f7659f86, type: 3}
+      propertyPath: m_Color.g
+      value: 0.38679248
+      objectReference: {fileID: 0}
+    - target: {fileID: 82815680904611591, guid: 148d0fe69e37f034d9c19542f7659f86, type: 3}
+      propertyPath: m_Color.r
+      value: 0.38679248
+      objectReference: {fileID: 0}
+    - target: {fileID: 82815680904611591, guid: 148d0fe69e37f034d9c19542f7659f86, type: 3}
+      propertyPath: m_Texture
+      value: 
+      objectReference: {fileID: 2800000, guid: 9d73e1f3e9a14cc4e8afbf2842b8122b, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 148d0fe69e37f034d9c19542f7659f86, type: 3}
 --- !u!1 &30468529
@@ -1380,7 +1420,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8581125650305983098, guid: 5e34a56f4a7bafc4eba6f891b54582e2, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 400
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 8581125650305983098, guid: 5e34a56f4a7bafc4eba6f891b54582e2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3359,22 +3399,22 @@ PrefabInstance:
       value: "   Champion of Shkhorn made his way through his relatives and received
         the greatest reward - leaving the arena and fulfilling the will of its creator.
         For a long, long time the champion walked through the endless tunnel, inside
-        the flesh of Shkorn and finally came out to the human biomass.\r\n    That\u2019s
+        the flesh of Shkorn and finally came out to the human biomass.\r\n\n    That\u2019s
         where he met his last enemy, the champion of men, an ugly monster like himself.
         But a man is not equal to the spawn of Shkorn and therefore in a minute,
-        in a disembodied state, the human was digested.\n    Many decades have passed
-        since then. Champion of the Shkhorn devoured countless human flesh and grew
-        in size. He grew and grew until he noticed that all human biomass was now
-        a part of him. But with the new body, something else had come. The champion
-        understood why people were able to take over the Shkhorn\u2019s body. His
-        savage mind struggled to cope with the rush of cold hatred, fearful anger,
-        burning wrath and deep despair. But he failed. He was torn apart by human
-        emotions and former champion of the Shkhorn, with his personality, dissolved
-        into biomass.\r\n    The Circle Was Complete.\r\n\n\n"
+        in a disembodied state, the human was digested.\n\n    Many decades have
+        passed since then. Champion of the Shkhorn devoured countless human flesh
+        and grew in size. He grew and grew until he noticed that all human biomass
+        was now a part of him. But with the new body, something else had come. The
+        champion understood why people were able to take over the Shkhorn\u2019s
+        body. His savage mind struggled to cope with the rush of cold hatred, fearful
+        anger, burning wrath and deep despair. But he failed. He was torn apart by
+        human emotions and former champion of the Shkhorn, with his personality,
+        dissolved into biomass.\r\n\n    The Circle Was Complete.\r\n\n\n"
       objectReference: {fileID: 0}
     - target: {fileID: 6864460142922076002, guid: df6d0fdd7b245724db23a51d5e2633a5, type: 3}
       propertyPath: m_fontSize
-      value: 40
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 6864460142922076002, guid: df6d0fdd7b245724db23a51d5e2633a5, type: 3}
       propertyPath: m_fontColor.b
@@ -3390,7 +3430,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6864460142922076002, guid: df6d0fdd7b245724db23a51d5e2633a5, type: 3}
       propertyPath: m_fontSizeBase
-      value: 40
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 6864460142922076002, guid: df6d0fdd7b245724db23a51d5e2633a5, type: 3}
       propertyPath: m_fontColor32.rgba
@@ -3398,19 +3438,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6864460142922076005, guid: df6d0fdd7b245724db23a51d5e2633a5, type: 3}
       propertyPath: m_SizeDelta.x
-      value: -300
+      value: -250
       objectReference: {fileID: 0}
     - target: {fileID: 6864460142922076005, guid: df6d0fdd7b245724db23a51d5e2633a5, type: 3}
       propertyPath: m_SizeDelta.y
-      value: -300
+      value: -250
       objectReference: {fileID: 0}
     - target: {fileID: 6864460142922076005, guid: df6d0fdd7b245724db23a51d5e2633a5, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -50
+      value: -75
       objectReference: {fileID: 0}
     - target: {fileID: 6864460142922076005, guid: df6d0fdd7b245724db23a51d5e2633a5, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 50
+      value: 75
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: df6d0fdd7b245724db23a51d5e2633a5, type: 3}
