@@ -2,6 +2,7 @@ using Base_Components;
 using UnityEngine;
 using UnityEngine.UI;
 using Controls;
+using UnityEngine.SceneManagement;
 
 public class Unit_Base : MonoBehaviour
 {
@@ -269,7 +270,12 @@ public class Unit_Base : MonoBehaviour
     }
     public void Death()
     {
-        GameLoop.Instance.RemoveFromUnitList(this);
+        var player = transform.GetComponent<PlayerControl>();
+        if (player != null && GameLoop.Instance.RespawnSceneOnDeath)
+        {        
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
         gameObject.SetActive(false);
+        GameLoop.Instance.RemoveFromUnitList(this);
     }
 }

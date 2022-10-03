@@ -27,6 +27,8 @@ public class GameLoop : SingletonBase<GameLoop>
     public bool SpawnPlayer = true;
     public bool GodMode;
     private Timer gameLoopTimer;
+    [Header ("Restart scene on death")]
+    public bool RespawnSceneOnDeath = false;
 
     private List<Unit_Base> unitList = new List<Unit_Base>();
 
