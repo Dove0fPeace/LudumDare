@@ -52,7 +52,7 @@ public class Move_Base : MonoBehaviour
 
     public void Move()
     {
-        if (inputHorizontal != 0 || inputVertical != 0)
+        if (Mathf.Abs(inputHorizontal) > Mathf.Epsilon || Mathf.Abs(inputVertical) > Mathf.Epsilon)
         {
             var direction = GetInputDirection();
             rb.velocity = direction * MoveSpeed * SpeedModifier() * Time.deltaTime;
@@ -60,7 +60,7 @@ public class Move_Base : MonoBehaviour
         else
         {
             rb.velocity = Vector2.zero;
-            self.StopAnimation("Move");
+            self.StopAnimation();
         }
     }
 

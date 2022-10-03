@@ -130,12 +130,13 @@ public class Unit_Base : MonoBehaviour
         {
             return false;
         }
-        Move.SetMove(direction.x, direction.y);
+
         PlayAnimBool("Move", true);
+        Move.SetMove(direction.x, direction.y);
         return true;
     }
 
-    public void StopAnimation(string stateName)
+    public void StopAnimation()
     {
         PlayAnimBool("Move", false);
     }
