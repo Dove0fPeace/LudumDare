@@ -50,7 +50,6 @@ public class Unit_Base : MonoBehaviour
     {
         if (!gameObject.activeInHierarchy)
         {
-            //respawn
             transform.position = initialPosition;
             CurrentHP = MaxHitPoints;
             HpBar.maxValue = MaxHitPoints;

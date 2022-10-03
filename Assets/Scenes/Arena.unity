@@ -985,6 +985,7 @@ SpriteRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 763097297}
   m_Enabled: 1
+<<<<<<< Updated upstream
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -1030,6 +1031,29 @@ SpriteRenderer:
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &763097299
+=======
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef67a178ac62f594f8cc165b559d85b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_DontDestroyOnLoad: 0
+  mainTime: 10
+  PlayerPrefab: {fileID: 8394180998769690139, guid: 4bcbc4e20eb970445ad808a4658efb60, type: 3}
+  PLayerSpawnPoint: {fileID: 1527402341}
+  targetCamera: {fileID: 352408460}
+  SpawwnPlayer: 1
+  GodMode: 0
+  EnemyPrefab: {fileID: 3175565258017640245, guid: 6b77990008b3b3a418cd35ffa92a7077, type: 3}
+  EnemySpawnCount: 2
+  TrapSpawnPoint: {fileID: 961743928}
+  MinTrapsSpawn: 1
+  MaxTrapsSpawn: 5
+  Traps:
+  - {fileID: 2776424960524771887, guid: 214da21af3193f14897cdba509f14c6d, type: 3}
+  - {fileID: 4412690687866068082, guid: 5b163653c8490aa438ce0dece2afcb74, type: 3}
+  - {fileID: 1566799698, guid: 842ff94fda1faf64391dcaff9a89b020, type: 3}
+--- !u!4 &617627695
+>>>>>>> Stashed changes
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

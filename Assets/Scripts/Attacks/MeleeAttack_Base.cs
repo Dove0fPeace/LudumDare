@@ -17,7 +17,7 @@ public class MeleeAttack_Base : Attack_Base
         StartCoroutine(CheckRaycastOnAttack());
     }
 
-    public IEnumerator CheckRaycastOnAttack()
+    public virtual IEnumerator CheckRaycastOnAttack()
     {
         yield return new WaitForSeconds(DamageDelay);
 
