@@ -88,7 +88,7 @@ public class Unit_Base : MonoBehaviour
 
     public void GenerateNewBody()
     {
-            canvas.enabled = true;
+        canvas.enabled = true;
         front = Instantiate(Bodytypes.GetRandomFront(), FrontPosition.position, FrontPosition.rotation, FrontPosition);
         front.transform.localPosition = Vector3.zero;
         frontAnims = front.GetComponentsInChildren<Animator>();
@@ -108,6 +108,7 @@ public class Unit_Base : MonoBehaviour
         
         //init components
         Armor.invincible = invincible;
+        Armor.PlayDamageEffect();
     }
 
     public void PlayAudioOneshot(AudioClip clip)
