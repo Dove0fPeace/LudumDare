@@ -14,7 +14,7 @@ public class GameLoop : SingletonBase<GameLoop>
     public AudioClip AudioOnLoopTimesEnd;
     public TMP_Text textBox;
     public Canvas intro, outro;
-    
+    public bool GameOn;
 
     private AudioSource audioSource;
 
@@ -55,6 +55,7 @@ public class GameLoop : SingletonBase<GameLoop>
         intro.enabled = false;
         outro.enabled = false;
         storyPhase = StoryContainer.storyPhase;
+        GameOn = false;
         Start10secs();
         StartCoroutine(StartSequence(StoryContainer.GetEnemiesCount(storyPhase), StoryContainer.GetEnemiesHp(storyPhase), StoryContainer.GetEnemiesBrain(storyPhase), StoryContainer.GetStory(storyPhase), storyPhase == 0));
     }
@@ -75,6 +76,7 @@ public class GameLoop : SingletonBase<GameLoop>
 
     IEnumerator StartSequence(int enemiesNumber, int enemiesHP, float brain, string[] sequence, bool intro = false)
     {
+        GameOn = false;
         if (intro)
         {
             yield return StartCoroutine(ShowIntro());
@@ -105,6 +107,7 @@ public class GameLoop : SingletonBase<GameLoop>
         {
             unitBase.GetComponent<Control_Base>().enabled = true;
         }
+        GameOn = true;
     }
 
     private void OnDestroy()
@@ -128,13 +131,14 @@ public class GameLoop : SingletonBase<GameLoop>
             }
             else
             {
-                textBox.transform.parent.gameObject.SetActive(false);
+                StartCoroutine(EndSequence(StoryContainer.GetStory(5)[0]));
             }
         }
     }
 
     IEnumerator EndSequence(string text)
     {
+        GameOn = false;
         textBox.transform.parent.gameObject.SetActive(true);
         textBox.text = StoryContainer.GetStory(5)[0];
         yield return new WaitForSeconds(0.3f);

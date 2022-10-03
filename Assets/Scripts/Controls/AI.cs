@@ -39,6 +39,10 @@ namespace Controls
             while (true)
             {
                 yield return waitForSeconds;
+                if (!GameLoop.Instance.GameOn)
+                {
+                    continue;
+                }
                 if (!target.gameObject.activeInHierarchy)
                 {
                     if (moving != null)
