@@ -3408,6 +3408,54 @@ PrefabInstance:
       propertyPath: m_Name
       value: OutroCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 6864460142072568456, guid: df6d0fdd7b245724db23a51d5e2633a5, type: 3}
+      propertyPath: m_Color.b
+      value: 0.6603774
+      objectReference: {fileID: 0}
+    - target: {fileID: 6864460142072568456, guid: df6d0fdd7b245724db23a51d5e2633a5, type: 3}
+      propertyPath: m_Color.g
+      value: 0.6603774
+      objectReference: {fileID: 0}
+    - target: {fileID: 6864460142072568456, guid: df6d0fdd7b245724db23a51d5e2633a5, type: 3}
+      propertyPath: m_Color.r
+      value: 0.6603774
+      objectReference: {fileID: 0}
+    - target: {fileID: 6864460142072568456, guid: df6d0fdd7b245724db23a51d5e2633a5, type: 3}
+      propertyPath: m_Texture
+      value: 
+      objectReference: {fileID: 2800000, guid: ac0aa3057624768449cff0b0c443c145, type: 3}
+    - target: {fileID: 6864460142922076002, guid: df6d0fdd7b245724db23a51d5e2633a5, type: 3}
+      propertyPath: m_fontColor.b
+      value: 0.8773585
+      objectReference: {fileID: 0}
+    - target: {fileID: 6864460142922076002, guid: df6d0fdd7b245724db23a51d5e2633a5, type: 3}
+      propertyPath: m_fontColor.g
+      value: 0.8500445
+      objectReference: {fileID: 0}
+    - target: {fileID: 6864460142922076002, guid: df6d0fdd7b245724db23a51d5e2633a5, type: 3}
+      propertyPath: m_fontColor.r
+      value: 0.79045033
+      objectReference: {fileID: 0}
+    - target: {fileID: 6864460142922076002, guid: df6d0fdd7b245724db23a51d5e2633a5, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4292925898
+      objectReference: {fileID: 0}
+    - target: {fileID: 6864460142922076005, guid: df6d0fdd7b245724db23a51d5e2633a5, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -300
+      objectReference: {fileID: 0}
+    - target: {fileID: 6864460142922076005, guid: df6d0fdd7b245724db23a51d5e2633a5, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: -300
+      objectReference: {fileID: 0}
+    - target: {fileID: 6864460142922076005, guid: df6d0fdd7b245724db23a51d5e2633a5, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -50
+      objectReference: {fileID: 0}
+    - target: {fileID: 6864460142922076005, guid: df6d0fdd7b245724db23a51d5e2633a5, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 50
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: df6d0fdd7b245724db23a51d5e2633a5, type: 3}
 --- !u!1 &1527402340
