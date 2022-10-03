@@ -35,6 +35,10 @@ namespace Base_Components
 
         private void OnTriggerStay2D(Collider2D other)
         {
+            if (other is null || other.attachedRigidbody is null)
+            {
+                return;
+            }
             if (other.attachedRigidbody.gameObject.TryGetComponent(out Unit_Base unit))
             {
                 UnitInside(unit);
