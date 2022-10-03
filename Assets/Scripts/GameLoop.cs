@@ -83,7 +83,7 @@ public class GameLoop : SingletonBase<GameLoop>
         }
         textBox.transform.parent.gameObject.SetActive(true);
         EnemySpawnCount = enemiesNumber;
-        if(intro & SpawnPlayer)
+        if (intro & SpawnPlayer)
         {
             spawnedPlayer = Instantiate(PlayerPrefab, PLayerSpawnPoint.position, PLayerSpawnPoint.rotation).transform;
             targetCamera.Follow = spawnedPlayer;
