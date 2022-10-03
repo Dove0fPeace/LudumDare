@@ -39,7 +39,7 @@ namespace Controls
                 yield return waitForSeconds;
                 if (!target.gameObject.activeInHierarchy)
                 {
-                    StopCoroutine(moving);
+                    if (moving != null) StopCoroutine(moving);
                     continue;
                 }
                 unit.LookAt(target.position);
