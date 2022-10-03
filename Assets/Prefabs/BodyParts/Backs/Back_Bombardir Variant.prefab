@@ -9,11 +9,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8189072859394294054, guid: 720fa54495e0d9c44a4dd6ee71950180, type: 3}
       propertyPath: PhysicalResist
-      value: 1.5
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 2702795108372186246, guid: 720fa54495e0d9c44a4dd6ee71950180, type: 3}
       propertyPath: m_Name
       value: Back_Bombardir Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 2702795108372186246, guid: 720fa54495e0d9c44a4dd6ee71950180, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3791362604563600914, guid: 720fa54495e0d9c44a4dd6ee71950180, type: 3}
       propertyPath: m_Sprite
@@ -158,8 +162,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa337c56bc61fc3448ca274f80756a04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DashCooldown: 3
+  DashCooldown: 4
+  dashCurrentCooldown: 0
   DashForce: 5
   DashMoveBlock: 1
   InvincibleInDash: 0
   CanDash: 1
+  DashNow: 0
+  rb: {fileID: 0}
+  Move_Target: {fileID: 0}
+  self: {fileID: 0}
+  hud: {fileID: 0}
+  dashTimer: {fileID: 0}

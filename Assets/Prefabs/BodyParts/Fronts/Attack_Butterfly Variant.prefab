@@ -313,7 +313,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 146070501400393255, guid: e6349607294709f4f9e1852963948e4d, type: 3}
       propertyPath: MoveSpeed
-      value: 250
+      value: 275
       objectReference: {fileID: 0}
     - target: {fileID: 146070501400393255, guid: e6349607294709f4f9e1852963948e4d, type: 3}
       propertyPath: DashImpulse

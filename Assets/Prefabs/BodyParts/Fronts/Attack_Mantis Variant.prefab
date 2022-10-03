@@ -27,6 +27,10 @@ PrefabInstance:
       propertyPath: m_SpriteTilingProperty.oldSize.y
       value: 1.85
       objectReference: {fileID: 0}
+    - target: {fileID: 146070501400393255, guid: e6349607294709f4f9e1852963948e4d, type: 3}
+      propertyPath: MoveSpeed
+      value: 200
+      objectReference: {fileID: 0}
     - target: {fileID: 4486493365180743732, guid: e6349607294709f4f9e1852963948e4d, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -103,6 +107,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Attack_Mantis Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 4486493365180743738, guid: e6349607294709f4f9e1852963948e4d, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e6349607294709f4f9e1852963948e4d, type: 3}
 --- !u!1 &7960126111947654323 stripped
@@ -159,10 +167,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Part: 2
-  AttackRange: 5
-  Damage: 12
-  sfx: {fileID: 0}
-  AttackCooldown: 2
+  UnableToAttack: 0
+  AttackRange: 2.5
+  Damage: 3
+  sfx: {fileID: 8300000, guid: a32f80be1dac7a445b3610854ae2bfab, type: 3}
+  AttackCooldown: 0.5
   HandsPlace: {fileID: 0}
   animator: {fileID: 0}
   AttackAnimationName: 
