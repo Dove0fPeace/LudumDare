@@ -112,10 +112,16 @@ public class Unit_Base : MonoBehaviour
         }
     }
 
+    private void PlayAnimBool(string anim, bool on)
+    {
+        frontAnim.SetBool(anim, on);
+        backAnim.SetBool(anim, on);
+    }
+    
     private void PlayAnim(string anim)
     {
-        frontAnim.Play(anim);
-        backAnim.Play(anim);
+        frontAnim.SetTrigger(anim);
+        backAnim.SetTrigger(anim);
     }
 
     public bool TryMove(Vector2 direction)
@@ -125,17 +131,13 @@ public class Unit_Base : MonoBehaviour
             return false;
         }
         Move.SetMove(direction.x, direction.y);
-        PlayAnim("Move");
+        PlayAnimBool("Move", true);
         return true;
     }
 
     public void StopAnimation(string stateName)
     {
-        if (frontAnim.GetCurrentAnimatorStateInfo(0).IsName(stateName))
-        {
-            frontAnim.StopPlayback();
-            backAnim.StopPlayback();
-        }
+        PlayAnimBool("Move", false);
     }
 
     public bool TryDash()
@@ -145,7 +147,7 @@ public class Unit_Base : MonoBehaviour
             return false;
         }
         Move.Dash();
-        PlayAnim("Move");
+        PlayAnimBool("Move", true);
         return true;
     }
 
@@ -155,7 +157,6 @@ public class Unit_Base : MonoBehaviour
         {
             return false;
         }
-        
         Attack.Attack();
         PlayAnim("Attack");
         return true;
