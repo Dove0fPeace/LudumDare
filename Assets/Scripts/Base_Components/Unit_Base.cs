@@ -2,6 +2,7 @@ using Base_Components;
 using UnityEngine;
 using Random = UnityEngine.Random;
 using UnityEngine.UI;
+using Controls;
 
 public class Unit_Base : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class Unit_Base : MonoBehaviour
     public Slider HpBar;
     private RectTransform fillRect;
     public Color DefaultHPColor;
+    public Canvas canvas;
 
     [Space(5)]
 
@@ -34,9 +36,13 @@ public class Unit_Base : MonoBehaviour
     private Vector3 initialPosition;
     private bool invincible;
 
+    public Kokon KokonPrefab;
+    private Control_Base control;
+
 
     private void Start()
     {
+        control = transform.GetComponent<Control_Base>();
         ChangeBody();
         CurrentHP = MaxHitPoints;
         HpBar.maxValue = MaxHitPoints;
@@ -47,6 +53,7 @@ public class Unit_Base : MonoBehaviour
         fillRect = HpBar.fillRect;
 
         GameLoop.Instance.AddToUnitList(this);
+
     }
 
     public void SetGodMode(bool on = true)
@@ -70,9 +77,20 @@ public class Unit_Base : MonoBehaviour
             HpBar.maxValue = MaxHitPoints;
             HpBar.value = HpBar.maxValue;
             gameObject.SetActive(true);
-        } 
-        Clear();
+        }
 
+        Clear();
+        canvas.enabled = false;
+        var kokon = Instantiate(KokonPrefab, transform.position, transform.rotation);
+        kokon.unit = this;
+        kokon.TargetControl = control;
+       
+
+    }
+
+    public void GenerateNewBody()
+    {
+        canvas.enabled = true;
         front = Instantiate(Bodytypes.Fronts[Random.Range(0, Bodytypes.Fronts.Length)],
             BackPosition.position,
             BackPosition.rotation, BackPosition);
@@ -84,6 +102,7 @@ public class Unit_Base : MonoBehaviour
         Move = front.GetComponentInChildren<Move_Base>();
         Attack = front.GetComponentInChildren<Attack_Base>();
         Ability = back.GetComponentInChildren<IAbility>();
+
     }
 
     public void PlayAudioOneshot(AudioClip clip)

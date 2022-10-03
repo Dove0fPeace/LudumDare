@@ -62,6 +62,7 @@ public class Move_Base : MonoBehaviour
     {
         dashTimer.OnTick -= UpdateDashUI;
         dashTimer.Destroy();
+        rb.velocity = Vector2.zero;
     }
 
     public void SetMove(float horizontal, float vertical)

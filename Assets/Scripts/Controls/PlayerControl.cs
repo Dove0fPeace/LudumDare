@@ -3,9 +3,11 @@ using UnityEngine;
 namespace Controls
 {
     [RequireComponent(typeof(Unit_Base))]
-    public class PlayerControl : MonoBehaviour
+    public class PlayerControl : Control_Base
     {
         private Unit_Base unit;
+
+        private bool disable;
         private void Awake()
         {
             unit = GetComponent<Unit_Base>();
@@ -14,6 +16,10 @@ namespace Controls
         private void Update()
         {
             Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+            if(disable)
+            {
+                input = Vector2.zero;
+            }
             unit.TryMove(input);
             
             if (Input.GetButtonDown("Fire3"))
@@ -34,6 +40,15 @@ namespace Controls
         {
             var targetLookPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             unit.LookAt(targetLookPos);          
+        }
+
+        private void OnEnable()
+        {
+            disable = false;
+        }
+        private void OnDisable()
+        {
+            disable = true;
         }
     }
 }

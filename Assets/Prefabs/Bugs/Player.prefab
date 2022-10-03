@@ -517,6 +517,7 @@ MonoBehaviour:
   CurrentHP: 0
   HpBar: {fileID: 3192843333944989037}
   DefaultHPColor: {r: 0, g: 0, b: 0, a: 0}
+  canvas: {fileID: 3192843335127206642}
   Bodytypes: {fileID: 11400000, guid: ca844ead88c1dd54cbecb745c5fb9ba7, type: 2}
   Armor: {fileID: 0}
   Move: {fileID: 0}
@@ -524,6 +525,7 @@ MonoBehaviour:
   HandsPosition: {fileID: 3192843335044000210}
   BackPosition: {fileID: 8394180997973692632}
   targetLookPos: {x: 0, y: 0}
+  KokonPrefab: {fileID: 1772360680528241975, guid: 8eb812e551324b94493f782ebf375fba, type: 3}
 --- !u!114 &8394180998769690139
 MonoBehaviour:
   m_ObjectHideFlags: 0
