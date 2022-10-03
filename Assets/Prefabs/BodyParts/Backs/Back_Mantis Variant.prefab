@@ -7,6 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -8189072859394294054, guid: 720fa54495e0d9c44a4dd6ee71950180, type: 3}
+      propertyPath: PhysicalResist
+      value: 1.3
+      objectReference: {fileID: 0}
     - target: {fileID: 2702795108372186246, guid: 720fa54495e0d9c44a4dd6ee71950180, type: 3}
       propertyPath: m_Name
       value: Back_Mantis Variant
@@ -158,10 +162,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa337c56bc61fc3448ca274f80756a04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DashCooldown: 3
+  DashCooldown: 2
   dashCurrentCooldown: 0
-  DashForce: 5
-  DashMoveBlock: 1
+  DashForce: 20
+  DashMoveBlock: 0.3
   InvincibleInDash: 0
   CanDash: 1
   DashNow: 0

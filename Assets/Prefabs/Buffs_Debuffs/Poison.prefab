@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HP_Bar_Color: {r: 0, g: 0.3679245, b: 0.0036962593, a: 1}
-  Damage: 3
-  TickInterval: 0.3
+  Damage: 2
+  TickInterval: 1
   TotalTicks: 5
   Target: {fileID: 0}
