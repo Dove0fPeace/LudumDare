@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Bogomol Back
+  m_Name: Butterfly Front
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,13 +20,13 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 130824149, guid: f334cd2a31b986e49a3702662f780739, type: 3}
+      value: {fileID: -350317675, guid: d560c366496bb47438d93fede2233e36, type: 3}
     - time: 0.083333336
-      value: {fileID: -1187135109, guid: f334cd2a31b986e49a3702662f780739, type: 3}
+      value: {fileID: 2091221931, guid: d560c366496bb47438d93fede2233e36, type: 3}
     - time: 0.16666667
-      value: {fileID: 209798124, guid: f334cd2a31b986e49a3702662f780739, type: 3}
+      value: {fileID: -543330156, guid: d560c366496bb47438d93fede2233e36, type: 3}
     - time: 0.25
-      value: {fileID: -1940654999, guid: f334cd2a31b986e49a3702662f780739, type: 3}
+      value: {fileID: -1350900235, guid: d560c366496bb47438d93fede2233e36, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -46,10 +46,10 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 130824149, guid: f334cd2a31b986e49a3702662f780739, type: 3}
-    - {fileID: -1187135109, guid: f334cd2a31b986e49a3702662f780739, type: 3}
-    - {fileID: 209798124, guid: f334cd2a31b986e49a3702662f780739, type: 3}
-    - {fileID: -1940654999, guid: f334cd2a31b986e49a3702662f780739, type: 3}
+    - {fileID: -350317675, guid: d560c366496bb47438d93fede2233e36, type: 3}
+    - {fileID: 2091221931, guid: d560c366496bb47438d93fede2233e36, type: 3}
+    - {fileID: -543330156, guid: d560c366496bb47438d93fede2233e36, type: 3}
+    - {fileID: -1350900235, guid: d560c366496bb47438d93fede2233e36, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
