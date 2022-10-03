@@ -1,4 +1,5 @@
 using Base_Components;
+using Controls;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -41,11 +42,14 @@ public class BeeDash : Dash_Base, IAbility
 
     public void InitiateAbility()
     {
-        hud.InitUI(ObjWithCooldown.Ability, null);
+        var ai = transform.root.GetComponent<AI>();
+        if (ai != null) return;
+        hud.InitUI(ObjWithCooldown.Ability);
     }
 
     protected override void UpdateDashUI()
     {
+        if (ai != null) return;
         base.UpdateDashUI();
         hud.UpdateCooldown(ObjWithCooldown.Ability, dashCurrentCooldown);
     }
@@ -64,7 +68,7 @@ public class BeeDash : Dash_Base, IAbility
         self.SetInvincible(false);
         DashNow = false;
         CanDash = true;
-        hud.InitUI(ObjWithCooldown.Dash, null);
+        //hud.InitUI(ObjWithCooldown.Dash);
         dashTimer.Pause();
         dashTimer.Restart();
         enemies.Clear();
@@ -72,7 +76,7 @@ public class BeeDash : Dash_Base, IAbility
     }
     private void OnDestroy()
     {
-        hud.InitUI(ObjWithCooldown.Ability, null);
+        //hud.InitUI(ObjWithCooldown.Ability);
     }
     public void Use()
     {

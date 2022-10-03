@@ -15,6 +15,46 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 708259033303915578, guid: ac910be198ea24b468662adb43ea40b2, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 708259033303915578, guid: ac910be198ea24b468662adb43ea40b2, type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 708259033303915578, guid: ac910be198ea24b468662adb43ea40b2, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 708259034127014101, guid: ac910be198ea24b468662adb43ea40b2, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 20.74
+      objectReference: {fileID: 0}
+    - target: {fileID: 708259034127014101, guid: ac910be198ea24b468662adb43ea40b2, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 708259034127014101, guid: ac910be198ea24b468662adb43ea40b2, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 6.33
+      objectReference: {fileID: 0}
+    - target: {fileID: 708259034202226472, guid: ac910be198ea24b468662adb43ea40b2, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 3.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 708259034647999963, guid: ac910be198ea24b468662adb43ea40b2, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 708259034647999963, guid: ac910be198ea24b468662adb43ea40b2, type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 708259034647999963, guid: ac910be198ea24b468662adb43ea40b2, type: 3}
+      propertyPath: m_Color.r
+      value: 0.3584906
+      objectReference: {fileID: 0}
     - target: {fileID: 5901229448230539125, guid: ac910be198ea24b468662adb43ea40b2, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -85,3 +125,4 @@ MonoBehaviour:
   smartness: 5
   movePrecision: 1
   target: {fileID: 0}
+  wallDistanceCheck: 3

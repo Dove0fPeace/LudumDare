@@ -20,7 +20,7 @@ public class Player_HUD : SingletonBase<Player_HUD>
     private Unit_Base Player;
     private bool attackDisabled;
 
-    public void InitUI(ObjWithCooldown obj, Sprite sprite)
+    public void InitUI(ObjWithCooldown obj)
     {
         switch (obj)
         {

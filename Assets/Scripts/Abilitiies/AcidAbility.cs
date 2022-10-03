@@ -1,4 +1,5 @@
 using Base_Components;
+using Controls;
 using UnityEngine;
 
 public class AcidAbility : RangeAttack_Base, IAbility
@@ -28,11 +29,15 @@ public class AcidAbility : RangeAttack_Base, IAbility
 
     public void InitiateAbility()
     {
+        var ai = transform.root.GetComponent<AI>();
         timer = Timer.CreateTimer(AbilityCooldown,false);
         timer.Pause();
-        hud = Player_HUD.Instance;
-        hud.InitUI(ObjWithCooldown.Ability, AbilityUISprite);
-        timer.OnTick += OnCDTick;
+        if (ai == null)
+        {
+            hud = Player_HUD.Instance;
+            hud.InitUI(ObjWithCooldown.Ability);
+            timer.OnTick += OnCDTick;
+        }
         timer.OnTimeRunOut += OnCDComplete;
     }
 
@@ -45,9 +50,11 @@ public class AcidAbility : RangeAttack_Base, IAbility
     private void OnCDComplete()
     {
         CooldownIsDown = true;
-        hud.InitUI(ObjWithCooldown.Ability, AbilityUISprite);
         timer.Restart();
         timer.Pause();
+        var ai = transform.root.GetComponent<AI>();
+        if (ai != null) return;
+        hud.InitUI(ObjWithCooldown.Ability);
     }
 
     public void Use()
@@ -63,7 +70,7 @@ public class AcidAbility : RangeAttack_Base, IAbility
         timer.OnTick -= OnCDTick;
         timer.OnTimeRunOut -= OnCDComplete;
         timer.Destroy();
-        hud.InitUI(ObjWithCooldown.Ability, null);
+        hud.InitUI(ObjWithCooldown.Ability);
     }
 
 }

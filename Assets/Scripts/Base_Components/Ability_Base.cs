@@ -1,4 +1,5 @@
 using Base_Components;
+using Controls;
 using UnityEngine;
 
 public class Ability_Base : MonoBehaviour, IAbility
@@ -15,6 +16,7 @@ public class Ability_Base : MonoBehaviour, IAbility
 
     private void Start()
     {
+        hud = Player_HUD.Instance;
         InitiateAbility();
     }
     private void Update()
@@ -37,6 +39,8 @@ public class Ability_Base : MonoBehaviour, IAbility
 
     public void InitiateAbility()
     {
-        hud.InitUI(ObjWithCooldown.Ability, AbilityUISprite);
+        var ai = transform.root.GetComponent<AI>();
+        if (ai != null) return;
+        hud.InitUI(ObjWithCooldown.Ability);
     }
 }
