@@ -163,6 +163,10 @@ public class Unit_Base : MonoBehaviour
 
     public bool TryMove(Vector2 direction)
     {
+        if (!control.enabled)
+        {
+            return false;
+        }
         if (Move is null || !Move.IsCanMove)
         {
             return false;
@@ -183,6 +187,10 @@ public class Unit_Base : MonoBehaviour
 
     public bool TryDash()
     {
+        if (!control.enabled)
+        {
+            return false;
+        }
         if (Dash is null || !Dash.CanDash)
         {
             return false;
@@ -194,6 +202,10 @@ public class Unit_Base : MonoBehaviour
 
     public bool TryAttack()
     {
+        if (!control.enabled)
+        {
+            return false;
+        }
         if (Attack is null || Attack.CanAttack == false)
         {
             return false;
@@ -205,6 +217,10 @@ public class Unit_Base : MonoBehaviour
 
     public bool TryAbility()
     {
+        if (!control.enabled)
+        {
+            return false;
+        }
         if (Ability is null || Ability.CanUse() == false)
         {
             return false;
@@ -227,6 +243,10 @@ public class Unit_Base : MonoBehaviour
 
     public void TakeDamage(float damage, bool isPoison)
     {
+        if (!control.enabled)
+        {
+            return;
+        }
         print("Take damage " + damage + gameObject.name);
         if(!isPoison)
         {
