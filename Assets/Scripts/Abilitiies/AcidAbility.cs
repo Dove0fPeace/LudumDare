@@ -70,7 +70,10 @@ public class AcidAbility : RangeAttack_Base, IAbility
         timer.OnTick -= OnCDTick;
         timer.OnTimeRunOut -= OnCDComplete;
         timer.Destroy();
-        hud.InitUI(ObjWithCooldown.Ability);
+        if (hud!=null)
+        {
+            hud.InitUI(ObjWithCooldown.Ability);
+        }
     }
 
 }
