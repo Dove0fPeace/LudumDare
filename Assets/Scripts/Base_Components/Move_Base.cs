@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Move_Base : MonoBehaviour
 {
-    public BodyPart Part = BodyPart.Legs;
-
     public Rigidbody2D rb;
 
     public float MoveSpeed;

@@ -16,8 +16,6 @@ public class Bombardir_Ability : MeleeAttack_Base, IAbility
 
     private bool isUse = false;
 
-    private float currentCooldown;
-
     private Player_HUD hud;
     private AI ai; 
 
@@ -32,16 +30,7 @@ public class Bombardir_Ability : MeleeAttack_Base, IAbility
     protected override void Update()
     {
         base.Update();
-        
-        currentCooldown = attackTime / AttackCooldown;
-        if(currentCooldown <= 0)
-        {
-            currentCooldown = 0;
-        }
-        if (ai == null)
-        {
-            hud.UpdateCooldown(ObjWithCooldown.Ability, currentCooldown);       
-        }
+        hud.UpdateCooldown(ObjWithCooldown.Ability, AttackCooldown);
     }
 
 

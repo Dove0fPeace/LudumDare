@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Ability_Base : MonoBehaviour, IAbility
 {
-    public BodyPart Part = BodyPart.Abilitiy;
-
     private Player_HUD hud;
 
     public Sprite AbilityUISprite;

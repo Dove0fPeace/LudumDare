@@ -3,8 +3,6 @@ using UnityEngine;
 
 public class Armor_Base : MonoBehaviour
 {
-    public BodyPart Part = BodyPart.Back;
-
     public bool invincible;
     public float PhysicalResist = 1f;
     [SerializeField] private GameObject vfx;
