@@ -1,3 +1,4 @@
+using System.Linq;
 using Base_Components;
 using UnityEngine;
 using UnityEngine.UI;
@@ -33,7 +34,7 @@ public class Unit_Base : MonoBehaviour
     private GameObject front;
     private Animator[] frontAnims;
     private GameObject back;
-    private Animator backAnim;
+    private Animator[] backAnims;
     
     private AudioSource AudioSource;
     private Vector3 initialPosition;
@@ -103,10 +104,20 @@ public class Unit_Base : MonoBehaviour
         Clear();
         front = Instantiate(Bodytypes.GetRandomFront(), FrontPosition.position, FrontPosition.rotation, FrontPosition);
         front.transform.localPosition = Vector3.zero;
+        if (front.CompareTag("Back"))
+        {
+            var scale = front.transform.localScale;
+            front.transform.localScale = new Vector3(-scale.x, scale.y, scale.z);
+        }
         frontAnims = front.GetComponentsInChildren<Animator>();
         back = Instantiate(Bodytypes.GetRandomBack(), BackPosition.position, BackPosition.rotation, BackPosition);
         back.transform.localPosition = Vector3.zero;
-        backAnim = back.GetComponent<Animator>();
+        if (back.CompareTag("Front"))
+        {
+            var scale = back.transform.localScale;
+            back.transform.localScale = new Vector3(-scale.x, scale.y, scale.z);
+        }
+        backAnims = back.GetComponentsInChildren<Animator>();
         
         //priorities: move and attack from front, armor and ability from back
         Armor = front.GetComponentInChildren<Armor_Base>();
@@ -145,20 +156,18 @@ public class Unit_Base : MonoBehaviour
 
     private void PlayAnimBool(string anim, bool on)
     {
-        foreach (var frontAnim in frontAnims)
+        foreach (var animator in frontAnims.Union(backAnims))
         {
-            frontAnim.SetBool(anim, on);
+            animator.SetBool(anim, on);
         }
-        backAnim.SetBool(anim, on);
     }
     
     private void PlayAnim(string anim)
     {
-        foreach (var frontAnim in frontAnims)
+        foreach (var animator in frontAnims.Union(backAnims))
         {
-            frontAnim.SetTrigger(anim);
+            animator.SetTrigger(anim);
         }
-        backAnim.SetTrigger(anim);
     }
 
     public bool TryMove(Vector2 direction)
@@ -264,7 +273,10 @@ public class Unit_Base : MonoBehaviour
 
     public void SetInvincible(bool set)
     {
-        Armor.invincible = set;
+        if (Armor != null)
+        {
+            Armor.invincible = set;
+        }
     }
     public void Heal(int heal)
     {
