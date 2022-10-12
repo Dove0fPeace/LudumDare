@@ -99,10 +99,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Attack_Bombardir Variant
       objectReference: {fileID: 0}
-    - target: {fileID: 4486493365180743738, guid: e6349607294709f4f9e1852963948e4d, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e6349607294709f4f9e1852963948e4d, type: 3}
 --- !u!1 &9133605620403969662 stripped
@@ -158,14 +154,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9735d224741289640994cec6498b9d13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Part: 2
   UnableToAttack: 0
   AttackRange: 3
   Damage: 3
   sfx: {fileID: 8300000, guid: 35fe5d0a6b87d9142a5c592a1d23e117, type: 3}
   AttackCooldown: 0.75
+  attackTime: 0
   HandsPlace: {fileID: 0}
-  animator: {fileID: 0}
-  AttackAnimationName: 
   AttackCastRadius: 1
   DamageDelay: 0.2

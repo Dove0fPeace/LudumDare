@@ -15,10 +15,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Back_Scorpion Variant
       objectReference: {fileID: 0}
-    - target: {fileID: 2702795108372186246, guid: 720fa54495e0d9c44a4dd6ee71950180, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
     - target: {fileID: 3791362604563600914, guid: 720fa54495e0d9c44a4dd6ee71950180, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -447,6 +443,7 @@ MonoBehaviour:
   self: {fileID: 0}
   hud: {fileID: 0}
   dashTimer: {fileID: 0}
+  ai: {fileID: 0}
 --- !u!114 &7695186906741818798
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -459,15 +456,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 877dee5486c0da4408d08d33d0fe807b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Part: 2
   UnableToAttack: 0
   AttackRange: 5
   Damage: 1
   sfx: {fileID: 8300000, guid: d3642d9e8f89c2847b1f9e4f59c8f5b5, type: 3}
   AttackCooldown: 8
+  attackTime: 0
   HandsPlace: {fileID: 0}
-  animator: {fileID: 0}
-  AttackAnimationName: 
   ProjectilePrefab: {fileID: 3242962407902946182, guid: c683097efd593af4694a6d5dd2d1ca8d, type: 3}
   Insect: 2
   AbilityUISprite: {fileID: 0}

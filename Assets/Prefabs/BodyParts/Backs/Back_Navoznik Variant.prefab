@@ -15,10 +15,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Back_Navoznik Variant
       objectReference: {fileID: 0}
-    - target: {fileID: 2702795108372186246, guid: 720fa54495e0d9c44a4dd6ee71950180, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
     - target: {fileID: 3791362604563600914, guid: 720fa54495e0d9c44a4dd6ee71950180, type: 3}
       propertyPath: m_Size.x
       value: 1.85
@@ -694,3 +690,4 @@ MonoBehaviour:
   self: {fileID: 0}
   hud: {fileID: 0}
   dashTimer: {fileID: 0}
+  ai: {fileID: 0}

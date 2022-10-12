@@ -11,10 +11,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Back_Spider Variant
       objectReference: {fileID: 0}
-    - target: {fileID: 2702795108372186246, guid: 720fa54495e0d9c44a4dd6ee71950180, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
     - target: {fileID: 3791362604563600914, guid: 720fa54495e0d9c44a4dd6ee71950180, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -407,6 +403,7 @@ MonoBehaviour:
   self: {fileID: 0}
   hud: {fileID: 0}
   dashTimer: {fileID: 0}
+  ai: {fileID: 0}
 --- !u!114 &-557724160585215564
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -419,15 +416,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 958a6471f1bef2342bfe19a1c10299bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Part: 2
   UnableToAttack: 0
   AttackRange: 30
   Damage: 0
   sfx: {fileID: 8300000, guid: 5dcc09e72ca1f584fb1dc15baf51d2a3, type: 3}
   AttackCooldown: 4
+  attackTime: 0
   HandsPlace: {fileID: 0}
-  animator: {fileID: 0}
-  AttackAnimationName: 
   ProjectilePrefab: {fileID: 8373842378824041589, guid: 5012847d5fc23ed4f8f5d1dec3ca3d70, type: 3}
   AbilityUISprite: {fileID: 0}
   AbilityCooldown: 4

@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 4486493365180743732}
   - component: {fileID: -6444207460106306709}
   - component: {fileID: 146070501400393255}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Attack_Basic
-  m_TagString: Untagged
+  m_TagString: Front
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -133,10 +133,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d80e17a56be447141ae6a93a66e09959, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Part: 1
   rb: {fileID: 0}
   MoveSpeed: 100
   DiagonalSpeedLimit: 0.7
   IsCanMove: 1
-  DashCooldown: 0
-  DashSpeed: 0

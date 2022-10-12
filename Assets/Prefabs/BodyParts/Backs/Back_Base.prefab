@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 71760020265922923}
   - component: {fileID: 7837323009512365644}
   - component: {fileID: -8189072859394294054}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Back_Base
-  m_TagString: Untagged
+  m_TagString: Back
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6fa81949ed2b26448d7c801ffb7471f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Part: 3
+  AbilityUISprite: {fileID: 0}
   AbilityCooldown: 0
 --- !u!60 &7837323009512365644
 PolygonCollider2D:
@@ -141,7 +141,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7620ca8b68bf765429c4579ca36d07b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Part: 0
+  invincible: 0
   PhysicalResist: 1
   vfx: {fileID: 8437859875350132919, guid: 715402191ed609f4789526781fed63ad, type: 3}
   sfx: {fileID: 8300000, guid: b054a7709f15e6646be4bf87634a8138, type: 3}
