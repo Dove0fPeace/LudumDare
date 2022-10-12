@@ -49,19 +49,19 @@ namespace Controls
                     continue;
                 }
                 unit.LookAt(target.position);
-                if (unit.Ability.CanUse())
+                if (unit.Ability?.CanUse() ?? false)
                 {
                     unit.Ability.Use();
                     continue;
                 }
-                if (unit.Dash.CanDash && (IsCastHit(-realUnit.right, wallDistanceCheck) || (unit.CurrentHP/unit.MaxHitPoints) < 0.5f))
+                if ((unit.Dash?.CanDash ?? false) && (IsCastHit(-realUnit.right, wallDistanceCheck) || (unit.CurrentHP/unit.MaxHitPoints) < 0.5f))
                 {
                     if (unit.TryDash())
                     {
                         continue;
                     }
                 }
-                if (unit.Attack.CanAttack)
+                if (unit.Attack?.CanAttack ?? false)
                 {
                     AttackDecision();
                 }
