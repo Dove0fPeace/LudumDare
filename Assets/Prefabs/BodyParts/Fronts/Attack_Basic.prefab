@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4486493365180743732}
   - component: {fileID: -6444207460106306709}
   - component: {fileID: 146070501400393255}
+  - component: {fileID: 2911199157441009512}
   m_Layer: 6
   m_Name: Attack_Basic
   m_TagString: Front
@@ -137,3 +138,19 @@ MonoBehaviour:
   MoveSpeed: 100
   DiagonalSpeedLimit: 0.7
   IsCanMove: 1
+--- !u!114 &2911199157441009512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4486493365180743738}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7620ca8b68bf765429c4579ca36d07b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  invincible: 0
+  PhysicalResist: 1
+  vfx: {fileID: 8437859875350132919, guid: 715402191ed609f4789526781fed63ad, type: 3}
+  sfx: {fileID: 8300000, guid: b054a7709f15e6646be4bf87634a8138, type: 3}
