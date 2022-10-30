@@ -16,7 +16,7 @@ public class Navoznik_RangeAttack : RangeAttack_Base
         currentRestoreTime = BallRestoreTime;
     }
 
-    protected override void Update()
+    private void Update()
     {
         if(ballIsSpawned == false)
         {

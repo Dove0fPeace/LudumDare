@@ -447,6 +447,7 @@ MonoBehaviour:
   self: {fileID: 0}
   hud: {fileID: 0}
   dashTimer: {fileID: 0}
+  ai: {fileID: 0}
 --- !u!114 &7695186906741818798
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -460,11 +461,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Part: 2
-  UnableToAttack: 0
+  EnableAttack: 1
   AttackRange: 5
   Damage: 1
   sfx: {fileID: 8300000, guid: d3642d9e8f89c2847b1f9e4f59c8f5b5, type: 3}
   AttackCooldown: 8
+  Timer_AttackCooldown: {fileID: 0}
+  CanAttack: 0
   HandsPlace: {fileID: 0}
   animator: {fileID: 0}
   AttackAnimationName: 

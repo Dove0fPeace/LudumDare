@@ -16,8 +16,6 @@ public class WebAbility : RangeAttack_Base, IAbility
     private float currentCooldown;
     private bool CooldownIsDown = true;
 
-    private Player_HUD hud;
-
     protected override void Start()
     {
         base.Start();
@@ -35,7 +33,7 @@ public class WebAbility : RangeAttack_Base, IAbility
         timer = Timer.CreateTimer(AbilityCooldown, false);
         timer.Pause();
         hud = Player_HUD.Instance;
-        hud.InitUI(ObjWithCooldown.Ability);
+        hud.InitUI(ObjWithCooldown.Ability, true, Timer_AttackCooldown);
         timer.OnTick += OnCDTick;
         timer.OnTimeRunOut += OnCDComplete;
     }
@@ -44,16 +42,13 @@ public class WebAbility : RangeAttack_Base, IAbility
     {
         if (ai != null) return;
         currentCooldown = timer.CurrentTime / AbilityCooldown;
-        hud.UpdateCooldown(ObjWithCooldown.Ability, currentCooldown);
     }
 
     private void OnCDComplete()
     {
         CooldownIsDown = true;
-        timer.Restart();
-        timer.Pause();
+        timer.Restart(true);
         if (ai != null) return;
-        hud.InitUI(ObjWithCooldown.Ability);
     }
 
     public void Use()
@@ -69,6 +64,5 @@ public class WebAbility : RangeAttack_Base, IAbility
         timer.OnTick -= OnCDTick;
         timer.OnTimeRunOut -= OnCDComplete;
         timer.Destroy();
-        hud.InitUI(ObjWithCooldown.Ability);
     }
 }

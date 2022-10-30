@@ -159,11 +159,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Part: 2
-  UnableToAttack: 0
+  EnableAttack: 1
   AttackRange: 3
   Damage: 3
   sfx: {fileID: 8300000, guid: 35fe5d0a6b87d9142a5c592a1d23e117, type: 3}
   AttackCooldown: 0.75
+  Timer_AttackCooldown: {fileID: 0}
+  CanAttack: 0
   HandsPlace: {fileID: 0}
   animator: {fileID: 0}
   AttackAnimationName: 

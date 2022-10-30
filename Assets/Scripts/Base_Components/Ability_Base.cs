@@ -27,7 +27,11 @@ public class Ability_Base : MonoBehaviour, IAbility
 
     public virtual void Use()
     {
-        if(!CanAbility) return;
+        if (!CanAbility)
+        {
+            hud.TryUseOnCooldown(ObjWithCooldown.Ability);
+            return;
+        }
         print("Use ability");
         abilityTime = AbilityCooldown;
     }
@@ -36,11 +40,12 @@ public class Ability_Base : MonoBehaviour, IAbility
     {
         return false;
     }
-
+    
     public void InitiateAbility()
     {
         var ai = transform.root.GetComponent<AI>();
         if (ai != null) return;
-        hud.InitUI(ObjWithCooldown.Ability);
+        hud.InitUI(ObjWithCooldown.Ability, false, null);
     }
+    
 }

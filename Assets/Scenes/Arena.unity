@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731715, g: 0.13414735, b: 0.121078536, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -617,6 +617,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1036839739}
     m_Modifications:
+    - target: {fileID: 4195316752423130128, guid: dd481322268773a4ba16b5cc7ca71b04, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4195316752423130130, guid: dd481322268773a4ba16b5cc7ca71b04, type: 3}
       propertyPath: m_Type
       value: 0
@@ -713,6 +717,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Attack_Icon
       objectReference: {fileID: 0}
+    - target: {fileID: 5567841333051049282, guid: dd481322268773a4ba16b5cc7ca71b04, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5971474911304272302, guid: dd481322268773a4ba16b5cc7ca71b04, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dd481322268773a4ba16b5cc7ca71b04, type: 3}
 --- !u!224 &173561133 stripped
@@ -720,17 +732,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4195316753068568118, guid: dd481322268773a4ba16b5cc7ca71b04, type: 3}
   m_PrefabInstance: {fileID: 173561132}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &173561134 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4195316752451584676, guid: dd481322268773a4ba16b5cc7ca71b04, type: 3}
-  m_PrefabInstance: {fileID: 173561132}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &173561135 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4195316752423130130, guid: dd481322268773a4ba16b5cc7ca71b04, type: 3}
@@ -792,6 +793,18 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 0efd06de263c36e48b5e5c30e1eff84a, type: 3}
+    - target: {fileID: 4195316752451584676, guid: dd481322268773a4ba16b5cc7ca71b04, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4195316752451584676, guid: dd481322268773a4ba16b5cc7ca71b04, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4195316752451584676, guid: dd481322268773a4ba16b5cc7ca71b04, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4195316752451584676, guid: dd481322268773a4ba16b5cc7ca71b04, type: 3}
       propertyPath: m_FillOrigin
       value: 2
@@ -883,6 +896,14 @@ PrefabInstance:
     - target: {fileID: 4195316753068568119, guid: dd481322268773a4ba16b5cc7ca71b04, type: 3}
       propertyPath: m_Name
       value: Dash_Icon
+      objectReference: {fileID: 0}
+    - target: {fileID: 5567841333051049282, guid: dd481322268773a4ba16b5cc7ca71b04, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5971474911304272302, guid: dd481322268773a4ba16b5cc7ca71b04, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dd481322268773a4ba16b5cc7ca71b04, type: 3}
@@ -1473,6 +1494,10 @@ PrefabInstance:
     - target: {fileID: 8581125650305983099, guid: 5e34a56f4a7bafc4eba6f891b54582e2, type: 3}
       propertyPath: m_Name
       value: TextPanel
+      objectReference: {fileID: 0}
+    - target: {fileID: 8581125650305983099, guid: 5e34a56f4a7bafc4eba6f891b54582e2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5e34a56f4a7bafc4eba6f891b54582e2, type: 3}
@@ -2219,6 +2244,11 @@ Transform:
   m_Father: {fileID: 961743928}
   m_RootOrder: 64
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+--- !u!1 &909500501 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5567841333051049282, guid: dd481322268773a4ba16b5cc7ca71b04, type: 3}
+  m_PrefabInstance: {fileID: 173561132}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &937853373
 GameObject:
   m_ObjectHideFlags: 0
@@ -2456,6 +2486,7 @@ GameObject:
   - component: {fileID: 1036839739}
   - component: {fileID: 1036839740}
   - component: {fileID: 1036839741}
+  - component: {fileID: 1036839742}
   m_Layer: 5
   m_Name: Icons
   m_TagString: Untagged
@@ -2525,11 +2556,115 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_DontDestroyOnLoad: 0
+  AudioSource: {fileID: 0}
   DashIconOverlay: {fileID: 578815805}
+  DashBlockIcon: {fileID: 1846732834}
+  DashIcon: {fileID: 259547013}
   AbilityIconOverlay: {fileID: 127461889}
-  AttackIcons:
-  - {fileID: 173561135}
-  - {fileID: 173561134}
+  AbilityBlockIcon: {fileID: 1196533187}
+  AbilityIcon: {fileID: 2063301263}
+  AttackIconOverlay: {fileID: 173561135}
+  AttackBlockIcon: {fileID: 909500501}
+  AttackIcon: {fileID: 173561133}
+  ScaleUIElement: {x: 0.5, y: 0.5, z: 0.5}
+  DuratiomScaleUI: 0.25
+  FailedUseSound: {fileID: 0}
+--- !u!82 &1036839742
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1036839738}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1045074375
 GameObject:
   m_ObjectHideFlags: 0
@@ -2809,6 +2944,11 @@ Transform:
   m_Father: {fileID: 961743928}
   m_RootOrder: 42
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+--- !u!1 &1196533187 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5567841333051049282, guid: dd481322268773a4ba16b5cc7ca71b04, type: 3}
+  m_PrefabInstance: {fileID: 4195316751277151417}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1300025593
 GameObject:
   m_ObjectHideFlags: 0
@@ -3987,6 +4127,11 @@ Transform:
   m_Father: {fileID: 961743928}
   m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+--- !u!1 &1846732834 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5567841333051049282, guid: dd481322268773a4ba16b5cc7ca71b04, type: 3}
+  m_PrefabInstance: {fileID: 259547012}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1908696895
 GameObject:
   m_ObjectHideFlags: 0
@@ -4598,6 +4743,10 @@ PrefabInstance:
     - target: {fileID: 4195316753068568119, guid: dd481322268773a4ba16b5cc7ca71b04, type: 3}
       propertyPath: m_Name
       value: Ability_Icon
+      objectReference: {fileID: 0}
+    - target: {fileID: 5567841333051049282, guid: dd481322268773a4ba16b5cc7ca71b04, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dd481322268773a4ba16b5cc7ca71b04, type: 3}

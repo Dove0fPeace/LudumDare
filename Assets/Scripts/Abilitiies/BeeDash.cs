@@ -44,15 +44,9 @@ public class BeeDash : Dash_Base, IAbility
     {
         var ai = transform.root.GetComponent<AI>();
         if (ai != null) return;
-        hud.InitUI(ObjWithCooldown.Ability);
+        hud.InitUI(ObjWithCooldown.Ability, true, dashTimer);
     }
 
-    protected override void UpdateDashUI()
-    {
-        if (ai != null) return;
-        base.UpdateDashUI();
-        hud.UpdateCooldown(ObjWithCooldown.Ability, dashCurrentCooldown);
-    }
     protected override IEnumerator Dashing()
     {
         self.SetInvincible(InvincibleInDash);
@@ -69,8 +63,7 @@ public class BeeDash : Dash_Base, IAbility
         DashNow = false;
         CanDash = true;
         //hud.InitUI(ObjWithCooldown.Dash);
-        dashTimer.Pause();
-        dashTimer.Restart();
+        dashTimer.Restart(true);
         enemies.Clear();
         enemies.Add(self);
     }

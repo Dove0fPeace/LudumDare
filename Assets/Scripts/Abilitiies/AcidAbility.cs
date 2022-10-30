@@ -14,8 +14,6 @@ public class AcidAbility : RangeAttack_Base, IAbility
     private float currentCooldown;
     private bool CooldownIsDown = true;
 
-    private Player_HUD hud;
-
     protected override void Start()
     {
         base.Start();
@@ -34,8 +32,7 @@ public class AcidAbility : RangeAttack_Base, IAbility
         timer.Pause();
         if (ai == null)
         {
-            hud = Player_HUD.Instance;
-            hud.InitUI(ObjWithCooldown.Ability);
+            hud.InitUI(ObjWithCooldown.Ability, true, Timer_AttackCooldown);
             timer.OnTick += OnCDTick;
         }
         timer.OnTimeRunOut += OnCDComplete;
@@ -44,17 +41,14 @@ public class AcidAbility : RangeAttack_Base, IAbility
     private void OnCDTick()
     {
         currentCooldown = timer.CurrentTime / AbilityCooldown;
-        hud.UpdateCooldown(ObjWithCooldown.Ability, currentCooldown);
     }
 
     private void OnCDComplete()
     {
         CooldownIsDown = true;
-        timer.Restart();
-        timer.Pause();
+        timer.Restart(true);
         var ai = transform.root.GetComponent<AI>();
         if (ai != null) return;
-        hud.InitUI(ObjWithCooldown.Ability);
     }
 
     public void Use()
@@ -70,10 +64,6 @@ public class AcidAbility : RangeAttack_Base, IAbility
         timer.OnTick -= OnCDTick;
         timer.OnTimeRunOut -= OnCDComplete;
         timer.Destroy();
-        if (hud!=null)
-        {
-            hud.InitUI(ObjWithCooldown.Ability);
-        }
     }
 
 }

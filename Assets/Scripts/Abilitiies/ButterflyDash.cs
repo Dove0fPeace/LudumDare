@@ -23,20 +23,13 @@ public class ButterflyDash : Dash_Base, IAbility
     {
         var ai = transform.root.GetComponent<AI>();
         if (ai != null) return;
-        hud.InitUI(ObjWithCooldown.Ability);
-    }
-
-    protected override void UpdateDashUI()
-    {
-        if (ai != null) return;
-        base.UpdateDashUI();
-        hud.UpdateCooldown(ObjWithCooldown.Ability, dashCurrentCooldown);
+        hud.InitUI(ObjWithCooldown.Ability, true, dashTimer);
     }
 
     private void OnDestroy()
     {
         if (ai != null) return;
-        hud.InitUI(ObjWithCooldown.Ability);
+        //hud.InitUI(ObjWithCooldown.Ability);
     }
     public void Use()
     {

@@ -33,42 +33,32 @@ public class Dash_Base : MonoBehaviour
         Move_Target = self.Move;
 
         ai = transform.root.GetComponent<AI>();
+        dashTimer = Timer.CreateTimer(DashCooldown, false);
 
         if(ai == null)
         {
-
             hud = Player_HUD.Instance;
 
-            hud.InitUI(ObjWithCooldown.Dash);
+            hud.InitUI(ObjWithCooldown.Dash, true, dashTimer);
         }
-
-
-        dashTimer = Timer.CreateTimer(DashCooldown, false);
-        dashTimer.OnTick += UpdateDashUI;
     }
 
     private void OnDestroy()
     {
-        dashTimer.OnTick -= UpdateDashUI;
-        dashTimer.Destroy();
-    }
-
-    protected virtual void UpdateDashUI()
-    {
-        if (ai != null) return;
-        dashCurrentCooldown = dashTimer.CurrentTime / DashCooldown;
-        hud.UpdateCooldown(ObjWithCooldown.Dash, dashCurrentCooldown);
+        if(dashTimer != null)
+            dashTimer.Destroy();
     }
 
     public virtual bool Dash()
     {
         if (!CanDash)
         {
+            hud.TryUseOnCooldown(ObjWithCooldown.Dash);
             return false;
         }
         rb.AddForce(DashForce * transform.right, ForceMode2D.Impulse);
-        StartCoroutine(Dashing());
         dashTimer.Play();
+        StartCoroutine(Dashing());
         return true;
     }
 
@@ -91,8 +81,7 @@ public class Dash_Base : MonoBehaviour
         {
             //hud.InitUI(ObjWithCooldown.Dash);
         }
-        dashTimer.Pause();
-        dashTimer.Restart();
+        dashTimer.Restart(true);
 
     }
 }

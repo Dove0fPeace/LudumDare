@@ -102,13 +102,10 @@ namespace DefaultNamespace
             {
                 case 0:
                     return 1;
-                    break;
                 case 1:
                     return 2;
-                    break;
                 default:
                     return 3;
-                    break;
             }
         }
 
@@ -118,19 +115,14 @@ namespace DefaultNamespace
             {
                 case 0:
                     return 30;
-                    break;
                 case 1:
                     return 25;
-                    break;
                 case 2:
                     return 20;
-                    break;
                 case 3:
                     return 30;
-                    break;
                 case 4:
                     return 40;
-                    break;
             }
 
             return 30;
@@ -142,19 +134,14 @@ namespace DefaultNamespace
             {
                 case 0:
                     return 2;
-                    break;
                 case 1:
                     return 2;
-                    break;
                 case 2:
                     return 3;
-                    break;
                 case 3:
                     return 4;
-                    break;
                 case 4:
                     return 5;
-                    break;
             }
 
             return 3;

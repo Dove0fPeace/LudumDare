@@ -6,14 +6,14 @@ public class Attack_Base : MonoBehaviour
 {
     public BodyPart Part = BodyPart.Hands;
 
-    public bool UnableToAttack;
+    public bool EnableAttack;
     public float AttackRange = 30f;
     public float Damage;
     public AudioClip sfx;
 
     public float AttackCooldown;
-    public float attackTime = 0;
-    public bool CanAttack => attackTime <= 0 && !UnableToAttack;
+    public Timer Timer_AttackCooldown;
+    public bool CanAttack;
 
     public Transform HandsPlace;
 
@@ -23,32 +23,49 @@ public class Attack_Base : MonoBehaviour
     public virtual Insects InsectType => Insects.Generic;
 
     protected Unit_Base self;
+    public Player_HUD hud;
 
     protected virtual void Start()
     {
         animator = GetComponent<Animator>();
         self = transform.root.GetComponent<Unit_Base>();
+        Timer_AttackCooldown = Timer.CreateTimer(AttackCooldown, false, false);
+        Timer_AttackCooldown.OnTimeRunOut += OnAttackCooldownComplete;
         if (transform.root.gameObject.CompareTag("Player"))
         {
-            Player_HUD.Instance.ChangeAttack(UnableToAttack);
+            hud = Player_HUD.Instance;
+            hud.InitUI(ObjWithCooldown.Attack, EnableAttack, Timer_AttackCooldown);
         }
+        CanAttack = true;
     }
-    protected virtual void Update()
+
+    private void OnDestroy()
     {
-        if(attackTime > 0)
-            attackTime -= Time.deltaTime;
+        Timer_AttackCooldown.OnTimeRunOut -= OnAttackCooldownComplete;
+        if(Timer_AttackCooldown != null)
+            Timer_AttackCooldown.Destroy();
     }
 
     public virtual bool Attack()
     {
-        if(CanAttack == false) return false;
-        //animator.Play(AttackAnimationName, 0, 0f);
-        attackTime = AttackCooldown;
+        if (CanAttack == false || EnableAttack == false)
+        {
+            if(hud != null)
+                hud.TryUseOnCooldown(ObjWithCooldown.Attack);
+            return false;
+        }
+            //animator.Play(AttackAnimationName, 0, 0f);
+        Timer_AttackCooldown.Play();
         if (sfx)
         {
             self.PlayAudioOneshot(sfx);
         }
 
         return true;
+    }
+
+    private void OnAttackCooldownComplete()
+    {
+        Timer_AttackCooldown.Restart(true);
     }
 }
