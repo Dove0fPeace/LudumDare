@@ -247,7 +247,6 @@ public class Unit_Base : MonoBehaviour
         {
             return;
         }
-        print("Take damage " + damage + gameObject.name);
         if(!isPoison)
         {
             CurrentHP -= Armor.CalculateDamage(damage);

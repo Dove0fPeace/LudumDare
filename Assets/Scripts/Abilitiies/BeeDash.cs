@@ -69,7 +69,8 @@ public class BeeDash : Dash_Base, IAbility
     }
     private void OnDestroy()
     {
-        //hud.InitUI(ObjWithCooldown.Ability);
+        if (dashTimer != null)
+            dashTimer.Destroy();
     }
     public void Use()
     {

@@ -14,21 +14,21 @@ public class Player_HUD : SingletonBase<Player_HUD>
     public AudioSource AudioSource;
     [Header("Dash")]
     public Image DashIconOverlay;
-    public GameObject DashBlockIcon;
+    public Image DashBlockIcon;
     public RectTransform DashIcon;
     private Timer DashCooldown;
     private bool DashIsActive;
 
     [Header("Ability")]
     public Image AbilityIconOverlay;
-    public GameObject AbilityBlockIcon;
+    public Image AbilityBlockIcon;
     public RectTransform AbilityIcon;
     private Timer AbilityCooldown;
     private bool AbilityIsActive;
 
     [Header("Attack")]
     public Image AttackIconOverlay;
-    public GameObject AttackBlockIcon;
+    public Image AttackBlockIcon;
     public RectTransform AttackIcon;
     private Timer AttackCooldown;
     private bool AttackIsActive;
@@ -55,11 +55,11 @@ public class Player_HUD : SingletonBase<Player_HUD>
             case ObjWithCooldown.Dash:
                 if(active)
                 {
-                    DashBlockIcon.SetActive(false);
+                    DashBlockIcon.enabled = false;
                 }
                 else
                 {
-                    DashBlockIcon.SetActive(true);
+                    DashBlockIcon.enabled = true;
                 }
                 DashIsActive = active;
                 DashIconOverlay.fillAmount = 1;
@@ -68,11 +68,11 @@ public class Player_HUD : SingletonBase<Player_HUD>
             case ObjWithCooldown.Ability:
                 if (active)
                 {
-                    AbilityBlockIcon.SetActive(false);
+                    AbilityBlockIcon.enabled = false;
                 }
                 else
                 {
-                    AbilityBlockIcon.SetActive(true);
+                    AbilityBlockIcon.enabled = true;
                 }
                 AbilityIsActive = active;
                 AbilityIconOverlay.fillAmount = 1;
@@ -81,11 +81,11 @@ public class Player_HUD : SingletonBase<Player_HUD>
             case ObjWithCooldown.Attack:
                 if (active)
                 {
-                    AttackBlockIcon.SetActive(false);
+                    AttackBlockIcon.enabled = false;
                 }
                 else
                 {
-                    AttackBlockIcon.SetActive(true);
+                    AttackBlockIcon.enabled = true;
                 }
                 AttackIsActive = active;
                 AttackIconOverlay.fillAmount = 1;

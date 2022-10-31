@@ -30,7 +30,6 @@ public class MeleeAttack_Base : Attack_Base
             Unit_Base enemy =  hit2.transform.root.GetComponent<Unit_Base>();
             if(enemy != null && enemy != self)
             {
-                print(gameObject.name +" hit "+enemy.name);
                 OnEnemyHit(enemy);
             }
         }

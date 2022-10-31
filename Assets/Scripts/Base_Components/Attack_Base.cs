@@ -56,6 +56,7 @@ public class Attack_Base : MonoBehaviour
         }
             //animator.Play(AttackAnimationName, 0, 0f);
         Timer_AttackCooldown.Play();
+        CanAttack = false;
         if (sfx)
         {
             self.PlayAudioOneshot(sfx);
@@ -67,5 +68,6 @@ public class Attack_Base : MonoBehaviour
     private void OnAttackCooldownComplete()
     {
         Timer_AttackCooldown.Restart(true);
+        CanAttack = true;
     }
 }
