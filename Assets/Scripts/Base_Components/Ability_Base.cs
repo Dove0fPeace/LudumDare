@@ -10,35 +10,21 @@ public class Ability_Base : MonoBehaviour, IAbility
 
     public Sprite AbilityUISprite;
 
-    public float AbilityCooldown;
-    private float abilityTime = 0;
-    private bool CanAbility => abilityTime <= 0;
-
     private void Start()
     {
         hud = Player_HUD.Instance;
         InitiateAbility();
     }
-    private void Update()
-    {
-        if (abilityTime > 0)
-            abilityTime -= Time.deltaTime;
-    }
+
 
     public virtual void Use()
     {
-        if (!CanAbility)
-        {
-            hud.TryUseOnCooldown(ObjWithCooldown.Ability);
-            return;
-        }
-        print("Use ability");
-        abilityTime = AbilityCooldown;
+        hud.TryUseOnCooldown(ObjWithCooldown.Ability);
     }
 
     public bool CanUse()
     {
-        return false;
+        return true;
     }
     
     public void InitiateAbility()

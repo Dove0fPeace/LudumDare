@@ -45,8 +45,9 @@ public class Navoznik_RangeAttack : RangeAttack_Base
         return true;
     }
 
-    private void OnDestroy()
+    protected override void OnDestroy()
     {
+        base.OnDestroy();
         if(currentProjectile != null)
         {
             Destroy(currentProjectile.gameObject);

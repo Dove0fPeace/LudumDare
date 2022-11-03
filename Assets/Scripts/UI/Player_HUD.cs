@@ -38,6 +38,13 @@ public class Player_HUD : SingletonBase<Player_HUD>
     public float DuratiomScaleUI;
     public AudioClip FailedUseSound;
 
+    private void Start()
+    {
+        DashIsActive = false;
+        AttackIsActive = false;
+        AbilityIsActive = false;
+    }
+
     private void Update()
     {
         if(DashIsActive && DashCooldown != null)
@@ -66,7 +73,7 @@ public class Player_HUD : SingletonBase<Player_HUD>
                 DashCooldown = cooldownTimer;
                 break;
             case ObjWithCooldown.Ability:
-                if (active)
+                if (active == true)
                 {
                     AbilityBlockIcon.enabled = false;
                 }
@@ -75,8 +82,12 @@ public class Player_HUD : SingletonBase<Player_HUD>
                     AbilityBlockIcon.enabled = true;
                 }
                 AbilityIsActive = active;
-                AbilityIconOverlay.fillAmount = 1;
+                if(cooldownTimer == null)
+                {
+                    AbilityCooldown = null;
+                }
                 AbilityCooldown = cooldownTimer;
+                AbilityIconOverlay.fillAmount = 1;
                 break;
             case ObjWithCooldown.Attack:
                 if (active)

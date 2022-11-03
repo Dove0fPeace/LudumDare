@@ -1,5 +1,4 @@
 using Base_Components;
-using Controls;
 using UnityEngine;
 
 public class AcidAbility : RangeAttack_Base, IAbility
@@ -11,13 +10,20 @@ public class AcidAbility : RangeAttack_Base, IAbility
     public float AbilityCooldown;
 
     private Timer timer;
-    private float currentCooldown;
     private bool CooldownIsDown = true;
 
     protected override void Start()
     {
-        base.Start();
+        Timer_AttackCooldown = Timer.CreateTimer(AttackCooldown, false, false);
+        animator = GetComponent<Animator>();
+        self = transform.root.GetComponent<Unit_Base>();
+        HandsPlace = self.HandsPosition;
+        if (transform.root.gameObject.CompareTag("Player"))
+        {
+            hud = Player_HUD.Instance;
+        }
         InitiateAbility();
+        CanAttack = true;
     }
 
     public bool CanUse()
@@ -27,28 +33,19 @@ public class AcidAbility : RangeAttack_Base, IAbility
 
     public void InitiateAbility()
     {
-        var ai = transform.root.GetComponent<AI>();
-        timer = Timer.CreateTimer(AbilityCooldown,false);
+        timer = Timer.CreateTimer(AbilityCooldown, false, false);
         timer.Pause();
-        if (ai == null)
+        if (hud != null)
         {
-            hud.InitUI(ObjWithCooldown.Ability, true, Timer_AttackCooldown);
-            timer.OnTick += OnCDTick;
+            hud.InitUI(ObjWithCooldown.Ability, true, timer);
         }
         timer.OnTimeRunOut += OnCDComplete;
-    }
-
-    private void OnCDTick()
-    {
-        currentCooldown = timer.CurrentTime / AbilityCooldown;
     }
 
     private void OnCDComplete()
     {
         CooldownIsDown = true;
         timer.Restart(true);
-        var ai = transform.root.GetComponent<AI>();
-        if (ai != null) return;
     }
 
     public void Use()
@@ -59,9 +56,8 @@ public class AcidAbility : RangeAttack_Base, IAbility
         timer.Play();
     }
 
-    private void OnDestroy()
+    protected override void OnDestroy()
     {
-        timer.OnTick -= OnCDTick;
         timer.OnTimeRunOut -= OnCDComplete;
         timer.Destroy();
     }

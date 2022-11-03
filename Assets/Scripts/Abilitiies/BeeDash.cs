@@ -41,8 +41,7 @@ public class BeeDash : Dash_Base, IAbility
     }
 
     public void InitiateAbility()
-    {
-        var ai = transform.root.GetComponent<AI>();
+    {       
         if (ai != null) return;
         hud.InitUI(ObjWithCooldown.Ability, true, dashTimer);
     }
@@ -66,11 +65,6 @@ public class BeeDash : Dash_Base, IAbility
         dashTimer.Restart(true);
         enemies.Clear();
         enemies.Add(self);
-    }
-    private void OnDestroy()
-    {
-        if (dashTimer != null)
-            dashTimer.Destroy();
     }
     public void Use()
     {

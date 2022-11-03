@@ -33,7 +33,7 @@ public class Dash_Base : MonoBehaviour
         Move_Target = self.Move;
 
         ai = transform.root.GetComponent<AI>();
-        dashTimer = Timer.CreateTimer(DashCooldown, false);
+        dashTimer = Timer.CreateTimer(DashCooldown, false, false);
 
         if(ai == null)
         {
@@ -45,8 +45,7 @@ public class Dash_Base : MonoBehaviour
 
     private void OnDestroy()
     {
-        if(dashTimer != null)
-            dashTimer.Destroy();
+        dashTimer.Destroy();
     }
 
     public virtual bool Dash()

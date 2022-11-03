@@ -13,9 +13,13 @@ public class Bombardir_Ability : MeleeAttack_Base, IAbility
 
     protected override void Start()
     {
-        base.Start();
+        animator = GetComponent<Animator>();
+        self = transform.root.GetComponent<Unit_Base>();
+        Timer_AttackCooldown = Timer.CreateTimer(AttackCooldown, false, false);
+        Timer_AttackCooldown.OnTimeRunOut += OnAttackCooldownComplete;
         ai = transform.root.GetComponent<AI>();
         InitiateAbility();
+        CanAttack = true;
         
     }
 
@@ -41,7 +45,7 @@ public class Bombardir_Ability : MeleeAttack_Base, IAbility
         for (int i = 0; i < AbilityTickCount; i++)
         {
             yield return new WaitForSeconds(AbilityTickTime);
-            Attack();
+            StartCoroutine(CheckRaycastOnAttack());
         }
     }
 }

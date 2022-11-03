@@ -25,12 +25,6 @@ public class ButterflyDash : Dash_Base, IAbility
         if (ai != null) return;
         hud.InitUI(ObjWithCooldown.Ability, true, dashTimer);
     }
-
-    private void OnDestroy()
-    {
-        if (ai != null) return;
-        //hud.InitUI(ObjWithCooldown.Ability);
-    }
     public void Use()
     {
         if(!CanDash) return;

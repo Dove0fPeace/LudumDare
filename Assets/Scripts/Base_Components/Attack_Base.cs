@@ -39,11 +39,14 @@ public class Attack_Base : MonoBehaviour
         CanAttack = true;
     }
 
-    private void OnDestroy()
+    protected virtual void OnDestroy()
     {
-        Timer_AttackCooldown.OnTimeRunOut -= OnAttackCooldownComplete;
         if(Timer_AttackCooldown != null)
+        {
+
+            Timer_AttackCooldown.OnTimeRunOut -= OnAttackCooldownComplete;
             Timer_AttackCooldown.Destroy();
+        }
     }
 
     public virtual bool Attack()
@@ -65,7 +68,7 @@ public class Attack_Base : MonoBehaviour
         return true;
     }
 
-    private void OnAttackCooldownComplete()
+    protected void OnAttackCooldownComplete()
     {
         Timer_AttackCooldown.Restart(true);
         CanAttack = true;
