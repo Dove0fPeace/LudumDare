@@ -35,6 +35,10 @@ public class GameLoop : SingletonBase<GameLoop>
     public AI EnemyPrefab;
     public int EnemySpawnCount;
 
+    [Header("Enemies Spawn")] 
+    public Transform EnemySpawn;
+    private Transform[] enemySpawnPoints;
+    
     [Header("Traps")]
     public Transform TrapSpawnPoint;
     private Transform[] trapSpawnPoints;
@@ -54,6 +58,7 @@ public class GameLoop : SingletonBase<GameLoop>
         lastEnemy = null;
         audioSource = transform.GetComponent<AudioSource>();
         trapSpawnPoints = TrapSpawnPoint.GetComponentsInChildren<Transform>();
+        enemySpawnPoints = EnemySpawn.GetComponentsInChildren<Transform>();
         intro.enabled = false;
         outro.enabled = false;
         storyPhase = StoryContainer.storyPhase;
@@ -156,8 +161,8 @@ public class GameLoop : SingletonBase<GameLoop>
         enemies = new Control_Base[spawnCount];
         for (int i = 0; i < spawnCount; i++)
         {
-            int point = Random.Range(0, trapSpawnPoints.Length);
-            var enemy =  Instantiate(EnemyPrefab, trapSpawnPoints[point].position, trapSpawnPoints[point].rotation);
+            int point = Random.Range(0, enemySpawnPoints.Length);
+            var enemy =  Instantiate(EnemyPrefab, enemySpawnPoints[point].position, enemySpawnPoints[point].rotation);
             enemy.target = spawnedPlayer;
             enemy.smartness = brain;
             enemies[i] = enemy;

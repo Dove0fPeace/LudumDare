@@ -35,7 +35,7 @@ public class Player_HUD : SingletonBase<Player_HUD>
 
     [Header("Try use anything on cooldown")]
     public Vector3 ScaleUIElement;
-    public float DuratiomScaleUI;
+    public float DurationScaleUI;
     public AudioClip FailedUseSound;
 
     private void Start()
@@ -60,27 +60,13 @@ public class Player_HUD : SingletonBase<Player_HUD>
         switch (obj)
         {
             case ObjWithCooldown.Dash:
-                if(active)
-                {
-                    DashBlockIcon.enabled = false;
-                }
-                else
-                {
-                    DashBlockIcon.enabled = true;
-                }
+                DashBlockIcon.enabled = !active;
                 DashIsActive = active;
                 DashIconOverlay.fillAmount = 1;
                 DashCooldown = cooldownTimer;
                 break;
             case ObjWithCooldown.Ability:
-                if (active == true)
-                {
-                    AbilityBlockIcon.enabled = false;
-                }
-                else
-                {
-                    AbilityBlockIcon.enabled = true;
-                }
+                AbilityBlockIcon.enabled = !active;
                 AbilityIsActive = active;
                 if(cooldownTimer == null)
                 {
@@ -90,14 +76,7 @@ public class Player_HUD : SingletonBase<Player_HUD>
                 AbilityIconOverlay.fillAmount = 1;
                 break;
             case ObjWithCooldown.Attack:
-                if (active)
-                {
-                    AttackBlockIcon.enabled = false;
-                }
-                else
-                {
-                    AttackBlockIcon.enabled = true;
-                }
+                AttackBlockIcon.enabled = !active;
                 AttackIsActive = active;
                 AttackIconOverlay.fillAmount = 1;
                 AttackCooldown = cooldownTimer;
@@ -110,13 +89,13 @@ public class Player_HUD : SingletonBase<Player_HUD>
         switch (obj)
         {
             case ObjWithCooldown.Dash:
-                DashIcon.DOPunchScale(ScaleUIElement, DuratiomScaleUI);
+                DashIcon.DOPunchScale(ScaleUIElement, DurationScaleUI);
                 break;
             case ObjWithCooldown.Ability:
-                AbilityIcon.DOPunchScale(ScaleUIElement, DuratiomScaleUI);
+                AbilityIcon.DOPunchScale(ScaleUIElement, DurationScaleUI);
                 break;
             case ObjWithCooldown.Attack:
-                AttackIcon.DOPunchScale(ScaleUIElement, DuratiomScaleUI);
+                AttackIcon.DOPunchScale(ScaleUIElement, DurationScaleUI);
                 break;
         }
         if(FailedUseSound != null)
