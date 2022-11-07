@@ -1,20 +1,9 @@
 using System.Linq;
 using UnityEngine;
 
-public enum BodyPart
-{
-    Back,
-    Legs,
-    Hands,
-    Abilitiy
-}
-
 public enum Insects
 {
-    Scarabei,
     Spider,
-    Scorpion,
-    Moth,
     Generic
 }
 

@@ -3,8 +3,6 @@ using UnityEngine;
 
 public class Armor_Base : MonoBehaviour
 {
-    public BodyPart Part = BodyPart.Back;
-
     public bool invincible;
     public float PhysicalResist = 1f;
     [SerializeField] private GameObject vfx;
@@ -30,7 +28,7 @@ public class Armor_Base : MonoBehaviour
         return initialDamage * PhysicalResist;
     }
 
-    public void PlayDamageEffect()
+    private void PlayDamageEffect()
     {
         Instantiate(vfx, transform.root.position, Quaternion.Euler(0, 90, 0));
         if(sfx!= null)

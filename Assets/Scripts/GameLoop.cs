@@ -62,15 +62,30 @@ public class GameLoop : SingletonBase<GameLoop>
         intro.enabled = false;
         outro.enabled = false;
         storyPhase = StoryContainer.storyPhase;
-        GameOn = false;
-        Start10secs();
+        gameLoopTimer = Timer.CreateTimer(mainTime, false, true);
+        gameLoopTimer.OnTimeRunOut += RandomEffect;
+        PauseGame();
         StartCoroutine(StartSequence(StoryContainer.GetEnemiesCount(storyPhase), StoryContainer.GetEnemiesHp(storyPhase), StoryContainer.GetEnemiesBrain(storyPhase), StoryContainer.GetStory(storyPhase), storyPhase == 0));
     }
 
-    private void Start10secs()
+    public void PlayGame()
     {
-        gameLoopTimer = Timer.CreateTimer(mainTime, true, true);
-        gameLoopTimer.OnTimeRunOut += RandomEffect;
+        GameOn = true;
+        gameLoopTimer.Play();
+        foreach (var unit in unitList)
+        {
+            unit.ChangeControlState(true);
+        }
+    }
+
+    public void PauseGame()
+    {
+        GameOn = false;
+        gameLoopTimer.Restart(true);
+        foreach (var unit in unitList)
+        {
+            unit.ChangeControlState(false);
+        }
     }
 
     public IEnumerator ShowIntro()
@@ -83,7 +98,7 @@ public class GameLoop : SingletonBase<GameLoop>
 
     IEnumerator StartSequence(int enemiesNumber, int enemiesHP, float brain, string[] sequence, bool intro = false)
     {
-        GameOn = false;
+        PauseGame();
         if (intro)
         {
             yield return StartCoroutine(ShowIntro());
@@ -117,12 +132,13 @@ public class GameLoop : SingletonBase<GameLoop>
         {
             unitBase.GetComponent<Control_Base>().enabled = true;
         }
-        GameOn = true;
+        PlayGame();
     }
 
     private void OnDestroy()
     {
-        gameLoopTimer.OnTimeRunOut -= RandomEffect;
+        if(gameLoopTimer != null)
+            gameLoopTimer.OnTimeRunOut -= RandomEffect;
     }
     public void AddToUnitList(Unit_Base unit)
     {
@@ -148,7 +164,7 @@ public class GameLoop : SingletonBase<GameLoop>
 
     IEnumerator EndSequence(string text)
     {
-        GameOn = false;
+        PauseGame();
         textBox.transform.parent.gameObject.SetActive(true);
         textBox.text = StoryContainer.GetStory(5)[0];
         yield return new WaitForSeconds(0.3f);
@@ -221,7 +237,4 @@ public class GameLoop : SingletonBase<GameLoop>
             unit.ChangeBody();
         }
     }
-    
-    
-    
 }

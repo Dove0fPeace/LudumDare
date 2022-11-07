@@ -11,7 +11,7 @@ public enum ObjWithCooldown
 
 public class Player_HUD : SingletonBase<Player_HUD>
 {
-    public AudioSource AudioSource;
+    private AudioSource audioSource;
     [Header("Dash")]
     public Image DashIconOverlay;
     public Image DashBlockIcon;
@@ -40,6 +40,8 @@ public class Player_HUD : SingletonBase<Player_HUD>
 
     private void Start()
     {
+        audioSource = GetComponent<AudioSource>();
+        
         DashIsActive = false;
         AttackIsActive = false;
         AbilityIsActive = false;
@@ -99,7 +101,7 @@ public class Player_HUD : SingletonBase<Player_HUD>
                 break;
         }
         if(FailedUseSound != null)
-            AudioSource.PlayOneShot(FailedUseSound);
+            audioSource.PlayOneShot(FailedUseSound);
     }
 
 }

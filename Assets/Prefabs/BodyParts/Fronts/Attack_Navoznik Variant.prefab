@@ -383,7 +383,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93037439dcbfc6940a1bfe0f84077958, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Part: 2
   EnableAttack: 1
   AttackRange: 30
   Damage: 10
@@ -392,8 +391,7 @@ MonoBehaviour:
   Timer_AttackCooldown: {fileID: 0}
   CanAttack: 0
   HandsPlace: {fileID: 0}
-  animator: {fileID: 0}
-  AttackAnimationName: 
+  AttackType: 2
+  hud: {fileID: 0}
   ProjectilePrefab: {fileID: -1999959431083125431, guid: 4751f8e032fd1e1428293eaf0fd055a7, type: 3}
   BallRestoreTime: 1.5
-  ballPLace: {fileID: 7013793882395307809}

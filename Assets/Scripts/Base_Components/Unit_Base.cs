@@ -40,15 +40,18 @@ public class Unit_Base : MonoBehaviour
     private bool invincible;
 
     public Kokon KokonPrefab;
-    private Control_Base control;
+    private bool isControl;
 
     private Vector2 targetLookAt;
     private float rotateSpeed = 5f;
 
+    private Player_HUD PlayerHUD;
+
 
     private void Start()
     {
-        control = transform.GetComponent<Control_Base>();
+        if (transform.root.CompareTag("Player"))
+            PlayerHUD = Player_HUD.Instance;
         ChangeBody();
         CurrentHP = MaxHitPoints;
         HpBar.maxValue = MaxHitPoints;
@@ -94,7 +97,6 @@ public class Unit_Base : MonoBehaviour
         canvas.enabled = false;
         var kokon = Instantiate(KokonPrefab, transform.position, transform.rotation);
         kokon.unit = this;
-        kokon.TargetControl = control;
     }
 
     public void GenerateNewBody()
@@ -125,6 +127,16 @@ public class Unit_Base : MonoBehaviour
         //Armor.PlayDamageEffect();
     }
 
+    public void ChangeControlState(bool state)
+    {
+        isControl = state;
+        if (isControl == false && Move != null)
+        {
+            Move.SetMove(0,0);
+            Move.rb.velocity = Vector2.zero;
+            PlayAnimBool("Move", false);
+        }
+    }
     public void PlayAudioOneshot(AudioClip clip)
     {
         AudioSource.PlayOneShot(clip);
@@ -163,7 +175,7 @@ public class Unit_Base : MonoBehaviour
 
     public bool TryMove(Vector2 direction)
     {
-        if (!control.enabled)
+        if (isControl == false)
         {
             return false;
         }
@@ -187,12 +199,14 @@ public class Unit_Base : MonoBehaviour
 
     public bool TryDash()
     {
-        if (!control.enabled)
+        if (isControl == false)
         {
             return false;
         }
         if (Dash is null || !Dash.CanDash)
         {
+            if(PlayerHUD != null)
+                PlayerHUD.TryUseOnCooldown(ObjWithCooldown.Dash);
             return false;
         }
         Dash.Dash();
@@ -202,12 +216,14 @@ public class Unit_Base : MonoBehaviour
 
     public bool TryAttack()
     {
-        if (!control.enabled)
+        if (isControl == false)
         {
             return false;
         }
-        if (Attack is null || Attack.CanAttack == false)
+        if (Attack is null || Attack.Attack() == false)
         {
+            if(PlayerHUD != null)
+                PlayerHUD.TryUseOnCooldown(ObjWithCooldown.Attack);
             return false;
         }
         Attack.Attack();
@@ -217,12 +233,14 @@ public class Unit_Base : MonoBehaviour
 
     public bool TryAbility()
     {
-        if (!control.enabled)
+        if (isControl == false)
         {
             return false;
         }
         if (Ability is null || Ability.CanUse() == false)
         {
+            if(PlayerHUD != null)
+                PlayerHUD.TryUseOnCooldown(ObjWithCooldown.Ability);
             return false;
         }
         Ability.Use();
@@ -243,7 +261,7 @@ public class Unit_Base : MonoBehaviour
 
     public void TakeDamage(float damage, bool isPoison)
     {
-        if (!control.enabled)
+        if (isControl == false)
         {
             return;
         }
@@ -294,7 +312,8 @@ public class Unit_Base : MonoBehaviour
         {        
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
-        gameObject.SetActive(false);
+        //gameObject.SetActive(false);
         GameLoop.Instance.RemoveFromUnitList(this);
+        Destroy(gameObject);
     }
 }

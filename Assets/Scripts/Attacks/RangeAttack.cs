@@ -1,4 +1,4 @@
-public class RangeAttack_Base : Attack_Base
+public class RangeAttack : Attack_Base
 {
     public Projectile_Base ProjectilePrefab;
 
@@ -16,7 +16,6 @@ public class RangeAttack_Base : Attack_Base
             projectile.Spawn(self, Damage);
             return true;
         }
-
         return false;
     }
 }

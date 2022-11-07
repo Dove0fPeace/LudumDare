@@ -1,12 +1,10 @@
 using Controls;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Dash_Base : MonoBehaviour
 {
     public float DashCooldown = 3f;
-    public float dashCurrentCooldown;
     public float DashForce;
     public float DashMoveBlock = 1f;
     public bool InvincibleInDash;
@@ -24,21 +22,20 @@ public class Dash_Base : MonoBehaviour
     public Timer dashTimer;
 
     public AI ai;
-    
 
     protected virtual void Start()
     {
-        rb = transform.root.GetComponent<Rigidbody2D>();
-        self = transform.root.GetComponent<Unit_Base>();
+        var root = transform.root;
+        rb = root.GetComponent<Rigidbody2D>();
+        self = root.GetComponent<Unit_Base>();
         Move_Target = self.Move;
 
-        ai = transform.root.GetComponent<AI>();
         dashTimer = Timer.CreateTimer(DashCooldown, false, false);
 
+        ai = root.GetComponent<AI>();
         if(ai == null)
         {
             hud = Player_HUD.Instance;
-
             hud.InitUI(ObjWithCooldown.Dash, true, dashTimer);
         }
     }
@@ -52,7 +49,6 @@ public class Dash_Base : MonoBehaviour
     {
         if (!CanDash)
         {
-            hud.TryUseOnCooldown(ObjWithCooldown.Dash);
             return false;
         }
         rb.AddForce(DashForce * transform.right, ForceMode2D.Impulse);
@@ -76,11 +72,6 @@ public class Dash_Base : MonoBehaviour
         self.SetInvincible(false);
         DashNow = false;
         CanDash = true;
-        if(ai != null)
-        {
-            //hud.InitUI(ObjWithCooldown.Dash);
-        }
         dashTimer.Restart(true);
-
     }
 }

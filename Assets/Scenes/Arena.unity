@@ -1602,7 +1602,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 535353785}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.75, y: 5.12, z: 0}
+  m_LocalPosition: {x: 7.04, y: 6.57, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1789,7 +1789,7 @@ MonoBehaviour:
   RespawnSceneOnDeath: 1
   EnemyPrefab: {fileID: -1215429076435941195, guid: 6b77990008b3b3a418cd35ffa92a7077, type: 3}
   EnemySpawnCount: 1
-  EnemySpawn: {fileID: 0}
+  EnemySpawn: {fileID: 1452355528}
   TrapSpawnPoint: {fileID: 961743928}
   MinTrapsSpawn: 1
   MaxTrapsSpawn: 5
@@ -1824,7 +1824,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 3cf6c342082e13f42b0fd9efd0dab414, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.7
+  m_Volume: 0.509
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -2237,7 +2237,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 814437707}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.74, y: -3.97, z: 0}
+  m_LocalPosition: {x: 2.92, y: -7.06, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2660,7 +2660,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_DontDestroyOnLoad: 0
-  AudioSource: {fileID: 0}
   DashIconOverlay: {fileID: 578815805}
   DashBlockIcon: {fileID: 1846732836}
   DashIcon: {fileID: 259547013}
@@ -2672,7 +2671,7 @@ MonoBehaviour:
   AttackIcon: {fileID: 173561133}
   ScaleUIElement: {x: 0.5, y: 0.5, z: 0.5}
   DurationScaleUI: 0.25
-  FailedUseSound: {fileID: 0}
+  FailedUseSound: {fileID: 8300000, guid: b5bc12233a5cae449b74a73f5045b489, type: 3}
 --- !u!82 &1036839742
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2685,7 +2684,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.796
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -2886,7 +2885,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1087906452}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.13, y: 5.19, z: 0}
+  m_LocalPosition: {x: -5.47, y: 6.51, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4205,7 +4204,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1691618903}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.4, y: 1, z: 0}
+  m_LocalPosition: {x: 11.96, y: 0.24, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

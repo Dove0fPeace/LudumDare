@@ -420,7 +420,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 958a6471f1bef2342bfe19a1c10299bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Part: 2
   EnableAttack: 1
   AttackRange: 30
   Damage: 0
@@ -429,8 +428,6 @@ MonoBehaviour:
   Timer_AttackCooldown: {fileID: 0}
   CanAttack: 0
   HandsPlace: {fileID: 0}
-  animator: {fileID: 0}
-  AttackAnimationName: 
+  AttackType: 1
+  hud: {fileID: 0}
   ProjectilePrefab: {fileID: 8373842378824041589, guid: 5012847d5fc23ed4f8f5d1dec3ca3d70, type: 3}
-  AbilityUISprite: {fileID: 0}
-  AbilityCooldown: 4

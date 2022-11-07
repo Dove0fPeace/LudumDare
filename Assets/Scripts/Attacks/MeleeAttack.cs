@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class MeleeAttack_Base : Attack_Base
+public class MeleeAttack : Attack_Base
 {
     [Header("Melee Attack settings")]
     public float AttackCastRadius;
@@ -30,15 +30,11 @@ public class MeleeAttack_Base : Attack_Base
             Unit_Base enemy =  hit2.transform.root.GetComponent<Unit_Base>();
             if(enemy != null && enemy != self)
             {
-                OnEnemyHit(enemy);
+                enemy.TakeDamage(Damage,false);
             }
         }
     }
-
-    public virtual void OnEnemyHit(Unit_Base unit)
-    {
-        unit.TakeDamage(Damage,false);
-    }
+    
 #if UNITY_EDITOR
     private void OnDrawGizmos()
     {

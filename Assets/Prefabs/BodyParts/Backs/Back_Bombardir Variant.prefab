@@ -163,7 +163,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40f9ee79732d04741a0bb5a97af029d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Part: 2
+  Part: 3
   EnableAttack: 1
   AttackRange: 2.9
   Damage: 10
@@ -172,8 +172,8 @@ MonoBehaviour:
   Timer_AttackCooldown: {fileID: 0}
   CanAttack: 0
   HandsPlace: {fileID: 0}
-  animator: {fileID: 0}
-  AttackAnimationName: 
+  AttackType: 1
+  hud: {fileID: 0}
   AttackCastRadius: 0.4
   DamageDelay: 0
   AbilityTickTime: 0.3

@@ -276,12 +276,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 164f3957d1098054787d47d80c7840c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Part: 2
-  UnableToAttack: 1
+  EnableAttack: 0
   AttackRange: 30
   Damage: 0
   sfx: {fileID: 0}
   AttackCooldown: 0
+  Timer_AttackCooldown: {fileID: 0}
+  CanAttack: 0
   HandsPlace: {fileID: 0}
-  animator: {fileID: 0}
-  AttackAnimationName: 
+  AttackType: 2
+  hud: {fileID: 0}

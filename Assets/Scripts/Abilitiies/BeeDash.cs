@@ -1,5 +1,4 @@
 using Base_Components;
-using Controls;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -40,10 +39,10 @@ public class BeeDash : Dash_Base, IAbility
         }
     }
 
-    public void InitiateAbility()
+    private void InitiateAbility()
     {       
-        if (ai != null) return;
-        hud.InitUI(ObjWithCooldown.Ability, true, dashTimer);
+        if (hud != null) 
+            hud.InitUI(ObjWithCooldown.Ability, true, dashTimer);
     }
 
     protected override IEnumerator Dashing()
@@ -71,5 +70,4 @@ public class BeeDash : Dash_Base, IAbility
         if (!CanDash) return;
         Dash();
     }
-
 }
