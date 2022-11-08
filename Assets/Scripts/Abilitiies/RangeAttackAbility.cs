@@ -1,10 +1,8 @@
 using Base_Components;
-using Controls;
-using UnityEngine;
 
-public class WebAbility : RangeAttack, IAbility
+public class RangeAttackAbility : RangeAttack, IAbility
 {
-    public Insects Insect => Insects.Spider;
+    public Insects Insect;
 
     public bool CanUse()
     {

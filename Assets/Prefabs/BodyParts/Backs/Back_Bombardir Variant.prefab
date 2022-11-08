@@ -163,12 +163,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40f9ee79732d04741a0bb5a97af029d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Part: 3
   EnableAttack: 1
   AttackRange: 2.9
-  Damage: 10
+  Damage: 2
   sfx: {fileID: 0}
-  AttackCooldown: 5
+  AttackCooldown: 8
   Timer_AttackCooldown: {fileID: 0}
   CanAttack: 0
   HandsPlace: {fileID: 0}
@@ -176,8 +175,8 @@ MonoBehaviour:
   hud: {fileID: 0}
   AttackCastRadius: 0.4
   DamageDelay: 0
-  AbilityTickTime: 0.3
-  AbilityTickCount: 7
+  AbilityTickTime: 0.2
+  AbilityTickCount: 6
 --- !u!114 &1989133574779242332
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -191,7 +190,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DashCooldown: 4
-  dashCurrentCooldown: 0
   DashForce: 5
   DashMoveBlock: 1
   InvincibleInDash: 0

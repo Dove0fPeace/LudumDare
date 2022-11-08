@@ -1,6 +1,5 @@
 using UnityEngine;
 
-
 public class Armor_Base : MonoBehaviour
 {
     public bool invincible;
@@ -20,7 +19,6 @@ public class Armor_Base : MonoBehaviour
     {
         if (invincible || initialDamage < 0.1f)
         {
-            Debug.Log("damage ignored!");
             return 0;
         }
         

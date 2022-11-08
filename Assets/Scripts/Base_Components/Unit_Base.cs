@@ -9,10 +9,10 @@ public class Unit_Base : MonoBehaviour
     [Header("HP")]
     public int MaxHitPoints;
     public float CurrentHP;
+    public Canvas UnitHpView;
     public Slider HpBar;
     private RectTransform fillRect;
     public Color DefaultHPColor;
-    public Canvas canvas;
 
     [Space(5)]
 
@@ -94,14 +94,14 @@ public class Unit_Base : MonoBehaviour
         }
 
         Clear();
-        canvas.enabled = false;
+        UnitHpView.enabled = false;
         var kokon = Instantiate(KokonPrefab, transform.position, transform.rotation);
         kokon.unit = this;
     }
 
     public void GenerateNewBody()
     {
-        canvas.enabled = true;
+        UnitHpView.enabled = true;
         Clear();
         front = Instantiate(Bodytypes.GetRandomFront(), FrontPosition.position, FrontPosition.rotation, FrontPosition);
         front.transform.localPosition = Vector3.zero;
@@ -122,9 +122,7 @@ public class Unit_Base : MonoBehaviour
         Dash = front.GetComponentInChildren<Dash_Base>();
         Dash = back.GetComponentInChildren<Dash_Base>();
         
-        //init components
         SetInvincible(invincible);
-        //Armor.PlayDamageEffect();
     }
 
     public void ChangeControlState(bool state)

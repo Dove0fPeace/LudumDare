@@ -55,6 +55,10 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 0.3584906
       objectReference: {fileID: 0}
+    - target: {fileID: 5901229448230539120, guid: ac910be198ea24b468662adb43ea40b2, type: 3}
+      propertyPath: UnitHpView
+      value: 
+      objectReference: {fileID: 3175565257974072024}
     - target: {fileID: 5901229448230539125, guid: ac910be198ea24b468662adb43ea40b2, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -109,6 +113,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ac910be198ea24b468662adb43ea40b2, type: 3}
+--- !u!223 &3175565257974072024 stripped
+Canvas:
+  m_CorrespondingSourceObject: {fileID: 708259034202226475, guid: ac910be198ea24b468662adb43ea40b2, type: 3}
+  m_PrefabInstance: {fileID: 2721830109035658739}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &8367832121998537352 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5901229448230539131, guid: ac910be198ea24b468662adb43ea40b2, type: 3}

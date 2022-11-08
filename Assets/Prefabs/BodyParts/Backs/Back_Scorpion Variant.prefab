@@ -423,7 +423,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &1339481523599157265
+--- !u!114 &-8707969612081832087
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -432,32 +432,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 673369415500154303}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa337c56bc61fc3448ca274f80756a04, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  DashCooldown: 3
-  dashCurrentCooldown: 0
-  DashForce: 3
-  DashMoveBlock: 1
-  InvincibleInDash: 0
-  CanDash: 1
-  DashNow: 0
-  rb: {fileID: 0}
-  Move_Target: {fileID: 0}
-  self: {fileID: 0}
-  hud: {fileID: 0}
-  dashTimer: {fileID: 0}
-  ai: {fileID: 0}
---- !u!114 &7695186906741818798
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 673369415500154303}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 877dee5486c0da4408d08d33d0fe807b, type: 3}
+  m_Script: {fileID: 11500000, guid: 958a6471f1bef2342bfe19a1c10299bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   EnableAttack: 1
@@ -471,4 +446,28 @@ MonoBehaviour:
   AttackType: 1
   hud: {fileID: 0}
   ProjectilePrefab: {fileID: 3242962407902946182, guid: c683097efd593af4694a6d5dd2d1ca8d, type: 3}
-  Insect: 2
+  Insect: 1
+--- !u!114 &1339481523599157265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 673369415500154303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa337c56bc61fc3448ca274f80756a04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DashCooldown: 3
+  DashForce: 3
+  DashMoveBlock: 1
+  InvincibleInDash: 0
+  CanDash: 1
+  DashNow: 0
+  rb: {fileID: 0}
+  Move_Target: {fileID: 0}
+  self: {fileID: 0}
+  hud: {fileID: 0}
+  dashTimer: {fileID: 0}
+  ai: {fileID: 0}
