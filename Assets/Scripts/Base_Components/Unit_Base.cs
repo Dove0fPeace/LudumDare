@@ -1,3 +1,4 @@
+using System;
 using Base_Components;
 using UnityEngine;
 using UnityEngine.UI;
@@ -63,6 +64,11 @@ public class Unit_Base : MonoBehaviour
 
         GameLoop.Instance.AddToUnitList(this);
 
+    }
+
+    private void OnDestroy()
+    {
+        audioSource.Stop();
     }
 
     public void SetGodMode(bool on = true)
