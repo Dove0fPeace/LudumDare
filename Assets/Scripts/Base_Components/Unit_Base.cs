@@ -35,7 +35,7 @@ public class Unit_Base : MonoBehaviour
     private GameObject back;
     private Animator backAnim;
     
-    private AudioSource AudioSource;
+    private AudioSource audioSource;
     private Vector3 initialPosition;
     private bool invincible;
 
@@ -57,7 +57,7 @@ public class Unit_Base : MonoBehaviour
         HpBar.maxValue = MaxHitPoints;
         HpBar.value = HpBar.maxValue;
         initialPosition = transform.position;
-        AudioSource = GetComponent<AudioSource>();
+        audioSource = GetComponent<AudioSource>();
 
         fillRect = HpBar.fillRect;
 
@@ -137,7 +137,8 @@ public class Unit_Base : MonoBehaviour
     }
     public void PlayAudioOneshot(AudioClip clip)
     {
-        AudioSource.PlayOneShot(clip);
+        if(audioSource != null)
+            audioSource.PlayOneShot(clip);
     }
 
     private void Clear()

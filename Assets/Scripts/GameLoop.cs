@@ -1,71 +1,92 @@
+using System;
 using Base_Components;
 using Controls;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
-using DefaultNamespace;
 using TMPro;
-using UnityEngine.Serialization;
+using Random = UnityEngine.Random;
 
 public class GameLoop : SingletonBase<GameLoop>
 {
-    public float mainTime = 10f;
-    public AudioClip AudioOnLoopTimesEnd;
-    public TMP_Text textBox;
-    public Canvas intro, outro;
-    public bool GameOn;
-
-    private AudioSource audioSource;
-
-    public PlayerControl PlayerPrefab;
-    public Transform PLayerSpawnPoint;
-
-    public CinemachineVirtualCamera targetCamera;
-
-    [FormerlySerializedAs("SpawwnPlayer")] [Header("Eсли на сцене уже есть жук игрока - убери галку")]
-    public bool SpawnPlayer = true;
-    public bool GodMode;
-    private Timer gameLoopTimer;
-    [Header ("Restart scene on death")]
-    public bool RespawnSceneOnDeath = false;
-
-    private List<Unit_Base> unitList = new List<Unit_Base>();
-
-    public AI EnemyPrefab;
-    public int EnemySpawnCount;
-
-    [Header("Enemies Spawn")] 
-    public Transform EnemySpawn;
-    private Transform[] enemySpawnPoints;
+    [SerializeField] private float mainTime = 10f;
+    [SerializeField] private AudioClip AudioOnLoopTimesEnd;
     
+    [Header("Cash GameObjects")]
+    [SerializeField] private CinemachineVirtualCamera targetCamera;
+
+    [SerializeField] private TMP_Text textBox;
+
+    [SerializeField] private PlayerControl PlayerPrefab;
+    [SerializeField] private Transform PLayerSpawnPoint;
+
+    [SerializeField] private AI EnemyPrefab;
+
+    [Header("GameSettings")]
+    [SerializeField] private bool GodMode;
+
+    [SerializeField] private bool _respawnSceneOnDeath = false;
+    public bool RespawnSceneOnDeath => _respawnSceneOnDeath;
+
+    public bool GameOn { get; private set; }
+    private bool endlessGame;
+
+
+    [Header("Enemies Spawn")]
+    [SerializeField] private int _enemyMinSpawn; //for endless mode
+    [SerializeField] private int _enemyMaxSpawn; //for endless mode
+    [SerializeField] private Transform EnemySpawnPointsContainer;
+    private Transform[] enemySpawnPoints;
+
     [Header("Traps")]
-    public Transform TrapSpawnPoint;
+    [SerializeField] private int MinTrapsSpawn ;
+    [SerializeField] private int MaxTrapsSpawn;
+
+    [SerializeField] private Transform TrapSpawnPointsContainer;
+    [SerializeField] private Zone_Base[] Traps;
     private Transform[] trapSpawnPoints;
 
-    public int MinTrapsSpawn;
-    public int MaxTrapsSpawn;
-    public Zone_Base[] Traps;
 
+    private Timer gameLoopTimer;
+    private List<Unit_Base> unitList = new List<Unit_Base>();
     private Transform spawnedPlayer;
+    public Transform SpawnedPlayer => spawnedPlayer;
     private Unit_Base lastEnemy;
     private Control_Base[] enemies;
-    private int storyPhase;
+    private AudioSource audioSource;
+
+    [HideInInspector]public bool GameIsStarted = false;
+    public event Action OnCompleteStorySequence;
+
 
     private void Start()
     {
         spawnedPlayer = null;
         lastEnemy = null;
         audioSource = transform.GetComponent<AudioSource>();
-        trapSpawnPoints = TrapSpawnPoint.GetComponentsInChildren<Transform>();
-        enemySpawnPoints = EnemySpawn.GetComponentsInChildren<Transform>();
-        intro.enabled = false;
-        outro.enabled = false;
-        storyPhase = StoryContainer.storyPhase;
+        trapSpawnPoints = TrapSpawnPointsContainer.GetComponentsInChildren<Transform>();
+        enemySpawnPoints = EnemySpawnPointsContainer.GetComponentsInChildren<Transform>();
         gameLoopTimer = Timer.CreateTimer(mainTime, false, true);
         gameLoopTimer.OnTimeRunOut += RandomEffect;
         PauseGame();
-        StartCoroutine(StartSequence(StoryContainer.GetEnemiesCount(storyPhase), StoryContainer.GetEnemiesHp(storyPhase), StoryContainer.GetEnemiesBrain(storyPhase), StoryContainer.GetStory(storyPhase), storyPhase == 0));
+        if (endlessGame)
+        {
+            StartGame();
+        }
+    }
+
+    private void OnDestroy()
+    {
+        if(gameLoopTimer != null)
+            gameLoopTimer.OnTimeRunOut -= RandomEffect;
+    }
+
+    public void StartGame()
+    {
+        spawnedPlayer = Instantiate(PlayerPrefab, PLayerSpawnPoint.position, PLayerSpawnPoint.rotation).transform;
+        targetCamera.Follow = spawnedPlayer;
+        spawnedPlayer.GetComponent<Unit_Base>().SetGodMode(GodMode);
+        GameIsStarted = true;
     }
 
     public void PlayGame()
@@ -82,94 +103,11 @@ public class GameLoop : SingletonBase<GameLoop>
     {
         GameOn = false;
         gameLoopTimer.Restart(true);
+        if (unitList.Count == 0) return;
         foreach (var unit in unitList)
         {
             unit.ChangeControlState(false);
         }
-    }
-
-    public IEnumerator ShowIntro()
-    {
-        intro.enabled = true;
-        yield return new WaitForSeconds(0.3f);
-        yield return new WaitUntil(() => Input.anyKeyDown);
-        intro.enabled = false;
-    }
-
-    IEnumerator StartSequence(int enemiesNumber, int enemiesHP, float brain, string[] sequence, bool intro = false)
-    {
-        PauseGame();
-        if (intro)
-        {
-            yield return StartCoroutine(ShowIntro());
-        }
-        textBox.transform.parent.gameObject.SetActive(true);
-        EnemySpawnCount = enemiesNumber;
-        if (spawnedPlayer is null)
-        {
-            spawnedPlayer = Instantiate(PlayerPrefab, PLayerSpawnPoint.position, PLayerSpawnPoint.rotation).transform;
-            targetCamera.Follow = spawnedPlayer;
-            spawnedPlayer.GetComponent<Unit_Base>().SetGodMode(GodMode);
-        }
-        else
-        {
-            spawnedPlayer.GetComponent<Unit_Base>().HealRelative(1f);
-        }
-        SpawnEnemy(EnemySpawnCount, enemiesHP, brain);
-        yield return new WaitForSeconds(0.8f);
-        foreach (var unitBase in unitList)
-        {
-            unitBase.GetComponent<Control_Base>().enabled = false;
-        }
-        foreach (var text in sequence)
-        {
-            textBox.text = text;
-            yield return new WaitForSeconds(0.2f);
-            yield return new WaitUntil(() => Input.anyKeyDown);
-        }
-        textBox.transform.parent.gameObject.SetActive(false);
-        foreach (var unitBase in unitList)
-        {
-            unitBase.GetComponent<Control_Base>().enabled = true;
-        }
-        PlayGame();
-    }
-
-    private void OnDestroy()
-    {
-        if(gameLoopTimer != null)
-            gameLoopTimer.OnTimeRunOut -= RandomEffect;
-    }
-    public void AddToUnitList(Unit_Base unit)
-    {
-        unitList.Add(unit);
-    }
-
-    public void RemoveFromUnitList(Unit_Base unit)
-    {
-        unitList.Remove(unit);
-        if (unitList.Count <= 1)
-        {
-            storyPhase++;
-            if (storyPhase < 5)
-            {
-                StartCoroutine(StartSequence(StoryContainer.GetEnemiesCount(storyPhase), StoryContainer.GetEnemiesHp(storyPhase), StoryContainer.GetEnemiesBrain(storyPhase),StoryContainer.GetStory(storyPhase)));
-            }
-            else
-            {
-                StartCoroutine(EndSequence(StoryContainer.GetStory(5)[0]));
-            }
-        }
-    }
-
-    IEnumerator EndSequence(string text)
-    {
-        PauseGame();
-        textBox.transform.parent.gameObject.SetActive(true);
-        textBox.text = StoryContainer.GetStory(5)[0];
-        yield return new WaitForSeconds(0.3f);
-        yield return new WaitUntil(() => Input.anyKeyDown);
-        outro.enabled = true;
     }
 
     public void SpawnEnemy(int spawnCount, int enemiesHp, float brain)
@@ -187,19 +125,37 @@ public class GameLoop : SingletonBase<GameLoop>
         }
     }
 
-    public void ChangeEnemy()
+    public void AddToUnitList(Unit_Base unit)
     {
-        if (lastEnemy is null)
-        {
-            SpawnEnemy(1, 10, 3);
-        }
-        lastEnemy.ChangeBody();
+        unitList.Add(unit);
     }
 
-    public void ChangePlayer()
+    public void RemoveFromUnitList(Unit_Base unit)
     {
-        spawnedPlayer.GetComponent<Unit_Base>().ChangeBody();
+        unitList.Remove(unit);
+        if (unitList.Count <= 1)
+        {
+            OnCompleteStorySequence?.Invoke();
+        }
     }
+
+    #region FromUiDebug
+
+        public void ChangeEnemy()
+        {
+            if (lastEnemy is null)
+            {
+                SpawnEnemy(1, 10, 3);
+            }
+            lastEnemy.ChangeBody();
+        }
+
+        public void ChangePlayer()
+        {
+            spawnedPlayer.GetComponent<Unit_Base>().ChangeBody();
+        }
+
+    #endregion
 
     private void RandomEffect()
     {
@@ -225,16 +181,16 @@ public class GameLoop : SingletonBase<GameLoop>
         }
     }
 
-    private void InvokeChangeSingleBody()
-    {
-        unitList[Random.Range(0, unitList.Count)].ChangeBody();
-    }
-
     private void InvokeChangeAllBodies()
     {
         foreach (var unit in unitList)
         {
             unit.ChangeBody();
         }
+    }
+
+    private void InvokeChangeSingleBody()
+    {
+        unitList[Random.Range(0, unitList.Count)].ChangeBody();
     }
 }
