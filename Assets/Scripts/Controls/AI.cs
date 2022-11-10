@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -23,12 +24,22 @@ namespace Controls
             realUnit = unit.RotationRoot;
         }
 
+        private void Start()
+        {
+            
+        }
+
         private void OnEnable()
         {
             StartCoroutine(AILoop());
         }
 
         private void OnDisable()
+        {
+            //StopAllCoroutines();
+        }
+
+        private void OnDestroy()
         {
             StopAllCoroutines();
         }
@@ -43,6 +54,11 @@ namespace Controls
                 {
                     continue;
                 }
+
+                if (target == null)
+                {
+                    target = FindObjectOfType<PlayerControl>().transform;
+                }
                 if (!target.gameObject.activeInHierarchy)
                 {
                     if (moving != null)
@@ -53,19 +69,24 @@ namespace Controls
                     continue;
                 }
                 unit.LookAt(target.position);
-                if (unit.Ability.CanUse())
+                if (unit.Ability != null && unit.Ability.CanUse())
                 {
                     unit.Ability.Use();
                     continue;
                 }
-                if (unit.Dash.CanDash && (IsCastHit(-realUnit.right, wallDistanceCheck) || (unit.CurrentHP/unit.MaxHitPoints) < 0.5f))
+
+                if (unit.Dash != null)
                 {
-                    if (unit.TryDash())
+                    if (unit.Dash.CanDash && (IsCastHit(-realUnit.right, wallDistanceCheck) || (unit.CurrentHP/unit.MaxHitPoints) < 0.5f))
                     {
-                        continue;
+                        if (unit.TryDash())
+                        {
+                            continue;
+                        }
                     }
                 }
-                if (unit.Attack.CanAttack)
+                
+                if (unit.Attack != null && unit.Attack.CanAttack)
                 {
                     AttackDecision();
                 }

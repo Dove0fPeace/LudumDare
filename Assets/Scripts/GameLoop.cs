@@ -4,6 +4,7 @@ using Controls;
 using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
+using DefaultNamespace;
 using TMPro;
 using Random = UnityEngine.Random;
 
@@ -22,7 +23,11 @@ public class GameLoop : SingletonBase<GameLoop>
 
     [SerializeField] private AI EnemyPrefab;
 
-    [Header("GameSettings")]
+    [SerializeField] private EndGameUI _endGameUI;
+    [SerializeField] private StoryController _storyController;
+
+    [Header("GameSettings")] [SerializeField]
+    private GameModeSettings _gameModeSettings;
     [SerializeField] private bool GodMode;
 
     [SerializeField] private bool _respawnSceneOnDeath = false;
@@ -30,6 +35,7 @@ public class GameLoop : SingletonBase<GameLoop>
 
     public bool GameOn { get; private set; }
     private bool endlessGame;
+    [HideInInspector]public bool EndlessGame => endlessGame;
 
 
     [Header("Enemies Spawn")]
@@ -49,8 +55,7 @@ public class GameLoop : SingletonBase<GameLoop>
 
     private Timer gameLoopTimer;
     private List<Unit_Base> unitList = new List<Unit_Base>();
-    private Transform spawnedPlayer;
-    public Transform SpawnedPlayer => spawnedPlayer;
+    public Transform SpawnedPlayer;
     private Unit_Base lastEnemy;
     private Control_Base[] enemies;
     private AudioSource audioSource;
@@ -61,31 +66,39 @@ public class GameLoop : SingletonBase<GameLoop>
 
     private void Start()
     {
-        spawnedPlayer = null;
+        SpawnedPlayer = null;
         lastEnemy = null;
         audioSource = transform.GetComponent<AudioSource>();
         trapSpawnPoints = TrapSpawnPointsContainer.GetComponentsInChildren<Transform>();
         enemySpawnPoints = EnemySpawnPointsContainer.GetComponentsInChildren<Transform>();
         gameLoopTimer = Timer.CreateTimer(mainTime, false, true);
         gameLoopTimer.OnTimeRunOut += RandomEffect;
+        Unit_Base.OnPlayerDead += PauseGame;
         PauseGame();
+        endlessGame = _gameModeSettings.EndlessGame;
         if (endlessGame)
         {
             StartGame();
+            SpawnEnemy(Random.Range(_enemyMinSpawn, _enemyMaxSpawn+1),
+                        StoryContainer.GetEnemiesHp(_gameModeSettings.DifficultyLevel),
+                        StoryContainer.GetEnemiesBrain(_gameModeSettings.DifficultyLevel));
+            PlayGame();
         }
     }
 
     private void OnDestroy()
     {
+        Unit_Base.OnPlayerDead += PauseGame;
         if(gameLoopTimer != null)
             gameLoopTimer.OnTimeRunOut -= RandomEffect;
     }
 
     public void StartGame()
     {
-        spawnedPlayer = Instantiate(PlayerPrefab, PLayerSpawnPoint.position, PLayerSpawnPoint.rotation).transform;
-        targetCamera.Follow = spawnedPlayer;
-        spawnedPlayer.GetComponent<Unit_Base>().SetGodMode(GodMode);
+        SpawnedPlayer = Instantiate(PlayerPrefab, PLayerSpawnPoint.position, PLayerSpawnPoint.rotation).transform;
+        targetCamera.Follow = SpawnedPlayer;
+        Unit_Base playerUnit = SpawnedPlayer.GetComponent<Unit_Base>();
+        playerUnit.SetGodMode(GodMode);
         GameIsStarted = true;
     }
 
@@ -117,7 +130,7 @@ public class GameLoop : SingletonBase<GameLoop>
         {
             int point = Random.Range(0, enemySpawnPoints.Length);
             var enemy =  Instantiate(EnemyPrefab, enemySpawnPoints[point].position, enemySpawnPoints[point].rotation);
-            enemy.target = spawnedPlayer;
+            enemy.target = SpawnedPlayer;
             enemy.smartness = brain;
             enemies[i] = enemy;
             lastEnemy = enemy.GetComponent<Unit_Base>();
@@ -135,8 +148,27 @@ public class GameLoop : SingletonBase<GameLoop>
         unitList.Remove(unit);
         if (unitList.Count <= 1)
         {
-            OnCompleteStorySequence?.Invoke();
+            if (endlessGame)
+            {
+                SpawnEnemy(Random.Range(_enemyMinSpawn, _enemyMaxSpawn+1),
+                    StoryContainer.GetEnemiesHp(_gameModeSettings.DifficultyLevel),
+                    StoryContainer.GetEnemiesBrain(_gameModeSettings.DifficultyLevel));
+            }
+            else if(unitList.Contains(SpawnedPlayer.GetComponent<Unit_Base>()))
+            {
+                print("Game loop invoked complete story");
+                OnCompleteStorySequence?.Invoke();
+            }
         }
+    }
+
+    public void KillAll()
+    {
+        foreach (var unit in unitList)
+        {
+            Destroy(unit.gameObject);
+        }
+        unitList.Clear();
     }
 
     #region FromUiDebug
@@ -152,7 +184,7 @@ public class GameLoop : SingletonBase<GameLoop>
 
         public void ChangePlayer()
         {
-            spawnedPlayer.GetComponent<Unit_Base>().ChangeBody();
+            SpawnedPlayer.GetComponent<Unit_Base>().ChangeBody();
         }
 
     #endregion

@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Game Mode Settings
   m_EditorClassIdentifier: 
   EndlessGame: 0
-  DifficultyLevel: 0
+  DifficultyLevel: 2

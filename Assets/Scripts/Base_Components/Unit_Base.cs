@@ -2,7 +2,6 @@ using System;
 using Base_Components;
 using UnityEngine;
 using UnityEngine.UI;
-using Controls;
 using UnityEngine.SceneManagement;
 
 public class Unit_Base : MonoBehaviour
@@ -47,6 +46,8 @@ public class Unit_Base : MonoBehaviour
     private float rotateSpeed = 5f;
 
     private Player_HUD PlayerHUD;
+
+    public static event Action OnPlayerDead;
 
 
     private void Start()
@@ -158,6 +159,12 @@ public class Unit_Base : MonoBehaviour
         {
             Destroy(back);
         }
+
+        Armor = null;
+        Move = null;
+        Attack = null;
+        Ability = null;
+        Dash = null;
     }
 
     private void PlayAnimBool(string anim, bool on)
@@ -255,6 +262,7 @@ public class Unit_Base : MonoBehaviour
 
     public void LookAt(Vector2 targetLookPos)
     {
+        if(isControl == false) return;
         float angle = Vector2.SignedAngle(RotationRoot.right, targetLookPos - (Vector2)transform.position);
         if (Mathf.Abs(angle) < rotateSpeed)
         {
@@ -310,12 +318,12 @@ public class Unit_Base : MonoBehaviour
     {
         fillRect.GetComponent<Image>().color = color;
     }
-    public void Death()
+
+    private void Death()
     {
-        var player = transform.GetComponent<PlayerControl>();
-        if (player != null && GameLoop.Instance.RespawnSceneOnDeath)
-        {        
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        if (PlayerHUD != null)
+        {
+            OnPlayerDead?.Invoke();
         }
         //gameObject.SetActive(false);
         GameLoop.Instance.RemoveFromUnitList(this);

@@ -42,12 +42,14 @@ public class Dash_Base : MonoBehaviour
 
     private void OnDestroy()
     {
+        Move_Target.SetLayer(LayerMask.NameToLayer("bug"));
+        StopAllCoroutines();
         dashTimer.Destroy();
     }
 
     public virtual bool Dash()
     {
-        if (!CanDash)
+        if (!CanDash && rb != null)
         {
             return false;
         }

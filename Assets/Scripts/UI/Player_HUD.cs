@@ -91,12 +91,15 @@ public class Player_HUD : SingletonBase<Player_HUD>
         switch (obj)
         {
             case ObjWithCooldown.Dash:
+                DashIcon.DORewind();
                 DashIcon.DOPunchScale(ScaleUIElement, DurationScaleUI);
                 break;
             case ObjWithCooldown.Ability:
+                AbilityIcon.DORewind();
                 AbilityIcon.DOPunchScale(ScaleUIElement, DurationScaleUI);
                 break;
             case ObjWithCooldown.Attack:
+                AttackIcon.DORewind();
                 AttackIcon.DOPunchScale(ScaleUIElement, DurationScaleUI);
                 break;
         }

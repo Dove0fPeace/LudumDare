@@ -5,11 +5,23 @@ using TMPro;
 
 public class StoryController : MonoBehaviour
 {
+    [SerializeField] private GameModeSettings _gameModeSettings;
+    
     [SerializeField] private TMP_Text _textBox;
     [SerializeField] private Canvas _intro, _outro;
     private int storyPhase;
 
+    private Unit_Base _player;
+
     private GameLoop gameLoop;
+
+    private void Awake()
+    {
+        _intro.enabled = false;
+        _outro.enabled = false;
+        if(_gameModeSettings.EndlessGame)
+            enabled = false;
+    }
 
     private void Start()
     {
@@ -17,6 +29,7 @@ public class StoryController : MonoBehaviour
         _outro.enabled = false;
         gameLoop = GameLoop.Instance;
         gameLoop.OnCompleteStorySequence += CompleteSequence;
+        Unit_Base.OnPlayerDead += RestartSequence;
         storyPhase = StoryContainer.storyPhase;
         StartCoroutine(StartSequence(StoryContainer.GetEnemiesCount(storyPhase),
                                                        StoryContainer.GetEnemiesHp(storyPhase),
@@ -25,13 +38,31 @@ public class StoryController : MonoBehaviour
                                                        storyPhase == 0));
     }
 
+    private void OnDestroy()
+    {
+        if (!enabled) return;
+        gameLoop.OnCompleteStorySequence -= CompleteSequence;
+        Unit_Base.OnPlayerDead -= RestartSequence;
+    }
+
     private void CompleteSequence()
     {
+        print("Increment story phase");
         storyPhase++;
         StartCoroutine(storyPhase < 5
             ? StartSequence(StoryContainer.GetEnemiesCount(storyPhase), StoryContainer.GetEnemiesHp(storyPhase),
                 StoryContainer.GetEnemiesBrain(storyPhase), StoryContainer.GetStory(storyPhase))
             : EndSequence(StoryContainer.GetStory(5)[0]));
+    }
+
+    private void RestartSequence()
+    {
+        print("Restart Sequence");
+        gameLoop.KillAll();
+        gameLoop.StartGame();
+        StartCoroutine(StartSequence(StoryContainer.GetEnemiesCount(storyPhase),
+            StoryContainer.GetEnemiesHp(storyPhase),
+            StoryContainer.GetEnemiesBrain(storyPhase), StoryContainer.GetStory(storyPhase)));
     }
     
     private IEnumerator StartSequence(int enemiesNumber, int enemiesHP, float brain, string[] sequence, bool intro = false)

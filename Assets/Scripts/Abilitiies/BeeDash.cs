@@ -55,12 +55,11 @@ public class BeeDash : Dash_Base, IAbility
         yield return new WaitForSeconds(DashMoveBlock);
         rb.Sleep();
         Move_Target.IsCanMove = true;
-        yield return new WaitForSeconds(DashCooldown - DashMoveBlock);
         Move_Target.SetLayer(LayerMask.NameToLayer("bug"));
+        yield return new WaitForSeconds(DashCooldown - DashMoveBlock);
         self.SetInvincible(false);
         DashNow = false;
         CanDash = true;
-        //hud.InitUI(ObjWithCooldown.Dash);
         dashTimer.Restart(true);
         enemies.Clear();
         enemies.Add(self);
