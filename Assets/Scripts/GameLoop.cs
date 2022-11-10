@@ -2,6 +2,7 @@ using System;
 using Base_Components;
 using Controls;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using Cinemachine;
 using DefaultNamespace;
@@ -70,7 +71,9 @@ public class GameLoop : SingletonBase<GameLoop>
         lastEnemy = null;
         audioSource = transform.GetComponent<AudioSource>();
         trapSpawnPoints = TrapSpawnPointsContainer.GetComponentsInChildren<Transform>();
+        trapSpawnPoints = trapSpawnPoints.Skip(1).ToArray();
         enemySpawnPoints = EnemySpawnPointsContainer.GetComponentsInChildren<Transform>();
+        enemySpawnPoints = enemySpawnPoints.Skip(1).ToArray();
         gameLoopTimer = Timer.CreateTimer(mainTime, false, true);
         gameLoopTimer.OnTimeRunOut += RandomEffect;
         Unit_Base.OnPlayerDead += PauseGame;
