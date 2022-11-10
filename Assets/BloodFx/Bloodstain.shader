@@ -67,7 +67,7 @@ Shader "Particles/Bloodstain"
         float l = length(uv);
         float a = smoothstep(l - 0.01, l, p);
 
-        return half4(color.rgb, a);
+        return half4(color.rgb, color.a * a);
     }
 
     ENDCG

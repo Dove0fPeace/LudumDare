@@ -100,8 +100,9 @@ public class Timer : MonoBehaviour
         currentTime = maxTime;
     }
 
-    public void Restart()
+    public void Restart(bool pauseOnRestart)
     {
+        isPaused = pauseOnRestart;
         currentTime = maxTime;
     }
 

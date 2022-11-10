@@ -1,5 +1,4 @@
 using Base_Components;
-using Controls;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -40,19 +39,12 @@ public class BeeDash : Dash_Base, IAbility
         }
     }
 
-    public void InitiateAbility()
-    {
-        var ai = transform.root.GetComponent<AI>();
-        if (ai != null) return;
-        hud.InitUI(ObjWithCooldown.Ability);
+    private void InitiateAbility()
+    {       
+        if (hud != null) 
+            hud.InitUI(ObjWithCooldown.Ability, true, dashTimer);
     }
 
-    protected override void UpdateDashUI()
-    {
-        if (ai != null) return;
-        base.UpdateDashUI();
-        hud.UpdateCooldown(ObjWithCooldown.Ability, dashCurrentCooldown);
-    }
     protected override IEnumerator Dashing()
     {
         self.SetInvincible(InvincibleInDash);
@@ -63,25 +55,18 @@ public class BeeDash : Dash_Base, IAbility
         yield return new WaitForSeconds(DashMoveBlock);
         rb.Sleep();
         Move_Target.IsCanMove = true;
-        yield return new WaitForSeconds(DashCooldown - DashMoveBlock);
         Move_Target.SetLayer(LayerMask.NameToLayer("bug"));
+        yield return new WaitForSeconds(DashCooldown - DashMoveBlock);
         self.SetInvincible(false);
         DashNow = false;
         CanDash = true;
-        //hud.InitUI(ObjWithCooldown.Dash);
-        dashTimer.Pause();
-        dashTimer.Restart();
+        dashTimer.Restart(true);
         enemies.Clear();
         enemies.Add(self);
-    }
-    private void OnDestroy()
-    {
-        //hud.InitUI(ObjWithCooldown.Ability);
     }
     public void Use()
     {
         if (!CanDash) return;
         Dash();
     }
-
 }

@@ -5,64 +5,106 @@ using UnityEngine.UI;
 public enum ObjWithCooldown
 {
     Dash,
-    Ability
+    Ability,
+    Attack
 }
 
 public class Player_HUD : SingletonBase<Player_HUD>
 {
+    private AudioSource audioSource;
     [Header("Dash")]
     public Image DashIconOverlay;
+    public Image DashBlockIcon;
+    public RectTransform DashIcon;
+    private Timer DashCooldown;
+    private bool DashIsActive;
 
     [Header("Ability")]
     public Image AbilityIconOverlay;
+    public Image AbilityBlockIcon;
+    public RectTransform AbilityIcon;
+    private Timer AbilityCooldown;
+    private bool AbilityIsActive;
 
-    [Header("AttackPossibility")] public Image[] AttackIcons;
-    private Unit_Base Player;
-    private bool attackDisabled;
+    [Header("Attack")]
+    public Image AttackIconOverlay;
+    public Image AttackBlockIcon;
+    public RectTransform AttackIcon;
+    private Timer AttackCooldown;
+    private bool AttackIsActive;
 
-    public void InitUI(ObjWithCooldown obj)
+    [Header("Try use anything on cooldown")]
+    public Vector3 ScaleUIElement;
+    public float DurationScaleUI;
+    public AudioClip FailedUseSound;
+
+    private void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+        
+        DashIsActive = false;
+        AttackIsActive = false;
+        AbilityIsActive = false;
+    }
+
+    private void Update()
+    {
+        if(DashIsActive && DashCooldown != null)
+            DashIconOverlay.fillAmount = DashCooldown.CurrentTime/DashCooldown.MaxTime;
+        if(AbilityIsActive && AbilityCooldown != null)
+            AbilityIconOverlay.fillAmount = AbilityCooldown.CurrentTime/AbilityCooldown.MaxTime;
+        if(AttackIsActive && AttackCooldown != null)
+            AttackIconOverlay.fillAmount = AttackCooldown.CurrentTime/AttackCooldown.MaxTime;
+    }
+
+    public void InitUI(ObjWithCooldown obj, bool active ,Timer cooldownTimer)
     {
         switch (obj)
         {
             case ObjWithCooldown.Dash:
+                DashBlockIcon.enabled = !active;
+                DashIsActive = active;
                 DashIconOverlay.fillAmount = 1;
+                DashCooldown = cooldownTimer;
                 break;
             case ObjWithCooldown.Ability:
+                AbilityBlockIcon.enabled = !active;
+                AbilityIsActive = active;
+                if(cooldownTimer == null)
+                {
+                    AbilityCooldown = null;
+                }
+                AbilityCooldown = cooldownTimer;
                 AbilityIconOverlay.fillAmount = 1;
                 break;
+            case ObjWithCooldown.Attack:
+                AttackBlockIcon.enabled = !active;
+                AttackIsActive = active;
+                AttackIconOverlay.fillAmount = 1;
+                AttackCooldown = cooldownTimer;
+                break;
         }
     }
 
-    public void ChangeAttack(bool unable)
+    public void TryUseOnCooldown(ObjWithCooldown obj)
     {
-        if (!attackDisabled && unable)
+        switch (obj)
         {
-            attackDisabled = true;
-            foreach (Image attackIcon in AttackIcons)
-            {
-                attackIcon.DOColor(Color.gray, 1f);
-            }
-        }
-        else if (attackDisabled && !unable)
-        {
-            attackDisabled = false;
-            foreach (Image attackIcon in AttackIcons)
-            {
-                attackIcon.DOColor(Color.white, 1f);
-            }
-        }
-    }
-
-    public void UpdateCooldown(ObjWithCooldown obj, float percent)
-    {
-        switch(obj)
-        { 
             case ObjWithCooldown.Dash:
-                DashIconOverlay.fillAmount = (1-percent);
+                DashIcon.DORewind();
+                DashIcon.DOPunchScale(ScaleUIElement, DurationScaleUI);
                 break;
             case ObjWithCooldown.Ability:
-                AbilityIconOverlay.fillAmount = (1-percent);
+                AbilityIcon.DORewind();
+                AbilityIcon.DOPunchScale(ScaleUIElement, DurationScaleUI);
+                break;
+            case ObjWithCooldown.Attack:
+                AttackIcon.DORewind();
+                AttackIcon.DOPunchScale(ScaleUIElement, DurationScaleUI);
                 break;
         }
+        if(FailedUseSound != null)
+            audioSource.PlayOneShot(FailedUseSound);
     }
+
 }

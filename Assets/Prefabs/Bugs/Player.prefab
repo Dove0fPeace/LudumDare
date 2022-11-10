@@ -35,6 +35,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 6.33
       objectReference: {fileID: 0}
+    - target: {fileID: 708259034127014102, guid: ac910be198ea24b468662adb43ea40b2, type: 3}
+      propertyPath: m_Value
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 708259034202226472, guid: ac910be198ea24b468662adb43ea40b2, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 3.65
@@ -52,8 +56,12 @@ PrefabInstance:
       value: 0.2735849
       objectReference: {fileID: 0}
     - target: {fileID: 5901229448230539120, guid: ac910be198ea24b468662adb43ea40b2, type: 3}
+      propertyPath: UnitHpView
+      value: 
+      objectReference: {fileID: 9031310767526674716}
+    - target: {fileID: 5901229448230539120, guid: ac910be198ea24b468662adb43ea40b2, type: 3}
       propertyPath: MaxHitPoints
-      value: 80
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 5901229448230539125, guid: ac910be198ea24b468662adb43ea40b2, type: 3}
       propertyPath: m_RootOrder
@@ -126,3 +134,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd7f4f8b48c74a8e8e7c100198316253, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!223 &9031310767526674716 stripped
+Canvas:
+  m_CorrespondingSourceObject: {fileID: 708259034202226475, guid: ac910be198ea24b468662adb43ea40b2, type: 3}
+  m_PrefabInstance: {fileID: 8395154585714638391}
+  m_PrefabAsset: {fileID: 0}

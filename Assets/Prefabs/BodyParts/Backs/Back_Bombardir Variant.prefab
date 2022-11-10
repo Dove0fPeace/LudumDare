@@ -15,6 +15,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Back_Bombardir Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 2702795108372186246, guid: 720fa54495e0d9c44a4dd6ee71950180, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 3791362604563600914, guid: 720fa54495e0d9c44a4dd6ee71950180, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -159,18 +163,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40f9ee79732d04741a0bb5a97af029d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UnableToAttack: 0
+  EnableAttack: 1
   AttackRange: 2.9
-  Damage: 10
+  Damage: 2
   sfx: {fileID: 0}
-  AttackCooldown: 5
-  attackTime: 0
+  AttackCooldown: 8
+  Timer_AttackCooldown: {fileID: 0}
+  CanAttack: 0
   HandsPlace: {fileID: 0}
+  AttackType: 1
+  hud: {fileID: 0}
   AttackCastRadius: 0.4
   DamageDelay: 0
-  AbilityUISprite: {fileID: 0}
-  AbilityTickTime: 0.3
-  AbilityTickCount: 7
+  AbilityTickTime: 0.2
+  AbilityTickCount: 6
 --- !u!114 &1989133574779242332
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -184,7 +190,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DashCooldown: 4
-  dashCurrentCooldown: 0
   DashForce: 5
   DashMoveBlock: 1
   InvincibleInDash: 0

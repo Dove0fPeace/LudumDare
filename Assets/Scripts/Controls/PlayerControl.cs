@@ -15,6 +15,10 @@ namespace Controls
 
         private void Update()
         {
+            if (!GameLoop.Instance.GameOn)
+            {
+                return;
+            }
             Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
             if(disable)
             {
@@ -48,6 +52,7 @@ namespace Controls
         }
         private void OnDisable()
         {
+            unit.TryMove(Vector2.zero);
             disable = true;
         }
     }

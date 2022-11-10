@@ -10,17 +10,18 @@ public class Kokon : MonoBehaviour
 
     private void Start()
     {
-        TargetControl.enabled = false;
+        unit.ChangeControlState(false);
     }
 
     public void DestroyKokon()
     {
         unit.GenerateNewBody();
-        TargetControl.enabled=true;
         if(KokonFX != null)
         {
             Instantiate(KokonFX,transform.position, transform.rotation);
         }
+        
+        unit.ChangeControlState(true);
 
         var spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         spriteRenderer.sortingLayerName = "Stains";

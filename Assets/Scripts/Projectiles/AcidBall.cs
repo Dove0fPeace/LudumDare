@@ -5,7 +5,6 @@ namespace Projectiles
         public Poison PoisonPrefab;
         protected override void OnEnemyHit(Unit_Base unit)
         {
-            print("On poison hit");
             base.OnEnemyHit(unit);
             Poison existPoison = unit.transform.GetComponent<Poison>();
             if(existPoison != null)

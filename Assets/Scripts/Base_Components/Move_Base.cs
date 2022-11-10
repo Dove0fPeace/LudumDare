@@ -7,8 +7,7 @@ public class Move_Base : MonoBehaviour
     public Rigidbody2D rb;
 
     public float MoveSpeed;
-    public float DiagonalSpeedLimit = 0.7f;
-
+    
     public bool IsCanMove = true;
 
     float inputHorizontal;
@@ -50,7 +49,7 @@ public class Move_Base : MonoBehaviour
     {
         if (inputHorizontal != 0 || inputVertical != 0)
         {
-            var direction = GetInputDirection();
+            var direction = new Vector2(inputHorizontal, inputVertical).normalized;
             rb.velocity = direction * MoveSpeed * SpeedModifier() * Time.deltaTime;
         }
         else
@@ -58,19 +57,6 @@ public class Move_Base : MonoBehaviour
             rb.velocity = Vector2.zero;
         }
     }
-
-    private Vector2 GetInputDirection()
-    {
-        if (inputHorizontal != 0 && inputVertical != 0)
-        {
-            inputHorizontal *= DiagonalSpeedLimit;
-            inputVertical *= DiagonalSpeedLimit;
-        }
-
-        Vector2 direction = new Vector2(inputHorizontal, inputVertical);
-        return direction;
-    }
-
     public float SpeedModifier()
     {
         if (speedCoefs.Count == 0)

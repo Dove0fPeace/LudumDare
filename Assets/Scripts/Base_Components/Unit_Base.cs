@@ -1,8 +1,7 @@
-using System.Linq;
+using System;
 using Base_Components;
 using UnityEngine;
 using UnityEngine.UI;
-using Controls;
 using UnityEngine.SceneManagement;
 
 public class Unit_Base : MonoBehaviour
@@ -10,10 +9,10 @@ public class Unit_Base : MonoBehaviour
     [Header("HP")]
     public int MaxHitPoints;
     public float CurrentHP;
+    public Canvas UnitHpView;
     public Slider HpBar;
     private RectTransform fillRect;
     public Color DefaultHPColor;
-    public Canvas canvas;
 
     [Space(5)]
 
@@ -34,33 +33,43 @@ public class Unit_Base : MonoBehaviour
     private GameObject front;
     private Animator[] frontAnims;
     private GameObject back;
-    private Animator[] backAnims;
+    private Animator backAnim;
     
-    private AudioSource AudioSource;
+    private AudioSource audioSource;
     private Vector3 initialPosition;
     private bool invincible;
 
     public Kokon KokonPrefab;
-    private Control_Base control;
+    private bool isControl;
 
     private Vector2 targetLookAt;
     private float rotateSpeed = 5f;
 
+    private Player_HUD PlayerHUD;
+
+    public static event Action OnPlayerDead;
+
 
     private void Start()
     {
-        control = transform.GetComponent<Control_Base>();
+        if (transform.root.CompareTag("Player"))
+            PlayerHUD = Player_HUD.Instance;
         ChangeBody();
         CurrentHP = MaxHitPoints;
         HpBar.maxValue = MaxHitPoints;
         HpBar.value = HpBar.maxValue;
         initialPosition = transform.position;
-        AudioSource = GetComponent<AudioSource>();
+        audioSource = GetComponent<AudioSource>();
 
         fillRect = HpBar.fillRect;
 
         GameLoop.Instance.AddToUnitList(this);
 
+    }
+
+    private void OnDestroy()
+    {
+        audioSource.Stop();
     }
 
     public void SetGodMode(bool on = true)
@@ -92,32 +101,21 @@ public class Unit_Base : MonoBehaviour
         }
 
         Clear();
-        canvas.enabled = false;
+        UnitHpView.enabled = false;
         var kokon = Instantiate(KokonPrefab, transform.position, transform.rotation);
         kokon.unit = this;
-        kokon.TargetControl = control;
     }
 
     public void GenerateNewBody()
     {
-        canvas.enabled = true;
+        UnitHpView.enabled = true;
         Clear();
         front = Instantiate(Bodytypes.GetRandomFront(), FrontPosition.position, FrontPosition.rotation, FrontPosition);
         front.transform.localPosition = Vector3.zero;
-        if (front.CompareTag("Back"))
-        {
-            var scale = front.transform.localScale;
-            front.transform.localScale = new Vector3(-scale.x, scale.y, scale.z);
-        }
         frontAnims = front.GetComponentsInChildren<Animator>();
         back = Instantiate(Bodytypes.GetRandomBack(), BackPosition.position, BackPosition.rotation, BackPosition);
         back.transform.localPosition = Vector3.zero;
-        if (back.CompareTag("Front"))
-        {
-            var scale = back.transform.localScale;
-            back.transform.localScale = new Vector3(-scale.x, scale.y, scale.z);
-        }
-        backAnims = back.GetComponentsInChildren<Animator>();
+        backAnim = back.GetComponent<Animator>();
         
         //priorities: move and attack from front, armor and ability from back
         Armor = front.GetComponentInChildren<Armor_Base>();
@@ -131,14 +129,23 @@ public class Unit_Base : MonoBehaviour
         Dash = front.GetComponentInChildren<Dash_Base>();
         Dash = back.GetComponentInChildren<Dash_Base>();
         
-        //init components
         SetInvincible(invincible);
-        //Armor.PlayDamageEffect();
     }
 
+    public void ChangeControlState(bool state)
+    {
+        isControl = state;
+        if (isControl == false && Move != null)
+        {
+            Move.SetMove(0,0);
+            Move.rb.velocity = Vector2.zero;
+            PlayAnimBool("Move", false);
+        }
+    }
     public void PlayAudioOneshot(AudioClip clip)
     {
-        AudioSource.PlayOneShot(clip);
+        if(audioSource != null)
+            audioSource.PlayOneShot(clip);
     }
 
     private void Clear()
@@ -152,27 +159,35 @@ public class Unit_Base : MonoBehaviour
         {
             Destroy(back);
         }
+
+        Armor = null;
+        Move = null;
+        Attack = null;
+        Ability = null;
+        Dash = null;
     }
 
     private void PlayAnimBool(string anim, bool on)
     {
-        foreach (var animator in frontAnims.Union(backAnims))
+        foreach (var frontAnim in frontAnims)
         {
-            animator.SetBool(anim, on);
+            frontAnim.SetBool(anim, on);
         }
+        backAnim.SetBool(anim, on);
     }
     
     private void PlayAnim(string anim)
     {
-        foreach (var animator in frontAnims.Union(backAnims))
+        foreach (var frontAnim in frontAnims)
         {
-            animator.SetTrigger(anim);
+            frontAnim.SetTrigger(anim);
         }
+        backAnim.SetTrigger(anim);
     }
 
     public bool TryMove(Vector2 direction)
     {
-        if (!control.enabled)
+        if (isControl == false)
         {
             return false;
         }
@@ -196,12 +211,14 @@ public class Unit_Base : MonoBehaviour
 
     public bool TryDash()
     {
-        if (!control.enabled)
+        if (isControl == false)
         {
             return false;
         }
         if (Dash is null || !Dash.CanDash)
         {
+            if(PlayerHUD != null)
+                PlayerHUD.TryUseOnCooldown(ObjWithCooldown.Dash);
             return false;
         }
         Dash.Dash();
@@ -211,12 +228,14 @@ public class Unit_Base : MonoBehaviour
 
     public bool TryAttack()
     {
-        if (!control.enabled)
+        if (isControl == false)
         {
             return false;
         }
-        if (Attack is null || Attack.CanAttack == false)
+        if (Attack is null || Attack.Attack() == false)
         {
+            if(PlayerHUD != null)
+                PlayerHUD.TryUseOnCooldown(ObjWithCooldown.Attack);
             return false;
         }
         Attack.Attack();
@@ -226,12 +245,14 @@ public class Unit_Base : MonoBehaviour
 
     public bool TryAbility()
     {
-        if (!control.enabled)
+        if (isControl == false)
         {
             return false;
         }
         if (Ability is null || Ability.CanUse() == false)
         {
+            if(PlayerHUD != null)
+                PlayerHUD.TryUseOnCooldown(ObjWithCooldown.Ability);
             return false;
         }
         Ability.Use();
@@ -241,6 +262,7 @@ public class Unit_Base : MonoBehaviour
 
     public void LookAt(Vector2 targetLookPos)
     {
+        if(isControl == false) return;
         float angle = Vector2.SignedAngle(RotationRoot.right, targetLookPos - (Vector2)transform.position);
         if (Mathf.Abs(angle) < rotateSpeed)
         {
@@ -252,11 +274,10 @@ public class Unit_Base : MonoBehaviour
 
     public void TakeDamage(float damage, bool isPoison)
     {
-        if (!control.enabled)
+        if (isControl == false)
         {
             return;
         }
-        print("Take damage " + damage + gameObject.name);
         if(!isPoison)
         {
             CurrentHP -= Armor.CalculateDamage(damage);
@@ -273,10 +294,7 @@ public class Unit_Base : MonoBehaviour
 
     public void SetInvincible(bool set)
     {
-        if (Armor != null)
-        {
-            Armor.invincible = set;
-        }
+        Armor.invincible = set;
     }
     public void Heal(int heal)
     {
@@ -287,7 +305,7 @@ public class Unit_Base : MonoBehaviour
         }
     }
 
-    public void Heal(float healPercent)
+    public void HealRelative(float healPercent)
     {
         CurrentHP += (int)(MaxHitPoints * healPercent);
         if(CurrentHP > MaxHitPoints)
@@ -300,13 +318,15 @@ public class Unit_Base : MonoBehaviour
     {
         fillRect.GetComponent<Image>().color = color;
     }
-    public void Death()
+
+    private void Death()
     {
-        var player = transform.GetComponent<PlayerControl>();
-        if (player != null && GameLoop.Instance.RespawnSceneOnDeath)
-        {        
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        if (PlayerHUD != null)
+        {
+            OnPlayerDead?.Invoke();
         }
-        gameObject.SetActive(false);
+        //gameObject.SetActive(false);
+        GameLoop.Instance.RemoveFromUnitList(this);
+        Destroy(gameObject);
     }
 }

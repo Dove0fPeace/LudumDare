@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Navoznik_RangeAttack : RangeAttack_Base
+public class Navoznik_RangeAttack : RangeAttack
 {
     public float BallRestoreTime;
     private float currentRestoreTime;
@@ -8,7 +8,6 @@ public class Navoznik_RangeAttack : RangeAttack_Base
     private bool ballIsSpawned;
     private BugBall currentProjectile;
 
-    public Transform ballPLace;
     protected override void Start()
     {
         base.Start();
@@ -16,7 +15,7 @@ public class Navoznik_RangeAttack : RangeAttack_Base
         currentRestoreTime = BallRestoreTime;
     }
 
-    protected override void Update()
+    private void Update()
     {
         if(ballIsSpawned == false)
         {
@@ -45,8 +44,9 @@ public class Navoznik_RangeAttack : RangeAttack_Base
         return true;
     }
 
-    private void OnDestroy()
+    protected override void OnDestroy()
     {
+        base.OnDestroy();
         if(currentProjectile != null)
         {
             Destroy(currentProjectile.gameObject);
