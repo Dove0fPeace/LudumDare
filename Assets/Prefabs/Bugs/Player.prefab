@@ -61,7 +61,7 @@ PrefabInstance:
       objectReference: {fileID: 9031310767526674716}
     - target: {fileID: 5901229448230539120, guid: ac910be198ea24b468662adb43ea40b2, type: 3}
       propertyPath: MaxHitPoints
-      value: 100
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 5901229448230539125, guid: ac910be198ea24b468662adb43ea40b2, type: 3}
       propertyPath: m_RootOrder
