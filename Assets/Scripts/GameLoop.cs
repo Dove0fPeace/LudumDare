@@ -64,7 +64,11 @@ public class GameLoop : SingletonBase<GameLoop>
     [HideInInspector]public bool GameIsStarted = false;
     public event Action OnCompleteStorySequence;
 
-
+    private float timeOnGame = 0f;
+    public float TimeOnGame => timeOnGame;
+    private int killScore = 0;
+    public int KillScore => killScore;
+    
     private void Start()
     {
         SpawnedPlayer = null;
@@ -86,6 +90,14 @@ public class GameLoop : SingletonBase<GameLoop>
                         StoryContainer.GetEnemiesHp(_gameModeSettings.DifficultyLevel),
                         StoryContainer.GetEnemiesBrain(_gameModeSettings.DifficultyLevel));
             PlayGame();
+        }
+    }
+
+    private void Update()
+    {
+        if (GameOn)
+        {
+            timeOnGame += Time.deltaTime;
         }
     }
 
@@ -148,6 +160,10 @@ public class GameLoop : SingletonBase<GameLoop>
 
     public void RemoveFromUnitList(Unit_Base unit)
     {
+        if (unit.GetComponent<PlayerControl>() == null)
+        {
+            killScore++;
+        }
         unitList.Remove(unit);
         if (unitList.Count <= 1)
         {

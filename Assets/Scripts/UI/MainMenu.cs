@@ -26,4 +26,9 @@ public class MainMenu : MonoBehaviour
         _settings.DifficultyLevel = difficulty;
         SceneManager.LoadScene(1);
     }
+
+    public void ExitGame()
+    {
+        Application.Quit();
+    }
 }
