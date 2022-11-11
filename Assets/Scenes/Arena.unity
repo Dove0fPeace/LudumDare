@@ -2697,8 +2697,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 833610faaaa621b4ab97a93280130ea1, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -2727,8 +2727,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 843a461b2044eaf4c8bcbeed3ea0946e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _scaleUIElement: {x: 0.3, y: 0.3, z: 0.3}
-  _durationScaleUI: 0.2
+  _defaultButtonColor: {r: 0.6745098, g: 0.8000001, b: 0.83921576, a: 1}
+  _buttonColorOnSelect: {r: 0.8235295, g: 0.83921576, b: 0.6745098, a: 1}
+  _scaleUIElement: {x: 1.1, y: 1.1, z: 1.1}
+  _durationScaleUI: 0.25
 --- !u!1 &903759458
 GameObject:
   m_ObjectHideFlags: 0
@@ -3145,8 +3147,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 833610faaaa621b4ab97a93280130ea1, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -3175,8 +3177,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 843a461b2044eaf4c8bcbeed3ea0946e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _scaleUIElement: {x: 0.3, y: 0.3, z: 0.3}
-  _durationScaleUI: 0.2
+  _defaultButtonColor: {r: 0.6745098, g: 0.8000001, b: 0.83921576, a: 1}
+  _buttonColorOnSelect: {r: 0.8235295, g: 0.83921576, b: 0.6745098, a: 1}
+  _scaleUIElement: {x: 1.1, y: 1.1, z: 1.1}
+  _durationScaleUI: 0.25
 --- !u!1 &1036839738
 GameObject:
   m_ObjectHideFlags: 0
@@ -5323,8 +5327,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+    rgba: 4291542928
+  m_fontColor: {r: 0.5647059, g: 0.7490196, b: 0.7960785, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -5500,8 +5504,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+    rgba: 4291608721
+  m_fontColor: {r: 0.57039875, g: 0.7539527, b: 0.8018868, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -5744,7 +5748,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0.24528301, g: 0.24528301, b: 0.24528301, a: 0.2627451}
+    m_NormalColor: {r: 0.6981132, g: 0.6981132, b: 0.6981132, a: 0.6392157}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -5799,8 +5803,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 833610faaaa621b4ab97a93280130ea1, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -5829,8 +5833,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 843a461b2044eaf4c8bcbeed3ea0946e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _scaleUIElement: {x: 0.3, y: 0.3, z: 0.3}
-  _durationScaleUI: 0.2
+  _defaultButtonColor: {r: 0.6745098, g: 0.8000001, b: 0.83921576, a: 1}
+  _buttonColorOnSelect: {r: 0.8235295, g: 0.83921576, b: 0.6745098, a: 1}
+  _scaleUIElement: {x: 1.1, y: 1.1, z: 1.1}
+  _durationScaleUI: 0.25
 --- !u!1 &1936134057
 GameObject:
   m_ObjectHideFlags: 0
