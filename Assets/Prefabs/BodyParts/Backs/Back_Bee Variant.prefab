@@ -160,7 +160,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DashCooldown: 3
-  dashCurrentCooldown: 0
   DashForce: 15
   DashMoveBlock: 1
   InvincibleInDash: 0

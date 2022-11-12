@@ -1,8 +1,9 @@
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using Base_Components;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 
 public class Unit_Base : MonoBehaviour
 {
@@ -34,7 +35,9 @@ public class Unit_Base : MonoBehaviour
     private Animator[] frontAnims;
     private GameObject back;
     private Animator backAnim;
-    
+
+    private List<SpriteRenderer> _sprites;
+
     private AudioSource audioSource;
     private Vector3 initialPosition;
     private bool invincible;
@@ -108,13 +111,16 @@ public class Unit_Base : MonoBehaviour
 
     public void GenerateNewBody()
     {
+        
         UnitHpView.enabled = true;
         Clear();
         front = Instantiate(Bodytypes.GetRandomFront(), FrontPosition.position, FrontPosition.rotation, FrontPosition);
         front.transform.localPosition = Vector3.zero;
+        _sprites.Add(front.GetComponent<SpriteRenderer>());
         frontAnims = front.GetComponentsInChildren<Animator>();
         back = Instantiate(Bodytypes.GetRandomBack(), BackPosition.position, BackPosition.rotation, BackPosition);
         back.transform.localPosition = Vector3.zero;
+        _sprites.Add(back.GetComponent<SpriteRenderer>());
         backAnim = back.GetComponent<Animator>();
         
         //priorities: move and attack from front, armor and ability from back
@@ -160,6 +166,13 @@ public class Unit_Base : MonoBehaviour
             Destroy(back);
         }
 
+        if (_sprites == null)
+        {
+            _sprites = new List<SpriteRenderer>();
+        }
+        
+        _sprites.Clear();
+        
         Armor = null;
         Move = null;
         Attack = null;
@@ -281,6 +294,7 @@ public class Unit_Base : MonoBehaviour
         if(!isPoison)
         {
             CurrentHP -= Armor.CalculateDamage(damage);
+            StartCoroutine(TakeDamageView());
         }
         else
         {
@@ -328,5 +342,20 @@ public class Unit_Base : MonoBehaviour
         //gameObject.SetActive(false);
         GameLoop.Instance.RemoveFromUnitList(this);
         Destroy(gameObject);
+    }
+
+    private IEnumerator TakeDamageView()
+    {
+        foreach (var sprite in _sprites)
+        {
+            sprite.color = Color.red;
+        }
+        
+        yield return new WaitForSeconds(0.15f);
+        
+        foreach (var sprite in _sprites)
+        {
+            sprite.color = Color.white;
+        }
     }
 }

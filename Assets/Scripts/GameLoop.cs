@@ -24,7 +24,7 @@ public class GameLoop : SingletonBase<GameLoop>
 
     [SerializeField] private AI EnemyPrefab;
 
-    [SerializeField] private EndGameUI _endGameUI;
+    [SerializeField] private GameOverlayUI GameOverlayUI;
     [SerializeField] private StoryController _storyController;
 
     [Header("GameSettings")] [SerializeField]
@@ -52,6 +52,7 @@ public class GameLoop : SingletonBase<GameLoop>
     [SerializeField] private Transform TrapSpawnPointsContainer;
     [SerializeField] private Zone_Base[] Traps;
     private Transform[] trapSpawnPoints;
+    [SerializeField] private HealObject _healObject;
 
 
     private Timer gameLoopTimer;
@@ -220,9 +221,20 @@ public class GameLoop : SingletonBase<GameLoop>
             case 1:
                 InvokeSpawnTrap();
                 break;
+            case 2:
+                SpawnHeal();
+                break;
         }
     }
 
+    private void SpawnHeal()
+    {
+        int numSpawn = Random.Range(MinTrapsSpawn, MaxTrapsSpawn);
+        for (int i = 0; i < numSpawn; i++)
+        {
+            Instantiate(_healObject, trapSpawnPoints[Random.Range(0, trapSpawnPoints.Length)].position, Quaternion.identity);
+        }
+    }
     private void InvokeSpawnTrap()
     {
         int numSpawn = Random.Range(MinTrapsSpawn, MaxTrapsSpawn);

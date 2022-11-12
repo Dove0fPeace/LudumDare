@@ -6,6 +6,7 @@ namespace Controls
     public class PlayerControl : Control_Base
     {
         private Unit_Base unit;
+        [HideInInspector]public Unit_Base CurrentUnit => unit;
 
         private bool disable;
         private void Awake()
