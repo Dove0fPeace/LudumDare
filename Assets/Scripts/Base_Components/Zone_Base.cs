@@ -46,14 +46,14 @@ namespace Base_Components
         }
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (other.attachedRigidbody.gameObject.TryGetComponent(out Unit_Base unit))
+            if (other.transform.root.TryGetComponent(out Unit_Base unit))
             {
                 UnitEnter(unit);
             }
         }
         private void OnTriggerExit2D(Collider2D other)
         {
-            if (other.attachedRigidbody.gameObject.TryGetComponent(out Unit_Base unit))
+            if (other.transform.root.TryGetComponent(out Unit_Base unit))
             {
                 UnitExit(unit);
             }

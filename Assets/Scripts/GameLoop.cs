@@ -176,7 +176,6 @@ public class GameLoop : SingletonBase<GameLoop>
             }
             else if(unitList.Contains(SpawnedPlayer.GetComponent<Unit_Base>()))
             {
-                print("Game loop invoked complete story");
                 OnCompleteStorySequence?.Invoke();
             }
         }

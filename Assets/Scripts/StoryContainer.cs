@@ -3,7 +3,7 @@ namespace DefaultNamespace
     public static class StoryContainer
     {
         public static int storyPhase = 0;
-        
+
         private static string[][] EngStories = new string[][]
         {
             new []

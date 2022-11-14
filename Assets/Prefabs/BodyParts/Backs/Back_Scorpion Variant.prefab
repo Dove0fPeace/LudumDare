@@ -439,7 +439,7 @@ MonoBehaviour:
   AttackRange: 5
   Damage: 1
   sfx: {fileID: 8300000, guid: d3642d9e8f89c2847b1f9e4f59c8f5b5, type: 3}
-  AttackCooldown: 8
+  AttackCooldown: 4
   Timer_AttackCooldown: {fileID: 0}
   CanAttack: 0
   HandsPlace: {fileID: 0}

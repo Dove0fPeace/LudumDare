@@ -1,4 +1,7 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 namespace Controls
 {
@@ -9,6 +12,10 @@ namespace Controls
         [HideInInspector]public Unit_Base CurrentUnit => unit;
 
         private bool disable;
+
+        private bool canDashUse = true;
+        private bool canAttackUse = true;
+        private bool canAbilityUse = true;
         private void Awake()
         {
             unit = GetComponent<Unit_Base>();
@@ -27,17 +34,20 @@ namespace Controls
             }
             unit.TryMove(input);
             
-            if (Input.GetButtonDown("Jump"))
+            if (Input.GetButtonDown("Jump") && canDashUse)
             {
                 unit.TryDash();
+                StartCoroutine(DashRepeatDelay());
             }
-            if (Input.GetButtonDown("Fire1"))
+            if (Input.GetButtonDown("Fire1") && canAttackUse)
             {
                 unit.TryAttack();
+                StartCoroutine(AttackRepeatDelay());
             }
-            if (Input.GetButtonDown("Fire2"))
+            if (Input.GetButtonDown("Fire2") && canAbilityUse)
             {
                 unit.TryAbility();
+                StartCoroutine(AbilityRepeatDelay());
             }
         }
 
@@ -55,6 +65,27 @@ namespace Controls
         {
             unit.TryMove(Vector2.zero);
             disable = true;
+        }
+
+        private IEnumerator AttackRepeatDelay()
+        {
+            canAttackUse = false;
+            yield return new WaitForSeconds(0.2f);
+            canAttackUse = true;
+        }
+        
+        private IEnumerator AbilityRepeatDelay()
+        {
+            canAbilityUse = false;
+            yield return new WaitForSeconds(0.2f);
+            canAbilityUse = true;
+        }
+        
+        private IEnumerator DashRepeatDelay()
+        {
+            canDashUse = false;
+            yield return new WaitForSeconds(0.2f);
+            canDashUse = true;
         }
     }
 }

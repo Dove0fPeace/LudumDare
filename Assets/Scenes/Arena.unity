@@ -639,7 +639,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4195316753068568118, guid: dd481322268773a4ba16b5cc7ca71b04, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4195316753068568118, guid: dd481322268773a4ba16b5cc7ca71b04, type: 3}
       propertyPath: m_AnchorMax.x
@@ -962,7 +962,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4195316753068568118, guid: dd481322268773a4ba16b5cc7ca71b04, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4195316753068568118, guid: dd481322268773a4ba16b5cc7ca71b04, type: 3}
       propertyPath: m_AnchorMax.x
@@ -3755,9 +3755,9 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2063301263}
   - {fileID: 259547013}
   - {fileID: 173561133}
+  - {fileID: 2063301263}
   m_Father: {fileID: 329868596}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3816,7 +3816,7 @@ MonoBehaviour:
   AttackIcon: {fileID: 173561133}
   ScaleUIElement: {x: 0.5, y: 0.5, z: 0.5}
   DurationScaleUI: 0.25
-  FailedUseSound: {fileID: 8300000, guid: b5bc12233a5cae449b74a73f5045b489, type: 3}
+  FailedUseSound: {fileID: 8300000, guid: 833ed56bcda3ddd4d837e1579c7df30c, type: 3}
 --- !u!82 &1036839742
 AudioSource:
   m_ObjectHideFlags: 0
@@ -7668,7 +7668,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4195316753068568118, guid: dd481322268773a4ba16b5cc7ca71b04, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4195316753068568118, guid: dd481322268773a4ba16b5cc7ca71b04, type: 3}
       propertyPath: m_AnchorMax.x

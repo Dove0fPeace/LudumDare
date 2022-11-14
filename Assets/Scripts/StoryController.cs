@@ -15,27 +15,22 @@ public class StoryController : MonoBehaviour
 
     private GameLoop gameLoop;
 
-    private void Awake()
+    private void Start()
     {
         _intro.enabled = false;
         _outro.enabled = false;
         if(_gameModeSettings.EndlessGame)
             enabled = false;
-    }
-
-    private void Start()
-    {
-        _intro.enabled = false;
-        _outro.enabled = false;
+        
         gameLoop = GameLoop.Instance;
         gameLoop.OnCompleteStorySequence += CompleteSequence;
         Unit_Base.OnPlayerDead += RestartSequence;
-        storyPhase = StoryContainer.storyPhase;
-        StartCoroutine(StartSequence(StoryContainer.GetEnemiesCount(storyPhase),
-                                                       StoryContainer.GetEnemiesHp(storyPhase),
-                                                       StoryContainer.GetEnemiesBrain(storyPhase),
-                                                       StoryContainer.GetStory(storyPhase),
-                                                       storyPhase == 0));
+        StoryContainer.storyPhase = 0;
+        StartCoroutine(StartSequence(StoryContainer.GetEnemiesCount(0),
+                                                       StoryContainer.GetEnemiesHp(0),
+                                                       StoryContainer.GetEnemiesBrain(0),
+                                                       StoryContainer.GetStory(0),
+                                                       true));
     }
 
     private void OnDestroy()

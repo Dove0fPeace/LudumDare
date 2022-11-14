@@ -48,11 +48,14 @@ public class GameOverlayUI : MonoBehaviour
 
     public void ChangePauseState()
     {
+        if(_endGameUI.gameObject.activeSelf) return;
         switch (isPaused)
         {
             case true:
                 isPaused = false;
-                GameLoop.Instance.PlayGame();
+                //GameLoop.Instance.PlayGame();
+                Time.timeScale = 1f;
+                print(Time.timeScale);
                 _pauseUI.gameObject.SetActive(false);
                 break;
             case false:
@@ -61,7 +64,9 @@ public class GameOverlayUI : MonoBehaviour
                 var minutes = Mathf.Floor(time / 60).ToString(CultureInfo.InvariantCulture);
                 var seconds = (time % 60).ToString("00");
         
-                GameLoop.Instance.PauseGame();
+                //GameLoop.Instance.PauseGame();
+                Time.timeScale = 0f;
+                print(Time.timeScale);
                 _pauseUI.gameObject.SetActive(true);
                 _pauseTimeCountText.text = $"Time - {minutes}:{seconds}";
                 break;
