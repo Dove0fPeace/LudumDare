@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using DefaultNamespace;
@@ -15,13 +16,18 @@ public class StoryController : MonoBehaviour
 
     private GameLoop gameLoop;
 
-    private void Start()
+    private void Awake()
     {
         _intro.enabled = false;
         _outro.enabled = false;
+        
         if(_gameModeSettings.EndlessGame)
             enabled = false;
-        
+    }
+
+    private void Start()
+    {
+
         gameLoop = GameLoop.Instance;
         gameLoop.OnCompleteStorySequence += CompleteSequence;
         Unit_Base.OnPlayerDead += RestartSequence;
