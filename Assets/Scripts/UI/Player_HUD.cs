@@ -2,6 +2,7 @@ using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 
+//Try to remove this enum or at least rename it to something better than 'obj'
 public enum ObjWithCooldown
 {
     Dash,
@@ -9,9 +10,12 @@ public enum ObjWithCooldown
     Attack
 }
 
+//This shouldn't be a singleton, it should get the GameLoop.instance, get the player, subscribe to a ChangeBody action and init itself on that event.
+//The gameplay logic shouldn't know anything about the interface - that's good practice and sometimes called "reactive pattern" or whatever. 
 public class Player_HUD : SingletonBase<Player_HUD>
 {
     private AudioSource audioSource;
+    //Three buttons with the same behaviour: make separate script to place on buttons and use it from here.
     [Header("Dash")]
     public Image DashIconOverlay;
     public Image DashBlockIcon;
