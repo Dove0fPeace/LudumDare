@@ -69,6 +69,7 @@ public class Move_Base : MonoBehaviour
         return speedModifier;
     }
 
+    //This belongs to Dash base))
     public void SetLayer(int layer)
     {
         rb.gameObject.layer = layer;

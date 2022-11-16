@@ -57,6 +57,7 @@ namespace Controls
 
                 if (target == null)
                 {
+                    //this is not good, we can init the AI controls from the GameLoop when Unit_Base register themselves there
                     target = FindObjectOfType<PlayerControl>().transform;
                 }
                 if (!target.gameObject.activeInHierarchy)

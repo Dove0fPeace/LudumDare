@@ -33,6 +33,7 @@ public class Attack_Base : MonoBehaviour
 
     protected virtual void OnDestroy()
     {
+        //that's nice)
         if(Timer_AttackCooldown != null)
         {
             Timer_AttackCooldown.OnTimeRunOut -= OnAttackCooldownComplete;

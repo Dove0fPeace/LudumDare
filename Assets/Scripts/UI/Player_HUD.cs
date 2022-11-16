@@ -15,7 +15,7 @@ public enum ObjWithCooldown
 public class Player_HUD : SingletonBase<Player_HUD>
 {
     private AudioSource audioSource;
-    //Three buttons with the same behaviour: make separate script to place on buttons and use it from here.
+    //Three buttons with the same behaviour: make one separate script to place on the buttons and use it from here.
     [Header("Dash")]
     public Image DashIconOverlay;
     public Image DashBlockIcon;

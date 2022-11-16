@@ -7,6 +7,8 @@ using UnityEngine.UI;
 
 public class Unit_Base : MonoBehaviour
 {
+    
+    //The hp bar is UI, make a separate script for it and let it connect to the Unit_Base monobeh and subscribe to its HPchanged event.
     [Header("HP")]
     public int MaxHitPoints;
     public float CurrentHP;
@@ -50,6 +52,7 @@ public class Unit_Base : MonoBehaviour
 
     private Player_HUD PlayerHUD;
 
+    //don't use static events
     public static event Action OnPlayerDead;
 
 
@@ -84,6 +87,8 @@ public class Unit_Base : MonoBehaviour
     {
         HpBar.value = CurrentHP;
 
+        //It would be really nice to have all the rotation functionality in a separate script placed on RotationRoot,
+        //we can set its targetLookAt value through this script (right now it's done in the LookAt()).
         float angle = Vector2.SignedAngle(RotationRoot.right, targetLookAt);
         if (Mathf.Abs(angle) > rotateSpeed)
         {
@@ -95,7 +100,7 @@ public class Unit_Base : MonoBehaviour
     {
         if (!gameObject.activeInHierarchy)
         {
-            //respawn
+            //respawn - make a separate method
             transform.position = initialPosition;
             CurrentHP = MaxHitPoints;
             HpBar.maxValue = MaxHitPoints;
@@ -114,6 +119,9 @@ public class Unit_Base : MonoBehaviour
         
         UnitHpView.enabled = true;
         Clear();
+        //Okey, we have lots of functionality here and it's basically the same for front and back
+        //We can convert front and back into one separate script (BodyPart) and place it on the back and front root objects.
+        //It will have a reference to BodyTypes and have methods like 'Create()', 'Clear()', 'PlayAnimation()'
         front = Instantiate(Bodytypes.GetRandomFront(), FrontPosition.position, FrontPosition.rotation, FrontPosition);
         front.transform.localPosition = Vector3.zero;
         _sprites.Add(front.GetComponent<SpriteRenderer>());
@@ -123,7 +131,8 @@ public class Unit_Base : MonoBehaviour
         _sprites.Add(back.GetComponent<SpriteRenderer>());
         backAnim = back.GetComponent<Animator>();
         
-        //priorities: move and attack from front, armor and ability from back
+        //This is an interesting case, we can probably have one method like Armor = Select<Armor_Base>(front, back);
+        //(priorities: move and attack from front, armor and ability from back)
         Armor = front.GetComponentInChildren<Armor_Base>();
         Armor = back.GetComponentInChildren<Armor_Base>();
         Move = back.GetComponentInChildren<Move_Base>();
@@ -209,7 +218,6 @@ public class Unit_Base : MonoBehaviour
             return false;
         }
 
-        //stop movement
         if (direction.sqrMagnitude < 0.5f)
         {
             Move.SetMove(0, 0);
@@ -217,6 +225,8 @@ public class Unit_Base : MonoBehaviour
             return false;
         }
         
+        //cache animator parameters: moveAnimationKey = Animator.StringToHash("Move")
+        //company guys love that)
         Move.SetMove(direction.x, direction.y);
         PlayAnimBool("Move", true);
         return true;
@@ -284,7 +294,7 @@ public class Unit_Base : MonoBehaviour
         targetLookAt = targetLookPos - (Vector2)transform.position;
     }
     
-
+    //There is lots of functionality related to damage taking, we could try moving it into a separate script.
     public void TakeDamage(float damage, bool isPoison)
     {
         if (isControl == false)
@@ -328,6 +338,7 @@ public class Unit_Base : MonoBehaviour
         }
     }
     
+    //Oh no, we should have a ChangeStatus event as well for HPBar to color itself)
     public void ChangeHPBarColor(Color color)
     {
         fillRect.GetComponent<Image>().color = color;
@@ -344,6 +355,7 @@ public class Unit_Base : MonoBehaviour
         Destroy(gameObject);
     }
 
+    //same event for ChangeHP would work here, back and front scripts can listen to it to change sprite color.
     private IEnumerator TakeDamageView()
     {
         foreach (var sprite in _sprites)
@@ -351,6 +363,7 @@ public class Unit_Base : MonoBehaviour
             sprite.color = Color.red;
         }
         
+        //magic number
         yield return new WaitForSeconds(0.15f);
         
         foreach (var sprite in _sprites)
