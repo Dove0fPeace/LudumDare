@@ -12,6 +12,7 @@ public class Armor_Base : MonoBehaviour
 
     private void Start()
     {
+        //we can init it upon generating the component with the right reference 
         parent = transform.root.GetComponent<Unit_Base>();
     }
 

@@ -2,6 +2,8 @@ using Controls;
 using DG.Tweening;
 using UnityEngine;
 
+
+//Please-please-please refactor this script and move the unit control functionality to the Unit_Base
 public class Kokon : MonoBehaviour
 {
     public GameObject KokonFX;

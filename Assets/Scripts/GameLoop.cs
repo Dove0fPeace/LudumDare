@@ -11,6 +11,7 @@ using Random = UnityEngine.Random;
 
 public class GameLoop : SingletonBase<GameLoop>
 {
+    //Try to change this setting to 30:)
     [SerializeField] private float mainTime = 10f;
     [SerializeField] private AudioClip AudioOnLoopTimesEnd;
     

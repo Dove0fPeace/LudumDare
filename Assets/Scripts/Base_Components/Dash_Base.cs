@@ -63,6 +63,7 @@ public class Dash_Base : MonoBehaviour
     {
         self.SetInvincible(InvincibleInDash);
         DashNow = true;
+        //cache layer name
         Move_Target.SetLayer(LayerMask.NameToLayer("bugDash"));
         Move_Target.IsCanMove = false;
         CanDash = false;
@@ -72,6 +73,7 @@ public class Dash_Base : MonoBehaviour
         Move_Target.SetLayer(LayerMask.NameToLayer("bug"));
         yield return new WaitForSeconds(DashCooldown - DashMoveBlock);
         self.SetInvincible(false);
+        //looks like DashNow and CanDash are the same flag)
         DashNow = false;
         CanDash = true;
         dashTimer.Restart(true);

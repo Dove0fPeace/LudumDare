@@ -96,6 +96,7 @@ namespace DefaultNamespace
             return EngStories[num];
         }
 
+        //I suppose all these numbers should be moved to some SO in editor, so that we could easily manage the story difficulty curve
         public static int GetEnemiesCount(int num)
         {
             switch (num)
